@@ -4,9 +4,16 @@ namespace ReportingDesigner.ViewModels
 {
     public class ReportSectionViewModel:ReportItemViewModel
     {
-        public string Name { get; set; }
+        private List<ReportControlViewModel> _controls;
 
-        public List<ReportControlViewModel> Controls { get; set; }
+        public List<ReportControlViewModel> Controls
+        {
+            get { return _controls; }
+            set
+            {
+                _controls = value;
+            }
+        }
 
         public ReportSectionViewModel()
         {
