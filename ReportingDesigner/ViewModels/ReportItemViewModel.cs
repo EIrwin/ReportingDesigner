@@ -48,6 +48,10 @@ namespace ReportingDesigner.ViewModels
             }
         }
 
+        public Type ViewType { get; set; }
+
+        public Type SettingsViewType { get; set; }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected virtual void OnPropertyChanged(string propertyName)
