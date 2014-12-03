@@ -11,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ReportingDesigner.Models;
 
 namespace ReportingDesigner
 {
@@ -22,6 +23,30 @@ namespace ReportingDesigner
         public MainWindow()
         {
             InitializeComponent();
+
+            InitializeToolbox();
+        }
+
+        public void InitializeToolbox()
+        {
+            var toolboxComponents = new List<ToolboxComponentAnnouncement>()
+                        {
+                            new ToolboxComponentAnnouncement()
+                                    {
+                                        Category = "General",
+                                        Display = "Textblock",
+                                        Name = "Textblock"
+                                    },
+                            new ToolboxComponentAnnouncement()
+                                {
+                                    Category = "General",
+                                    Display = "Image",
+                                    Name = "Image"
+                                }
+                        };
+
+
+            Toolbox.LoadToolboxComponents(toolboxComponents);
         }
     }
 }

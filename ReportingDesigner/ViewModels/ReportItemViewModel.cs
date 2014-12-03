@@ -1,9 +1,10 @@
 ﻿using System;
 using System.ComponentModel;
+using Telerik.Windows.Controls.Diagrams.Extensions.ViewModels;
 
 namespace ReportingDesigner.ViewModels
 {
-    public class ReportItemViewModel:INotifyPropertyChanged
+    public class ReportItemViewModel:NodeViewModelBase
     {
         private Guid _id;
         private string _name;
@@ -52,12 +53,5 @@ namespace ReportingDesigner.ViewModels
 
         public Type SettingsViewType { get; set; }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected virtual void OnPropertyChanged(string propertyName)
-        {
-            PropertyChangedEventHandler handler = PropertyChanged;
-            if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
-        }
     }
 }

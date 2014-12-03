@@ -3,6 +3,36 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-                    xmlns:telerik="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Diagrams"
-                    mc:Ignorable="d">
+            xmlns:telerik="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Diagrams"
+            xmlns:controls2="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Navigation"
+            xmlns:designer="clr-namespace:ReportingDesigner.Controls"
+            xmlns:extensions="clr-namespace:Telerik.Windows.Controls.Diagrams.Extensions;assembly=Telerik.Windows.Controls.Diagrams.Extensions"
+            xmlns:primitives="clr-namespace:Telerik.Windows.Controls.Diagrams.Primitives;assembly=Telerik.Windows.Controls.Diagrams"
+            mc:Ignorable="d"
+            x:Name="Diagram"
+            AdditionalContentActivated="Diagram_AdditionalContentActivated"
+            PreviewDrop="Diagram_PreviewDrop"
+                    IsZoomEnabled="False">
+    
+    <telerik:RadDiagram.Resources>
+        <Style TargetType="extensions:SettingsPaneView">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate >
+                        <Border>
+                            <controls2:RadTabControl>
+                                <controls2:RadTabItem>
+                                    <designer:SettingsViewContainer DataContext="{Binding}"/>
+                                </controls2:RadTabItem>
+                            </controls2:RadTabControl>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </telerik:RadDiagram.Resources>
+
+    <primitives:ItemInformationAdorner.AdditionalContent>
+        <extensions:SettingsPane Diagram="{Binding ElementName=Diagram}" x:Name="SettingPane"/>
+    </primitives:ItemInformationAdorner.AdditionalContent>
 </telerik:RadDiagram>
