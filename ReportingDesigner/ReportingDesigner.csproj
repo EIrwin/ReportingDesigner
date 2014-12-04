@@ -92,6 +92,12 @@
     <Compile Include="Views\Designer.xaml.cs">
       <DependentUpon>Designer.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\DesignerCanvas.xaml.cs">
+      <DependentUpon>DesignerCanvas.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DesignerContainer.xaml.cs">
+      <DependentUpon>DesignerContainer.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ReportControlView.cs" />
     <Compile Include="Views\TextBlockView.xaml.cs">
       <DependentUpon>TextBlockView.xaml</DependentUpon>
@@ -120,6 +126,14 @@
     <Page Include="Views\Designer.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\DesignerCanvas.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DesignerContainer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\TextBlockView.xaml">
       <SubType>Designer</SubType>

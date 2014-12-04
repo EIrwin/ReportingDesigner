@@ -18,11 +18,17 @@
         <controls:Toolbox x:Name="Toolbox" Grid.Row="0" 
                           Grid.Column="0"/>
         
-        <StackPanel Grid.Row="0" 
+        
+        <views:DesignerContainer Grid.Row="0"
+                                 Grid.Column="1">
+            
+        </views:DesignerContainer>
+        
+        <!--<StackPanel Grid.Row="0" 
                     Grid.Column="1"
-                    Background="Gray">
+                    Background="Gray">-->
             <!-- Designer Specification -->
-            <Border>
+            <!--<Border>
                 <Border.Effect>
                     <DropShadowEffect BlurRadius="5"/>
                 </Border.Effect>
@@ -32,7 +38,7 @@
                             Height="3300"
                             Margin="40,10"/>
             </Border>
-        </StackPanel>
+        </StackPanel>-->
         
         
         

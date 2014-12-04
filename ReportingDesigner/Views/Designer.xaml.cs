@@ -48,8 +48,6 @@ namespace ReportingDesigner.Views
                 var model = view.DataContext as ViewModels.ViewModelBase;
                 this.Diagram.SettingPane.DataContext = model;
             }
-
-            
         }
 
         private void Diagram_PreviewDrop(object sender, DragEventArgs e)

@@ -12,7 +12,7 @@
             x:Name="Diagram"
             AdditionalContentActivated="Diagram_AdditionalContentActivated"
             PreviewDrop="Diagram_PreviewDrop"
-                    IsZoomEnabled="False">
+            IsZoomEnabled="False">
     
     <telerik:RadDiagram.Resources>
         <Style TargetType="extensions:SettingsPaneView">
