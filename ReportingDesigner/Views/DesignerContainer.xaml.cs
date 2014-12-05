@@ -1,19 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using ReportingDesigner.Commands;
-using Telerik.Windows.Controls;
-using Telerik.Windows.Controls.Diagrams;
+﻿using Telerik.Windows.Controls;
 
 namespace ReportingDesigner.Views
 {
@@ -30,6 +15,16 @@ namespace ReportingDesigner.Views
         public void ToggleGridLines()
         {
             DesignerCan.IsBackgroundSurfaceVisible = !DesignerCan.IsBackgroundSurfaceVisible;
+        }
+
+        public void ExportToBmp()
+        {
+            this.Export("Bmp");
+        }
+
+        public void ExportToPng()
+        {
+            this.Export("Png");
         }
 
     }

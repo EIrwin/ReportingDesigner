@@ -11,5 +11,14 @@ namespace ReportingDesigner.Commands
         public static ICommand ToggleGridLines {
             get { return new ToggleGridLines(); }
         }
+
+        public static ICommand ExportToBmp{
+            get { return new ExportToBmp(); }
+        }
+
+        public static ICommand ExportToPng
+        {
+            get { return new ExportToPng(); }
+        }
     }
 }
