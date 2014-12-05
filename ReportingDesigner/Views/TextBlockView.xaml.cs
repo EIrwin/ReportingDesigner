@@ -19,9 +19,30 @@ namespace ReportingDesigner.Views
     /// </summary>
     public partial class TextBlockView : ReportControlView
     {
+
+        private const string TextName = "Text";
+
+        public static readonly DependencyProperty TextProperty = DependencyProperty.Register("Text", typeof(string), typeof(TextBlockView), new FrameworkPropertyMetadata("", OnTextChange));
+
+        public string Text
+        {
+            get { return (string)this.GetValue(TextProperty); }
+            set { this.SetValue(TextProperty, value); }
+        }
+
         public TextBlockView()
         {
             InitializeComponent();
+        }
+
+        private static void OnTextChange(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            ((TextBlockView)d).OnTextChange(e);
+        }
+
+        private void OnTextChange(DependencyPropertyChangedEventArgs e)
+        {
+            this.Content = this.Text;
         }
     }
 }
