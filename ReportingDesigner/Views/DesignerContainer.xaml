@@ -16,7 +16,10 @@
              AllowPaste="False"
              AllowDrop="False"
              AllowDelete="False"
-             SelectionMode="None">
+             SelectionMode="None"
+             ScrollViewer.HorizontalScrollBarVisibility="Visible"
+             ScrollViewer.VerticalScrollBarVisibility="Visible"
+             ScrollViewer.CanContentScroll="True">
     
     <telerik:RadDiagramShape Height="900" 
                              Width="600" 

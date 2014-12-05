@@ -8,7 +8,7 @@
              xmlns:primitives="clr-namespace:Telerik.Windows.Controls.Diagrams.Primitives;assembly=Telerik.Windows.Controls.Diagrams"
              mc:Ignorable="d" 
              Background="White"
-             IsZoomEnabled="True"
+             IsZoomEnabled="False"
              IsEditable="True"
              d:DesignHeight="900" 
              d:DesignWidth="600"
