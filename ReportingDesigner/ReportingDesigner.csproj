@@ -67,6 +67,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Commands\ReportingDesignerCommands.cs" />
     <Compile Include="Controls\SettingsViewContainer.cs" />
     <Compile Include="Controls\Toolbox.xaml.cs">
       <DependentUpon>Toolbox.xaml</DependentUpon>
@@ -79,6 +80,7 @@
     <Compile Include="Models\Report.cs" />
     <Compile Include="Models\TextBlock.cs" />
     <Compile Include="Models\ToolboxComponentAnnouncement.cs" />
+    <Compile Include="Commands\ToggleGridLines.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="ViewModels\PageViewModel.cs" />

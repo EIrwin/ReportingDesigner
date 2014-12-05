@@ -11,7 +11,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ReportingDesigner.Commands;
 using Telerik.Windows.Controls;
+using Telerik.Windows.Controls.Diagrams;
 
 namespace ReportingDesigner.Views
 {
@@ -24,5 +26,11 @@ namespace ReportingDesigner.Views
         {
             InitializeComponent();
         }
+
+        public void ToggleGridLines()
+        {
+            DesignerCan.IsBackgroundSurfaceVisible = !DesignerCan.IsBackgroundSurfaceVisible;
+        }
+
     }
 }

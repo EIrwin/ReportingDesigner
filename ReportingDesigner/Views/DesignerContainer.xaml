@@ -12,20 +12,24 @@
              IsRotationEnabled="False"
              IsResizingEnabled="False"
              IsEditable="False"
-            AllowCopy="False"
-            AllowPaste="False"
-            AllowDrop="False"
-            AllowDelete="False"
-             SelectionMode="None"> 
-
-        <telerik:RadDiagramShape Height="900" 
+             AllowCopy="False"
+             AllowPaste="False"
+             AllowDrop="False"
+             AllowDelete="False"
+             SelectionMode="None">
+    
+    <telerik:RadDiagramShape Height="900" 
                              Width="600" 
                              Padding="0"
                              Margin="0">
+            
         <telerik:RadDiagramShape.Effect>
             <DropShadowEffect BlurRadius="10"/>
         </telerik:RadDiagramShape.Effect>
-            <views:DesignerCanvas Height="900" 
+            
+            <!-- Designer -->
+            <views:DesignerCanvas x:Name="DesignerCan"
+                              Height="900" 
                               Width="600"
                               Margin="0"
                               Padding="0"/>
