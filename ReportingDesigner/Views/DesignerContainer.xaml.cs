@@ -1,4 +1,9 @@
-﻿using Telerik.Windows.Controls;
+﻿using System.IO;
+using System.Windows;
+using System.Windows.Controls;
+using Microsoft.Win32;
+using Telerik.Windows.Controls;
+using Size = System.Drawing.Size;
 
 namespace ReportingDesigner.Views
 {
@@ -14,18 +19,17 @@ namespace ReportingDesigner.Views
 
         public void ToggleGridLines()
         {
-            DesignerCan.IsBackgroundSurfaceVisible = !DesignerCan.IsBackgroundSurfaceVisible;
+            DesignerCanvas.IsBackgroundSurfaceVisible = !DesignerCanvas.IsBackgroundSurfaceVisible;
         }
 
-        public void ExportToBmp()
+        public void ChangePageSize(Size size)
         {
-            this.Export("Bmp");
+            
         }
 
-        public void ExportToPng()
+        public void AddNewPage()
         {
-            this.Export("Png");
+            
         }
-
     }
 }

@@ -3,8 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:views="clr-namespace:ReportingDesigner.Views"
         xmlns:controls="clr-namespace:ReportingDesigner.Controls"
         xmlns:telerik="clr-namespace:Telerik.Windows.Controls.Diagrams.Extensions;assembly=Telerik.Windows.Controls.Diagrams.Extensions"
-        xmlns:diagrams="clr-namespace:Telerik.Windows.Controls.Diagrams;assembly=Telerik.Windows.Controls.Diagrams"
         xmlns:commands="clr-namespace:ReportingDesigner.Commands"
+        xmlns:controls3="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls"
         Title="MainWindow" Height="1200" Width="4000">
     <Grid>
         
@@ -24,10 +24,6 @@
                 Grid.ColumnSpan="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="auto" />
             </Grid.ColumnDefinitions>
             <Border BorderBrush="#d6d4d4" BorderThickness="1">
@@ -38,34 +34,40 @@
 								Geometry="M11,0 L18,7 L11,7 z M0,0 L10,0 L10,7 L10,8 L18,8 L18,21 L0,21 z"
 								ToolTipService.ToolTip="New" 
                                 Margin="10"/>
-                    
+
                     <!-- Export DropDownButton -->
-                    <telerik:RadGeometryDropDownButton Content="Export" ToolTipService.ToolTip="Export" Grid.Column="3"
+                    <telerik:RadGeometryDropDownButton Content="Page Size" ToolTipService.ToolTip="Export" Grid.Column="3"
                                                        Margin="10"
-						DropDownHeight="145" DropDownWidth="145"
+						DropDownHeight="200" DropDownWidth="145"
 						Geometry="M11,0L18,7L11,7zM0,0L10,0L10,7L10,8L18,8L18,12L8.88893,12L8.88893,9L3.82715,14L8.88893,19L8.88893,16L18,16L18,21L0,21z">
                         <telerik:RadGeometryDropDownButton.DropDownContent>
                             <StackPanel Margin="10">
-                                
-                                <!-- Export to Png Button-->
-                                <telerik:RadGeometryButton Content="Export To Png" 
-                                    Command="commands:ReportingDesignerCommands.ExportToPng" 
-                                    CommandParameter="{Binding ElementName=Designer}"
+
+                                <!-- Letter Size Button-->
+                                <telerik:RadGeometryButton Content="Letter" Margin="2"
+                                                           Command="commands:ReportingDesignerCommands.ChangePageSizeToLetter"
+                                                           CommandParameter="{Binding ElementName=Designer}"
 									Geometry="M6.7093377,5.0820007 C10.505837,5.0813236 12.205385,8.5835428 13.709369,8.4989958 C15.616847,8.3917685 16.999527,6.8087606 16.999527,6.8087606 L17.000025,13.080002 L3.0000243,13.080002 L3.0000243,7.9753876 C3.0000243,7.9753876 4.842936,5.0823336 6.7093377,5.0820007 z M1.9999999,2.0000048 L1.9999999,13.999995 L18,13.999995 L18,2.0000048 z M1.1920929E-06,0 L20,0 L20,16 L0,16 z" />
                                 
-                                <!-- Export to Bmp Button-->
-                                <telerik:RadGeometryButton Content="Export To Bmp"
-									Command="commands:ReportingDesignerCommands.ExportToBmp" 
-                                    CommandParameter="{Binding ElementName=Designer}"
+                                <!-- Legal Size Button -->
+                                <telerik:RadGeometryButton Content="Legal" Margin="2"
+                                                           Command="commands:ReportingDesignerCommands.ChangePageSizeToLegal"
+                                                           CommandParameter="{Binding ElementName=Designer}"
 									Geometry="M6.7093377,5.0820007 C10.505837,5.0813236 12.205385,8.5835428 13.709369,8.4989958 C15.616847,8.3917685 16.999527,6.8087606 16.999527,6.8087606 L17.000025,13.080002 L3.0000243,13.080002 L3.0000243,7.9753876 C3.0000243,7.9753876 4.842936,5.0823336 6.7093377,5.0820007 z M1.9999999,2.0000048 L1.9999999,13.999995 L18,13.999995 L18,2.0000048 z M1.1920929E-06,0 L20,0 L20,16 L0,16 z" />
- 
+
+                                <!-- A4 Size Button-->
+                                <telerik:RadGeometryButton Content="A4" Margin="2"
+                                                           Command="commands:ReportingDesignerCommands.ChangePageSizeToA4"
+                                                           CommandParameter="{Binding ElementName=Designer}"
+									Geometry="M6.7093377,5.0820007 C10.505837,5.0813236 12.205385,8.5835428 13.709369,8.4989958 C15.616847,8.3917685 16.999527,6.8087606 16.999527,6.8087606 L17.000025,13.080002 L3.0000243,13.080002 L3.0000243,7.9753876 C3.0000243,7.9753876 4.842936,5.0823336 6.7093377,5.0820007 z M1.9999999,2.0000048 L1.9999999,13.999995 L18,13.999995 L18,2.0000048 z M1.1920929E-06,0 L20,0 L20,16 L0,16 z" />
+
                             </StackPanel>
                         </telerik:RadGeometryDropDownButton.DropDownContent>
                     </telerik:RadGeometryDropDownButton>
-                    
+
                     <!-- Print Button -->
                     <telerik:RadGeometryButton Content="Print" ToolTipService.ToolTip="Print" Grid.Column="4" Margin="10"
-						Command="telerik:DiagramExtensionCommands.Print" CommandTarget="{Binding ElementName=diagram}"
+						Command="commands:ReportingDesignerCommands.Print" CommandParameter="{Binding ElementName=Designer}"
 						Geometry="M4,20 L18,20 L18,22 L4,22 z M0,11 L3,11 L3,13 L19,13 L19,11 L22,11 L22,19 L0,19 z M13,0 L18,5.0427322 L13,5 z M4,0 L12,0 L12,6 L18,6 L18,12 L4,12 z" />
                     
                     <!-- Toggle Grid Lines Button-->
@@ -75,10 +77,16 @@
                                 Margin="10"
                                 Command="commands:ReportingDesignerCommands.ToggleGridLines"
                                 CommandParameter="{Binding ElementName=Designer}"/>
-                                               
-                                              
-                   
+
+
+                    <!-- Add New Page Button -->
+                    <telerik:RadGeometryButton Content="Add Page"
+                                                           Command="commands:ReportingDesignerCommands.AddNewPage"
+                                                           CommandParameter="{Binding ElementName=Designer}"
+									Geometry="M6.7093377,5.0820007 C10.505837,5.0813236 12.205385,8.5835428 13.709369,8.4989958 C15.616847,8.3917685 16.999527,6.8087606 16.999527,6.8087606 L17.000025,13.080002 L3.0000243,13.080002 L3.0000243,7.9753876 C3.0000243,7.9753876 4.842936,5.0823336 6.7093377,5.0820007 z M1.9999999,2.0000048 L1.9999999,13.999995 L18,13.999995 L18,2.0000048 z M1.1920929E-06,0 L20,0 L20,16 L0,16 z" />
+                    
                     <Border Width="1" Grid.Column="1" Background="LightGray" />
+
                 </StackPanel>
             </Border>
         </Grid>
@@ -87,8 +95,6 @@
         <controls:Toolbox x:Name="Toolbox" Grid.Row="1" 
                           Grid.Column="0"/>
 
-        
-        
         <Grid Grid.Row="1" 
               Grid.Column="1">
             <Grid.RowDefinitions>
@@ -123,11 +129,17 @@
 
             </views:DesignerContainer>
         </Grid>
-        
-        
+
         <!-- Designer Navigation Pane -->
         <telerik:RadDiagramNavigationPane Diagram="{Binding ElementName=Designer}" x:Name="navigationPane"
 						Grid.Column="1" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" />
+
+        <!-- Page Number View -->
+        <views:PageNumberView Grid.Column="1" 
+                              Grid.Row="1"
+                              Margin="20"
+                              HorizontalAlignment="Right"
+                              VerticalAlignment="Bottom"/>
 
     </Grid>
 </Window>

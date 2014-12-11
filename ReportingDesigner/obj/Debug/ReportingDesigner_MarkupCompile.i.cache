@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Eric.Irwin\Source\Repos\ReportingDesigner\ReportingDesigner\App.xaml
-7-2046356258
+8-429962522
 
-341109638482
-17300777782
-Controls\Toolbox.xaml;Controls\ToolboxComponent.xaml;MainWindow.xaml;Views\Designer.xaml;Views\DesignerCanvas.xaml;Views\DesignerContainer.xaml;Views\TextBlockView.xaml;
+40622129149
+19527170337
+Controls\Toolbox.xaml;Controls\ToolboxComponent.xaml;MainWindow.xaml;Views\Designer.xaml;Views\DesignerCanvas.xaml;Views\DesignerContainer.xaml;Views\PageNumberView.xaml;Views\TextBlockView.xaml;
 
 True
 

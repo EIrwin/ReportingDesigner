@@ -1,15 +1,16 @@
 ﻿using System;
 using System.Windows.Input;
+using ReportingDesigner.Utility;
 using ReportingDesigner.Views;
 
 namespace ReportingDesigner.Commands
 {
-    public class ExportToPng:ICommand
+    public class ChangePageSizeToLegal:ICommand
     {
         public void Execute(object parameter)
         {
             if (parameter is DesignerContainer)
-                ((DesignerContainer)parameter).ExportToPng();
+                ((DesignerContainer)parameter).ChangePageSize(PageSizes.Legal);
         }
 
         public bool CanExecute(object parameter)

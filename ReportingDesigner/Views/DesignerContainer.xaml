@@ -31,7 +31,7 @@
         </telerik:RadDiagramShape.Effect>
             
             <!-- Designer -->
-            <views:DesignerCanvas x:Name="DesignerCan"
+            <views:DesignerCanvas x:Name="DesignerCanvas"
                               Height="900" 
                               Width="600"
                               Margin="0"
