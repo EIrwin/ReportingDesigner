@@ -75,6 +75,12 @@
     <Compile Include="Commands\ChangePageSizeToLetter.cs" />
     <Compile Include="Commands\Print.cs" />
     <Compile Include="Commands\ReportingDesignerCommands.cs" />
+    <Compile Include="Controls\AddPageAfterPane.xaml.cs">
+      <DependentUpon>AddPageAfterPane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\AddPageBeforePane.xaml.cs">
+      <DependentUpon>AddPageBeforePane.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\SettingsViewContainer.cs" />
     <Compile Include="Controls\Toolbox.xaml.cs">
       <DependentUpon>Toolbox.xaml</DependentUpon>
@@ -117,6 +123,14 @@
       <DependentUpon>TextBlockView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ViewBase.cs" />
+    <Page Include="Controls\AddPageAfterPane.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\AddPageBeforePane.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\Toolbox.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Eric.Irwin\Source\Repos\ReportingDesigner\ReportingDesigner\App.xaml
-8-429962522
+10470800892
 
-391071644332
+412143366374
 19527170337
-Controls\Toolbox.xaml;Controls\ToolboxComponent.xaml;MainWindow.xaml;Views\Designer.xaml;Views\DesignerCanvas.xaml;Views\DesignerContainer.xaml;Views\PageNumberView.xaml;Views\TextBlockView.xaml;
+Controls\AddPageAfterPane.xaml;Controls\AddPageBeforePane.xaml;Controls\Toolbox.xaml;Controls\ToolboxComponent.xaml;MainWindow.xaml;Views\Designer.xaml;Views\DesignerCanvas.xaml;Views\DesignerContainer.xaml;Views\PageNumberView.xaml;Views\TextBlockView.xaml;
 
 False
 

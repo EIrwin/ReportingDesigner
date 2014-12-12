@@ -1,0 +1,50 @@
+﻿<telerik:RadDiagramShape x:Class="ReportingDesigner.Controls.AddPageBeforePane"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             mc:Ignorable="d"
+             x:Name="Shape"
+             Background="Transparent"
+             BorderBrush="Transparent"
+             BorderThickness="0"
+             Padding="0"
+             Margin="25,0,25,0"
+             Height="25"
+             Width="600">
+    <telerik:RadDiagramShape.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Foreground" Value="DarkSlateGray"/>
+            <Setter Property="Opacity" Value=".7"/>
+            <Setter Property="TextBlock.TextAlignment" Value="Center" />
+            <Setter Property="Height" Value="{Binding ElementName=Shape,Path=Height}"/>
+            <Setter Property="Width" Value="{Binding ElementName=Shape,Path=Width}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="5" Background="White" Opacity=".9" BorderThickness="3,3,3,3">
+                            <Border.BorderBrush>
+                                <VisualBrush>
+                                    <VisualBrush.Visual>
+                                        <Rectangle StrokeDashArray="4 2"
+                                          Stroke="White"
+                                          StrokeThickness="2"
+                                          RadiusX="{Binding RelativeSource={RelativeSource AncestorType={x:Type Border}}, Path=CornerRadius.TopRight}"
+                                          RadiusY="{Binding RelativeSource={RelativeSource AncestorType={x:Type Border}}, Path=CornerRadius.BottomLeft}"
+                                          Width="{Binding RelativeSource={RelativeSource AncestorType={x:Type Border}}, Path=ActualWidth}"
+                                          Height="{Binding RelativeSource={RelativeSource AncestorType={x:Type Border}}, Path=ActualHeight}"/>
+                                    </VisualBrush.Visual>
+                                </VisualBrush>
+                            </Border.BorderBrush>
+                            <ContentPresenter x:Name="contentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </telerik:RadDiagramShape.Resources>
+
+    <Button Content="Add Page Before"/>
+</telerik:RadDiagramShape>

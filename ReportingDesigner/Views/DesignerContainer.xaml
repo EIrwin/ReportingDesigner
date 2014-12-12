@@ -24,7 +24,8 @@
     <telerik:RadDiagramShape Height="900" 
                              Width="600" 
                              Padding="0"
-                             Margin="0">
+                             Margin="25,0"
+                             Name="DesignerCanvasShape">
             
         <telerik:RadDiagramShape.Effect>
             <DropShadowEffect BlurRadius="10"/>
@@ -36,5 +37,6 @@
                               Width="600"
                               Margin="0"
                               Padding="0"/>
-        </telerik:RadDiagramShape>
+
+    </telerik:RadDiagramShape>
 </telerik:RadDiagram>
