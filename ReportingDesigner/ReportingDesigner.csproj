@@ -70,6 +70,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Commands\AddNewPage.cs" />
+    <Compile Include="Commands\AddPageAfter.cs" />
+    <Compile Include="Commands\AddPageBefore.cs" />
     <Compile Include="Commands\ChangePageSizeToA4.cs" />
     <Compile Include="Commands\ChangePageSizeToLegal.cs" />
     <Compile Include="Commands\ChangePageSizeToLetter.cs" />

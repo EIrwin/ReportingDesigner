@@ -4,7 +4,7 @@
         xmlns:controls="clr-namespace:ReportingDesigner.Controls"
         xmlns:telerik="clr-namespace:Telerik.Windows.Controls.Diagrams.Extensions;assembly=Telerik.Windows.Controls.Diagrams.Extensions"
         xmlns:commands="clr-namespace:ReportingDesigner.Commands"
-        Title="MainWindow" Height="1200" Width="4000">
+        Title="MainWindow"  WindowStartupLocation="CenterScreen" WindowState="Maximized">
     <Grid>
         
         <!-- Grid Specification -->

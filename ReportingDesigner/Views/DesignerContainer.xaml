@@ -33,8 +33,8 @@
             
             <!-- Designer -->
             <views:DesignerCanvas x:Name="DesignerCanvas"
-                              Height="900" 
-                              Width="600"
+                              Height="{Binding ElementName=DesignerCanvasShape,Path=Height}" 
+                              Width="{Binding ElementName=DesignerCanvasShape,Path=Width}"
                               Margin="0"
                               Padding="0"/>
 
