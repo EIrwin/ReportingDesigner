@@ -13,6 +13,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ReportingDesigner.Models;
 using Telerik.Windows.Controls.Diagrams;
+using Telerik.Windows.Controls.Diagrams.Extensions;
 
 namespace ReportingDesigner
 {
@@ -48,6 +49,28 @@ namespace ReportingDesigner
 
 
             Toolbox.LoadToolboxComponents(toolboxComponents);
+        }
+
+        private void Designer_LayoutUpdated(object sender, EventArgs e)
+        {
+            //This should probably go a layer deeper
+            double bottom = this.Designer.Viewport.Bottom;
+            double top = this.Designer.Viewport.Top;
+        }
+
+        private void CalculatePageNumber()
+        {
+            //The following logic is for
+            //determining the current page number
+            //This is only temporary and will be 
+            //cleaned up.
+
+        }
+
+        private void Designer_ViewportChanged(object sender, Telerik.Windows.Diagrams.Core.PropertyEventArgs<Rect> e)
+        {
+            Rect bounds = Designer.TransformToAncestor(this).TransformBounds(new Rect(0.0, 0.0, Designer.ActualWidth, Designer.ActualHeight));
+            Rect rect = new Rect(0.0, 0.0, this.ActualWidth, this.ActualHeight);
         }
     }
 }

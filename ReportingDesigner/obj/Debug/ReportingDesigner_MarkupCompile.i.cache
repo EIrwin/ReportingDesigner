@@ -16,5 +16,5 @@ C:\Users\Eric.Irwin\Source\Repos\ReportingDesigner\ReportingDesigner\App.xaml
 19527170337
 Controls\AddPageAfterPane.xaml;Controls\AddPageBeforePane.xaml;Controls\Toolbox.xaml;Controls\ToolboxComponent.xaml;MainWindow.xaml;Views\Designer.xaml;Views\DesignerCanvas.xaml;Views\DesignerContainer.xaml;Views\PageNumberView.xaml;Views\TextBlockView.xaml;
 
-False
+True
 

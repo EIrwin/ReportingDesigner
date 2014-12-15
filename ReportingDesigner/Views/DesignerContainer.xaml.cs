@@ -21,9 +21,9 @@ namespace ReportingDesigner.Views
         public DesignerContainer()
         {
             InitializeComponent();
-            InitializeNewPagePanes();
+            InitializeNewPagePanes();  
+            
         }
-
         private void InitializeNewPagePanes()
         {
             //Grab Location Parameters

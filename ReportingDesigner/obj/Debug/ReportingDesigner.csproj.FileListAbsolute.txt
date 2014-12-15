@@ -15,9 +15,13 @@ C:\Users\Eric.Irwin\Source\Repos\ReportingDesigner\ReportingDesigner\bin\Debug\f
 C:\Users\Eric.Irwin\Source\Repos\ReportingDesigner\ReportingDesigner\bin\Debug\it\Telerik.Windows.Controls.resources.dll
 C:\Users\Eric.Irwin\Source\Repos\ReportingDesigner\ReportingDesigner\bin\Debug\nl\Telerik.Windows.Controls.resources.dll
 C:\Users\Eric.Irwin\Source\Repos\ReportingDesigner\ReportingDesigner\bin\Debug\tr\Telerik.Windows.Controls.resources.dll
+C:\Users\Eric.Irwin\Source\Repos\ReportingDesigner\ReportingDesigner\obj\Debug\Controls\AddPageAfterPane.baml
+C:\Users\Eric.Irwin\Source\Repos\ReportingDesigner\ReportingDesigner\obj\Debug\Controls\AddPageBeforePane.baml
 C:\Users\Eric.Irwin\Source\Repos\ReportingDesigner\ReportingDesigner\obj\Debug\Controls\Toolbox.baml
 C:\Users\Eric.Irwin\Source\Repos\ReportingDesigner\ReportingDesigner\obj\Debug\Controls\ToolboxComponent.baml
 C:\Users\Eric.Irwin\Source\Repos\ReportingDesigner\ReportingDesigner\obj\Debug\Views\PageNumberView.baml
+C:\Users\Eric.Irwin\Source\Repos\ReportingDesigner\ReportingDesigner\obj\Debug\Controls\AddPageAfterPane.g.cs
+C:\Users\Eric.Irwin\Source\Repos\ReportingDesigner\ReportingDesigner\obj\Debug\Controls\AddPageBeforePane.g.cs
 C:\Users\Eric.Irwin\Source\Repos\ReportingDesigner\ReportingDesigner\obj\Debug\Controls\Toolbox.g.cs
 C:\Users\Eric.Irwin\Source\Repos\ReportingDesigner\ReportingDesigner\obj\Debug\Controls\ToolboxComponent.g.cs
 C:\Users\Eric.Irwin\Source\Repos\ReportingDesigner\ReportingDesigner\obj\Debug\MainWindow.g.cs
@@ -41,7 +45,3 @@ C:\Users\Eric.Irwin\Source\Repos\ReportingDesigner\ReportingDesigner\obj\Debug\R
 C:\Users\Eric.Irwin\Source\Repos\ReportingDesigner\ReportingDesigner\obj\Debug\ReportingDesigner.exe
 C:\Users\Eric.Irwin\Source\Repos\ReportingDesigner\ReportingDesigner\obj\Debug\ReportingDesigner.pdb
 C:\Users\Eric.Irwin\Source\Repos\ReportingDesigner\ReportingDesigner\obj\Debug\ReportingDesigner.csprojResolveAssemblyReference.cache
-C:\Users\Eric.Irwin\Source\Repos\ReportingDesigner\ReportingDesigner\obj\Debug\Controls\AddPageAfterPane.baml
-C:\Users\Eric.Irwin\Source\Repos\ReportingDesigner\ReportingDesigner\obj\Debug\Controls\AddPageBeforePane.baml
-C:\Users\Eric.Irwin\Source\Repos\ReportingDesigner\ReportingDesigner\obj\Debug\Controls\AddPageAfterPane.g.cs
-C:\Users\Eric.Irwin\Source\Repos\ReportingDesigner\ReportingDesigner\obj\Debug\Controls\AddPageBeforePane.g.cs

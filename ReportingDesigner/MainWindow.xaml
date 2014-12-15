@@ -111,6 +111,7 @@
                                      Height="20" 
                                      Placement="Top"
 						             BorderThickness="1 0 0 1" 
+                                     x:Name="TopRuler"
                                      Diagram="{Binding ElementName=Designer}" />
 
             <!-- Left Ruler-->
@@ -118,13 +119,16 @@
                                      Grid.Column="0" 
                                      Placement="Left" 
                                      Width="20"
-						             BorderThickness="0 1 1 0" 
+						             BorderThickness="0 1 1 0"  
+                                     x:Name="SideRuler"
                                      Diagram="{Binding ElementName=Designer}" />
 
-            <!-- Designer Window -->
+                <!-- Designer Window -->
             <views:DesignerContainer x:Name="Designer" 
+                                     Grid.Column="1" 
                                      Grid.Row="1"
-                                     Grid.Column="1">
+                                     LayoutUpdated="Designer_LayoutUpdated"
+                                     ViewportChanged="Designer_ViewportChanged">
 
             </views:DesignerContainer>
         </Grid>

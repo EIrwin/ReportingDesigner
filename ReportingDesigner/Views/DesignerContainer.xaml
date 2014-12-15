@@ -17,20 +17,20 @@
              AllowDrop="False"
              AllowDelete="False"
              SelectionMode="None"
-             ScrollViewer.HorizontalScrollBarVisibility="Visible"
-             ScrollViewer.VerticalScrollBarVisibility="Visible"
-             ScrollViewer.CanContentScroll="True">
+             ScrollViewer.CanContentScroll="True"
+             ScrollViewer.HorizontalScrollBarVisibility="Auto"
+             ScrollViewer.VerticalScrollBarVisibility="Auto">
     
-    <telerik:RadDiagramShape Height="900" 
+        <telerik:RadDiagramShape Height="900" 
                              Width="600" 
                              Padding="0"
                              Margin="25,0"
                              Name="DesignerCanvasShape">
-            
-        <telerik:RadDiagramShape.Effect>
-            <DropShadowEffect BlurRadius="10"/>
-        </telerik:RadDiagramShape.Effect>
-            
+
+            <telerik:RadDiagramShape.Effect>
+                <DropShadowEffect BlurRadius="10"/>
+            </telerik:RadDiagramShape.Effect>
+
             <!-- Designer -->
             <views:DesignerCanvas x:Name="DesignerCanvas"
                               Height="{Binding ElementName=DesignerCanvasShape,Path=Height}" 
@@ -38,5 +38,5 @@
                               Margin="0"
                               Padding="0"/>
 
-    </telerik:RadDiagramShape>
+        </telerik:RadDiagramShape>
 </telerik:RadDiagram>
