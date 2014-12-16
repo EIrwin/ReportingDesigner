@@ -5,6 +5,7 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using Microsoft.Win32;
 using ReportingDesigner.Controls;
+using ReportingDesigner.ViewModels;
 using Telerik.Windows.Controls;
 using Size = System.Drawing.Size;
 
@@ -15,6 +16,17 @@ namespace ReportingDesigner.Views
     /// </summary>
     public partial class DesignerContainer : RadDiagram
     {
+        private ReportViewModel _viewModel;
+        public ReportViewModel ViewModel
+        {
+            get { return _viewModel; }
+            set
+            {
+                DataContext = _viewModel;
+                _viewModel = value;
+            }
+        }
+
         private AddPageBeforePane _addPageBeforePane;
         private AddPageAfterPane _addPageAfterPane;
 
@@ -24,6 +36,12 @@ namespace ReportingDesigner.Views
             InitializeNewPagePanes();  
             
         }
+
+        public DesignerContainer(ReportViewModel viewModel)
+        {
+            
+        }
+
         private void InitializeNewPagePanes()
         {
             //Grab Location Parameters
@@ -59,6 +77,7 @@ namespace ReportingDesigner.Views
             
         }
 
+        //THE FOLLOWING IS ONLY TEMPORARY
         public void AddNewPage()
         {
             //For now we are just going to add a page to the end of the page

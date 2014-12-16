@@ -65,10 +65,6 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <ApplicationDefinition Include="App.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </ApplicationDefinition>
     <Compile Include="Commands\AddNewPage.cs" />
     <Compile Include="Commands\AddPageAfter.cs" />
     <Compile Include="Commands\AddPageBefore.cs" />
@@ -90,13 +86,20 @@
     <Compile Include="Controls\ToolboxComponent.xaml.cs">
       <DependentUpon>ToolboxComponent.xaml</DependentUpon>
     </Compile>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Events\ControlClickedEventArgs.cs" />
+    <Compile Include="Extensibility\PageSize.cs" />
+    <Compile Include="Extensibility\PageSizeFactory.cs" />
+    <Compile Include="Extensibility\ReportFormatSettings.cs" />
     <Compile Include="Models\Image.cs" />
     <Compile Include="Models\Report.cs" />
     <Compile Include="Models\TextBlock.cs" />
     <Compile Include="Models\ToolboxComponentAnnouncement.cs" />
     <Compile Include="Commands\ToggleGridLines.cs" />
-    <Compile Include="Utility\PageSizes.cs" />
+    <Compile Include="Extensibility\PageSizes.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="ViewModels\PageNumberViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="Properties\Annotations.cs" />
@@ -141,16 +144,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="MainWindow.xaml">
+    <Page Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="App.xaml.cs">
-      <DependentUpon>App.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
+    <Page Include="ReportWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="ReportWindow.xaml.cs">
+      <DependentUpon>ReportWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\Designer.xaml">

@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Windows.Input;
-using ReportingDesigner.Utility;
+using ReportingDesigner.Extensibility;
 using ReportingDesigner.Views;
 
 namespace ReportingDesigner.Commands
