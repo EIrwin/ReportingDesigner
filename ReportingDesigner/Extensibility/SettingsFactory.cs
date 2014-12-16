@@ -5,11 +5,8 @@ using System.Text;
 
 namespace ReportingDesigner.Extensibility
 {
-    public static class PageSizeFactory
+    public abstract class FormatSettingsFactory
     {
-        public static PageSize Create()
-        {
-            return new PageSize(0, 0);
-        }
+        public abstract FormatSettings CreateFormatSettings();
     }
 }

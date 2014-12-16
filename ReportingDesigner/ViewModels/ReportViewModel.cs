@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using ReportingDesigner.Extensibility;
+using ReportingDesigner.Models;
 
 namespace ReportingDesigner.ViewModels
 {
@@ -10,6 +12,8 @@ namespace ReportingDesigner.ViewModels
         private string _name;
         private string _description;
         private List<PageViewModel> _pages;
+        private FormatSettings _formatSettings;
+        private Report _report;
 
         public Guid Id
         {
@@ -56,9 +60,23 @@ namespace ReportingDesigner.ViewModels
             set { _pages = value; }
         }
 
-        public ReportViewModel()
+        public FormatSettings FormatSettings
         {
+            get { return _formatSettings; }
+            set { _formatSettings = value; }
+        }
+
+        public Report Report
+        {
+            get { return _report; }
+            set { _report = value; }
+        }
+
+        public ReportViewModel(Report report,FormatSettings formatSettings)
+        {
+            Report = report;
             Pages = new List<PageViewModel>();
+            FormatSettings = formatSettings;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

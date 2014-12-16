@@ -5,6 +5,8 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using Microsoft.Win32;
 using ReportingDesigner.Controls;
+using ReportingDesigner.Extensibility;
+using ReportingDesigner.Models;
 using ReportingDesigner.ViewModels;
 using Telerik.Windows.Controls;
 using Size = System.Drawing.Size;
@@ -33,13 +35,25 @@ namespace ReportingDesigner.Views
         public DesignerContainer()
         {
             InitializeComponent();
-            InitializeNewPagePanes();  
-            
+            InitializeNewPagePanes();
+            InitializeReport();
         }
 
-        public DesignerContainer(ReportViewModel viewModel)
+        private void InitializeReport()
         {
-            
+            //Step 1: Initialize FormatSettings Object
+            //This can be done using a factory eventually
+            //Assume we have retrieved instance to type
+            //of factory that we need to use
+            var factory = new LetterFormatSettingsFactory();
+            FormatSettings settings = factory.CreateFormatSettings();
+
+            //Step 2: Initialize Report Model with FormatSettings
+            var report = new Report();
+
+            //Step 3: Initialize ReportViewModel object
+            //with the format settings and report model
+            _viewModel = new ReportViewModel(report,settings);
         }
 
         private void InitializeNewPagePanes()

@@ -4,17 +4,17 @@ namespace ReportingDesigner.Extensibility
 {
     public static class PageSizes
     {
-        public static Size Legal {
-            get { return new Size(); }
+        public static PageSize Legal {
+            get { return new PageSize(0,0); }
         }
 
-        public static Size Letter{
-            get { return new Size(); }
+        public static PageSize Letter{
+            get { return new PageSize(0,0); }
         }
 
-        public static Size A4
+        public static PageSize A4
         {
-            get { return new Size(); }
+            get { return new PageSize(0,0); }
         }
     }
 }
