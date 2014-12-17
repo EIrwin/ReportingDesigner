@@ -11,17 +11,6 @@ namespace ReportingDesigner.Views
     /// </summary>
     public partial class Designer:RadDiagram
     {
-        //private ReportViewModel _viewModel;
-        //public ReportViewModel ViewModel
-        //{
-        //    get { return _viewModel; }
-        //    set
-        //    {
-        //        DataContext = _viewModel;
-        //        _viewModel = value;
-        //    }
-        //}
-
         public Designer()
         {
             InitializeComponent();

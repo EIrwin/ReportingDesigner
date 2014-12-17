@@ -40,7 +40,6 @@
                               Height="{Binding ElementName=DesignerCanvasShape,Path=Height}" 
                               Width="{Binding ElementName=DesignerCanvasShape,Path=Width}"
                               Margin="{Binding Path=Margin,Mode=TwoWay}"
-                              Padding="0"
                               IsBackgroundSurfaceVisible="{Binding Path=ShowGridLines,Mode=TwoWay}"/>
 
         </telerik:RadDiagramShape>

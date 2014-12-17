@@ -7,6 +7,6 @@ namespace ReportingDesigner.Extensibility
 {
     public abstract class FormatSettingsFactory
     {
-        public abstract FormatSettings CreateFormatSettings();
+        public abstract FormatSettings CreateFormatSettings(UnitType Type,PageOrientation orientation);
     }
 }

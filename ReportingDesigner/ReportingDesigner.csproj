@@ -94,6 +94,7 @@
     <Compile Include="Extensibility\FormatType.cs" />
     <Compile Include="Extensibility\LegalFormatSettingsFactory.cs" />
     <Compile Include="Extensibility\LetterFormatSettingsFactory.cs" />
+    <Compile Include="Extensibility\UnitType.cs" />
     <Compile Include="Extensibility\PageOrientation.cs" />
     <Compile Include="Extensibility\PageSize.cs" />
     <Compile Include="Extensibility\SettingsFactory.cs" />

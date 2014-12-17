@@ -89,19 +89,6 @@ namespace ReportingDesigner.ViewModels
             }
         }
 
-        public bool ShowMarginLines
-        {
-            get { return _showMarginLines; }
-            set
-            {
-                if (_showMarginLines != value)
-                {
-                    _showMarginLines = value;
-                    OnPropertyChanged("ShowMarginLines");
-                }
-            }
-        }
-
         public Thickness Margin
         {
             get { return _margin; }

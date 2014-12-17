@@ -49,7 +49,7 @@ namespace ReportingDesigner.Views
             //Assume we have retrieved instance to type
             //of factory that we need to use
             FormatSettingsFactory factory = new LetterFormatSettingsFactory();
-            FormatSettings settings = factory.CreateFormatSettings();
+            FormatSettings settings = factory.CreateFormatSettings(UnitType.Points,PageOrientation.Portrait);
 
             //Step 2: Initialize Report Model with FormatSettings
             var report = new Report();
