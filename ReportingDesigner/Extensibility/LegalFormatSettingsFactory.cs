@@ -4,7 +4,7 @@
     {
         public override FormatSettings CreateFormatSettings()
         {
-            var settings = new FormatSettings(FormatType.Legal,PageSizes.Legal, PageOrientation.Portrait);
+            var settings = new FormatSettings(FormatType.Legal,PageSizes.Legal, PageOrientation.Portrait,UnitType.Points);
             return settings;
         }
     }

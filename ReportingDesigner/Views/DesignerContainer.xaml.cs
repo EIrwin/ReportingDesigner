@@ -48,7 +48,7 @@ namespace ReportingDesigner.Views
             //This can be done using a factory eventually
             //Assume we have retrieved instance to type
             //of factory that we need to use
-            var factory = new LetterFormatSettingsFactory();
+            FormatSettingsFactory factory = new LetterFormatSettingsFactory();
             FormatSettings settings = factory.CreateFormatSettings();
 
             //Step 2: Initialize Report Model with FormatSettings
