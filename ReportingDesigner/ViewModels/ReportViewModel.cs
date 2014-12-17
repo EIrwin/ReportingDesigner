@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Windows;
 using ReportingDesigner.Extensibility;
 using ReportingDesigner.Models;
 
@@ -14,6 +15,9 @@ namespace ReportingDesigner.ViewModels
         private List<PageViewModel> _pages;
         private FormatSettings _formatSettings;
         private Report _report;
+        private bool _showGridLines;
+        private bool _showMarginLines;
+        private Thickness _margin;
 
         public Guid Id
         {
@@ -72,11 +76,52 @@ namespace ReportingDesigner.ViewModels
             set { _report = value; }
         }
 
+        public bool ShowGridLines
+        {
+            get { return _showGridLines; }
+            set
+            {
+                if (_showGridLines != value)
+                {
+                    _showGridLines = value;
+                    OnPropertyChanged("ShowGridLines");
+                }
+            }
+        }
+
+        public bool ShowMarginLines
+        {
+            get { return _showMarginLines; }
+            set
+            {
+                if (_showMarginLines != value)
+                {
+                    _showMarginLines = value;
+                    OnPropertyChanged("ShowMarginLines");
+                }
+            }
+        }
+
+        public Thickness Margin
+        {
+            get { return _margin; }
+            set
+            {
+                if (_margin != value)
+                {
+                    _margin = value;
+                    OnPropertyChanged("Margin");
+                }
+            }
+        }
+
         public ReportViewModel(Report report,FormatSettings formatSettings)
         {
+            
             Report = report;
             Pages = new List<PageViewModel>();
             FormatSettings = formatSettings;
+            Margin = new Thickness(0);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

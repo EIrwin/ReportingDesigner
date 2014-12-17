@@ -22,11 +22,14 @@
              ScrollViewer.VerticalScrollBarVisibility="Auto">
     
     <!-- Container Shape-->
-        <telerik:RadDiagramShape Height="900" 
-                             Width="600" 
-                             Padding="0"
-                             Margin="0"
-                             Name="DesignerCanvasShape">
+        <telerik:RadDiagramShape Height="900"
+                                 Background="White"
+                                 BorderThickness="0"
+                                 BorderBrush="Transparent"
+                                 Width="600" 
+                                 Padding="0"
+                                 Margin="0"
+                                 Name="DesignerCanvasShape">
 
             <telerik:RadDiagramShape.Effect>
                 <DropShadowEffect BlurRadius="10"/>
@@ -36,8 +39,9 @@
             <views:DesignerCanvas x:Name="DesignerCanvas"
                               Height="{Binding ElementName=DesignerCanvasShape,Path=Height}" 
                               Width="{Binding ElementName=DesignerCanvasShape,Path=Width}"
-                              Margin="0"
-                              Padding="0"/>
+                              Margin="{Binding Path=Margin,Mode=TwoWay}"
+                              Padding="0"
+                              IsBackgroundSurfaceVisible="{Binding Path=ShowGridLines,Mode=TwoWay}"/>
 
         </telerik:RadDiagramShape>
 </telerik:RadDiagram>

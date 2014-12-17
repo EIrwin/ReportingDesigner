@@ -90,9 +90,13 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Events\ControlClickedEventArgs.cs" />
+    <Compile Include="Extensibility\FormatSettings.cs" />
+    <Compile Include="Extensibility\FormatType.cs" />
+    <Compile Include="Extensibility\LegalFormatSettingsFactory.cs" />
+    <Compile Include="Extensibility\LetterFormatSettingsFactory.cs" />
+    <Compile Include="Extensibility\PageOrientation.cs" />
     <Compile Include="Extensibility\PageSize.cs" />
-    <Compile Include="Extensibility\PageSizeFactory.cs" />
-    <Compile Include="Extensibility\ReportFormatSettings.cs" />
+    <Compile Include="Extensibility\SettingsFactory.cs" />
     <Compile Include="Models\Image.cs" />
     <Compile Include="Models\Report.cs" />
     <Compile Include="Models\TextBlock.cs" />

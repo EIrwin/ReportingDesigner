@@ -9,8 +9,8 @@ namespace ReportingDesigner.Commands
     {
         public void Execute(object parameter)
         {
-            if (parameter is DesignerContainer)
-                ((DesignerContainer)parameter).ChangePageSize(PageSizes.Letter);
+            //if (parameter is DesignerContainer)
+                //((DesignerContainer)parameter).ChangePageSize(PageSizes.Letter);
         }
 
         public bool CanExecute(object parameter)

@@ -21,11 +21,14 @@ namespace ReportingDesigner.Views
         private ReportViewModel _viewModel;
         public ReportViewModel ViewModel
         {
-            get { return _viewModel; }
+            get
+            {
+                return _viewModel;
+            }
             set
             {
-                DataContext = _viewModel;
                 _viewModel = value;
+                DataContext = _viewModel;
             }
         }
 
@@ -53,7 +56,7 @@ namespace ReportingDesigner.Views
 
             //Step 3: Initialize ReportViewModel object
             //with the format settings and report model
-            _viewModel = new ReportViewModel(report,settings);
+            ViewModel = new ReportViewModel(report,settings);
         }
 
         private void InitializeNewPagePanes()
@@ -83,12 +86,7 @@ namespace ReportingDesigner.Views
 
         public void ToggleGridLines()
         {
-            DesignerCanvas.IsBackgroundSurfaceVisible = !DesignerCanvas.IsBackgroundSurfaceVisible;
-        }
-
-        public void ChangePageSize(Size size)
-        {
-            
+            ViewModel.ShowGridLines = !ViewModel.ShowGridLines;
         }
 
         //THE FOLLOWING IS ONLY TEMPORARY
