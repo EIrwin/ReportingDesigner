@@ -92,8 +92,7 @@
     <Compile Include="Events\ControlClickedEventArgs.cs" />
     <Compile Include="Extensibility\FormatSettings.cs" />
     <Compile Include="Extensibility\FormatType.cs" />
-    <Compile Include="Extensibility\LegalFormatSettingsFactory.cs" />
-    <Compile Include="Extensibility\LetterFormatSettingsFactory.cs" />
+    <Compile Include="Extensibility\PageFormat.cs" />
     <Compile Include="Extensibility\UnitType.cs" />
     <Compile Include="Extensibility\PageOrientation.cs" />
     <Compile Include="Extensibility\PageSize.cs" />

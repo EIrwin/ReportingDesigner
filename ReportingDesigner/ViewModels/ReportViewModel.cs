@@ -16,8 +16,8 @@ namespace ReportingDesigner.ViewModels
         private FormatSettings _formatSettings;
         private Report _report;
         private bool _showGridLines;
-        private bool _showMarginLines;
         private Thickness _margin;
+        private bool _showMargineLines;
 
         public Guid Id
         {
@@ -87,6 +87,12 @@ namespace ReportingDesigner.ViewModels
                     OnPropertyChanged("ShowGridLines");
                 }
             }
+        }
+
+        public bool ShowMargineLines
+        {
+            get { return _showMargineLines; }
+            set { _showMargineLines = value; }
         }
 
         public Thickness Margin

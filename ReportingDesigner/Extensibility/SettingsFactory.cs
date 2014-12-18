@@ -5,8 +5,11 @@ using System.Text;
 
 namespace ReportingDesigner.Extensibility
 {
-    public abstract class FormatSettingsFactory
+    public static class FormatSettingsFactory
     {
-        public abstract FormatSettings CreateFormatSettings(UnitType Type,PageOrientation orientation);
+        public static FormatSettings CreateFormatSettings(PageOrientation orientation, double dpi, PageFormat pageFormat)
+        {
+            return new FormatSettings(orientation, pageFormat, 0, 0);   //only temporary
+        }
     }
 }

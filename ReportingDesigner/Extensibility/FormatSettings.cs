@@ -1,35 +1,62 @@
 ﻿using System;
+using System.Windows;
 
 namespace ReportingDesigner.Extensibility
 {
     public class FormatSettings
     {
-        private readonly PageSize _pageSize;
-        public PageSize PageSize{
-            get { return _pageSize; }
-        }
-
         private readonly PageOrientation _pageOrientation;
         public PageOrientation PageOrientation {
             get { return _pageOrientation; }
         }
 
-        private readonly FormatType _formatType;
-        public FormatType FormatType {
-            get { return _formatType; }
+        private UnitType _unitType;
+        public UnitType UnitType{
+            get { return _unitType; }
         }
 
-        private readonly UnitType _defaultUnitType;
-        public UnitType DefaultUnitType{
-            get { return _defaultUnitType; }
-        }
-
-        public FormatSettings(FormatType formatType,PageSize pageSize, PageOrientation pageOrientation,UnitType defaultUnitType)
+        private int _height;
+        public int Height
         {
-            _formatType = formatType;
-            _pageSize = pageSize;
-            _pageOrientation = pageOrientation;
-            _defaultUnitType = defaultUnitType;
+            get { return _height; }
         }
+
+        private int _width;
+        public int Width
+        {
+            get { return _width; }
+        }
+
+        private readonly PageFormat _pageFormat;
+        public PageFormat PageFormat{
+            get { return _pageFormat; }
+        }
+
+        private Thickness _margin;
+        public Thickness Margin{
+            get { return _margin; }
+            set { _margin = value; }
+        }
+
+        public FormatSettings(PageOrientation pageOrientation,PageFormat pageFormat,int height,int width)
+        {
+            _pageOrientation = pageOrientation;
+            _pageFormat = pageFormat;
+            _margin = new Thickness(0);
+            _height = height;
+            _width = width;
+            _unitType = UnitType.Inches;
+        }
+
+        public FormatSettings(PageOrientation pageOrientation, PageFormat pageFormat, int height, int width,Thickness margin)
+        {
+            _pageOrientation = pageOrientation;
+            _pageFormat = pageFormat;
+            _margin = margin;
+            _height = height;
+            _width = width;
+            _unitType = UnitType.Inches;
+        }
+
     }
 }
