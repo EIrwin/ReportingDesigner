@@ -91,7 +91,6 @@
     </Compile>
     <Compile Include="Events\ControlClickedEventArgs.cs" />
     <Compile Include="Extensibility\FormatSettings.cs" />
-    <Compile Include="Extensibility\FormatType.cs" />
     <Compile Include="Extensibility\PageFormat.cs" />
     <Compile Include="Extensibility\UnitType.cs" />
     <Compile Include="Extensibility\PageOrientation.cs" />
@@ -102,7 +101,6 @@
     <Compile Include="Models\TextBlock.cs" />
     <Compile Include="Models\ToolboxComponentAnnouncement.cs" />
     <Compile Include="Commands\ToggleGridLines.cs" />
-    <Compile Include="Extensibility\PageSizes.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="ViewModels\PageNumberViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />

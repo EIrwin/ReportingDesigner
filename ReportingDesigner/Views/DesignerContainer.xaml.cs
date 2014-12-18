@@ -45,15 +45,12 @@ namespace ReportingDesigner.Views
         private void InitializeReport()
         {
             //Step 1: Initialize FormatSettings Object
-            //This can be done using a factory eventually
-            //Assume we have retrieved instance to type
             FormatSettings settings = FormatSettingsFactory.CreateFormatSettings(PageOrientation.Portrait, 300, null);
 
             //Step 2: Initialize Report Model with FormatSettings
             var report = new Report();
 
             //Step 3: Initialize ReportViewModel object
-            //with the format settings and report model
             ViewModel = new ReportViewModel(report,settings);
         }
 
