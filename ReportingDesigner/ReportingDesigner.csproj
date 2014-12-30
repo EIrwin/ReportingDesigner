@@ -68,16 +68,18 @@
     <Compile Include="Commands\AddNewPage.cs" />
     <Compile Include="Commands\AddPageAfter.cs" />
     <Compile Include="Commands\AddPageBefore.cs" />
-    <Compile Include="Commands\ChangePageSizeToA4.cs" />
-    <Compile Include="Commands\ChangePageSizeToLegal.cs" />
-    <Compile Include="Commands\ChangePageSizeToLetter.cs" />
+    <Compile Include="Commands\EditMargins.cs" />
     <Compile Include="Commands\Print.cs" />
     <Compile Include="Commands\ReportingDesignerCommands.cs" />
+    <Compile Include="Commands\ToggleMarginLines.cs" />
     <Compile Include="Controls\AddPageAfterPane.xaml.cs">
       <DependentUpon>AddPageAfterPane.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\AddPageBeforePane.xaml.cs">
       <DependentUpon>AddPageBeforePane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MarginShape.xaml.cs">
+      <DependentUpon>MarginShape.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\SettingsViewContainer.cs" />
     <Compile Include="Controls\Toolbox.xaml.cs">
@@ -135,6 +137,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\AddPageBeforePane.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\MarginShape.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

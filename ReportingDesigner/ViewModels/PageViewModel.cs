@@ -22,7 +22,6 @@ namespace ReportingDesigner.ViewModels
                 }
             }
         }
-
         public int PageNumber
         {
             get { return _pageNumber; }
@@ -35,15 +34,19 @@ namespace ReportingDesigner.ViewModels
                 }
             }
         }
-
         public List<ReportControlViewModel> Controls
         {
             get { return _controls; }
             set { _controls = value; }
         }
+        public double Top { get; private set; }
+        public double Bottom { get; private set; }
 
-        public PageViewModel()
+        public PageViewModel(double top, double bottom)
         {
+            Top = top;
+            Bottom = bottom;
+
             Controls = new List<ReportControlViewModel>();
         }
 

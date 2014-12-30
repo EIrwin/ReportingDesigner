@@ -1,16 +1,15 @@
 ﻿using System;
 using System.Windows.Input;
-using ReportingDesigner.Extensibility;
 using ReportingDesigner.Views;
 
 namespace ReportingDesigner.Commands
 {
-    public class ChangePageSizeToLegal:ICommand
+    public class ToggleMarginLines:ICommand
     {
         public void Execute(object parameter)
         {
-            //if (parameter is DesignerContainer)
-            //    ((DesignerContainer)parameter).ChangePageSize(PageSizes.Legal);
+            if (parameter is DesignerContainer)
+                ((DesignerContainer)parameter).ToggleMarginLines();
         }
 
         public bool CanExecute(object parameter)

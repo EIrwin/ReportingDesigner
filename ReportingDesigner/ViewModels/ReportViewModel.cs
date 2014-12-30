@@ -16,8 +16,7 @@ namespace ReportingDesigner.ViewModels
         private FormatSettings _formatSettings;
         private Report _report;
         private bool _showGridLines;
-        private Thickness _margin;
-        private bool _showMargineLines;
+        private bool _showMarginLines;
 
         public Guid Id
         {
@@ -89,23 +88,10 @@ namespace ReportingDesigner.ViewModels
             }
         }
 
-        public bool ShowMargineLines
+        public bool ShowMarginLines
         {
-            get { return _showMargineLines; }
-            set { _showMargineLines = value; }
-        }
-
-        public Thickness Margin
-        {
-            get { return _margin; }
-            set
-            {
-                if (_margin != value)
-                {
-                    _margin = value;
-                    OnPropertyChanged("Margin");
-                }
-            }
+            get { return _showMarginLines; }
+            set { _showMarginLines = value; }
         }
 
         public ReportViewModel(Report report,FormatSettings formatSettings)
@@ -114,7 +100,9 @@ namespace ReportingDesigner.ViewModels
             Report = report;
             Pages = new List<PageViewModel>();
             FormatSettings = formatSettings;
-            Margin = new Thickness(0);
+
+            ShowGridLines = true;
+            ShowMarginLines = true;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -124,5 +112,7 @@ namespace ReportingDesigner.ViewModels
             PropertyChangedEventHandler handler = PropertyChanged;
             if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
         }
+
+        
     }
 }

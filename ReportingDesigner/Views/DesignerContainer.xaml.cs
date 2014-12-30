@@ -1,4 +1,6 @@
-﻿using System.IO;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -35,23 +37,63 @@ namespace ReportingDesigner.Views
         private AddPageBeforePane _addPageBeforePane;
         private AddPageAfterPane _addPageAfterPane;
 
+        //temorary for margin integration
+        private const double DefaultMargin = 40;
+        private const double DefaultPageHeight = 750;
+        private List<MarginShape> _marginShapes; 
+
+
         public DesignerContainer()
         {
+            _marginShapes = new List<MarginShape>();
+
             InitializeComponent();
             InitializeNewPagePanes();
-            InitializeReport();
+            InitializeNewReport();
         }
 
-        private void InitializeReport()
+        private void InitializeNewReport()
         {
             //Step 1: Initialize FormatSettings Object
-            FormatSettings settings = FormatSettingsFactory.CreateFormatSettings(PageOrientation.Portrait, 300, null);
+            FormatSettings settings = FormatSettingsFactory.CreateFormatSettings(PageOrientation.Portrait, 300, null,new Thickness(DefaultMargin));
 
             //Step 2: Initialize Report Model with FormatSettings
             var report = new Report();
 
             //Step 3: Initialize ReportViewModel object
             ViewModel = new ReportViewModel(report,settings);
+
+
+            //the following section is temporary for margin integration
+            var pageViewModel = new PageViewModel(0,DefaultPageHeight)
+            {
+                PageNumber = 1,
+            };
+
+            var marginShape = new MarginShape
+            {
+                Position = new Point(ViewModel.FormatSettings.Margin.Left,ViewModel.FormatSettings.Margin.Top),
+                DataContext = pageViewModel
+            };
+            marginShape.Loaded += UpdateMarginsShape;
+
+            _marginShapes.Add(marginShape);
+            ViewModel.Pages.Add(pageViewModel);
+
+            DesignerCanvas.AddShape(marginShape);
+        }
+
+        //The following is temporary for margin integration
+        private void UpdateMarginsShape(object sender, EventArgs e)
+        {
+            _marginShapes.ForEach(marginShape =>
+            {
+                var pageViewModel = (PageViewModel)marginShape.DataContext;
+
+                marginShape.Position = new Point(ViewModel.FormatSettings.Margin.Left, pageViewModel.Top + ViewModel.FormatSettings.Margin.Top);
+                marginShape.Height = DesignerCanvas.ActualHeight - (ViewModel.FormatSettings.Margin.Top + ViewModel.FormatSettings.Margin.Bottom);
+                marginShape.Width = DesignerCanvas.ActualWidth - (ViewModel.FormatSettings.Margin.Left + ViewModel.FormatSettings.Margin.Right);
+            });
         }
 
         private void InitializeNewPagePanes()
@@ -84,6 +126,22 @@ namespace ReportingDesigner.Views
             ViewModel.ShowGridLines = !ViewModel.ShowGridLines;
         }
 
+        public void ToggleMarginLines()
+        {
+            ViewModel.ShowMarginLines = !ViewModel.ShowMarginLines;
+
+            _marginShapes.ForEach(marginShape =>
+            {
+                marginShape.Visibility = ViewModel.ShowMarginLines ? Visibility.Visible : Visibility.Hidden;
+
+            });
+        }
+
+        public void EditMargins()
+        {
+            throw new NotImplementedException();
+        }
+
         //THE FOLLOWING IS ONLY TEMPORARY
         public void AddNewPage()
         {
@@ -93,5 +151,7 @@ namespace ReportingDesigner.Views
             //We need to reinitialize the add page panes
             InitializeNewPagePanes();
         }
+
+
     }
 }
