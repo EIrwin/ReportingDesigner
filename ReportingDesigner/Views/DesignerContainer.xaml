@@ -5,6 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
              xmlns:views="clr-namespace:ReportingDesigner.Views"
+             xmlns:controls="clr-namespace:ReportingDesigner.Controls"
+             xmlns:converters="clr-namespace:ReportingDesigner.Extensibility.Converters"
              mc:Ignorable="d"
              Background="Gray"
              Name="Container"
@@ -21,7 +23,20 @@
              ScrollViewer.HorizontalScrollBarVisibility="Auto"
              ScrollViewer.VerticalScrollBarVisibility="Auto">
     
-    <!-- Container Shape-->
+    <telerik:RadDiagram.Resources>
+        <converters:PositionConverter x:Key="PositionConverter"/>
+    </telerik:RadDiagram.Resources>
+
+        <!-- Add Page Before Pane-->
+        <controls:AddPageBeforePane>
+            <controls:AddPageBeforePane.Position>
+                <MultiBinding Converter="{StaticResource PositionConverter}"  ConverterParameter="-50">
+                    <Binding ElementName="DesignerCanvasShape" Path="Position"/>
+                </MultiBinding>
+            </controls:AddPageBeforePane.Position>
+        </controls:AddPageBeforePane>
+    
+            <!-- Container Shape-->
         <telerik:RadDiagramShape Height="900"
                                  Background="White"
                                  BorderThickness="0"
@@ -34,7 +49,7 @@
             <telerik:RadDiagramShape.Effect>
                 <DropShadowEffect BlurRadius="10"/>
             </telerik:RadDiagramShape.Effect>
-
+            
             <!-- Designer -->
             <views:DesignerCanvas x:Name="DesignerCanvas"
                               Height="{Binding ElementName=DesignerCanvasShape,Path=Height}" 
@@ -42,5 +57,17 @@
                               Margin="{Binding Path=Margin,Mode=TwoWay}"
                               IsBackgroundSurfaceVisible="{Binding Path=ShowGridLines,Mode=TwoWay}"/>
 
-        </telerik:RadDiagramShape>
+         </telerik:RadDiagramShape>
+
+
+    <!-- Add Page After Pane-->
+    <controls:AddPageAfterPane>
+        <controls:AddPageAfterPane.Position>
+            <MultiBinding Converter="{StaticResource PositionConverter}" ConverterParameter="25">
+                <Binding ElementName="DesignerCanvasShape" Path="Position"/>
+                <Binding ElementName="DesignerCanvasShape" Path="Height"/>
+            </MultiBinding>
+        </controls:AddPageAfterPane.Position>
+    </controls:AddPageAfterPane>
+
 </telerik:RadDiagram>

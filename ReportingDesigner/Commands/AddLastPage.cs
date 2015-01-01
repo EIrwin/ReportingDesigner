@@ -4,11 +4,12 @@ using ReportingDesigner.Views;
 
 namespace ReportingDesigner.Commands
 {
-    public class AddPageAfter:ICommand
+    public class AddLastPage : ICommand
     {
         public void Execute(object parameter)
         {
-            throw new NotImplementedException();
+            if (parameter is DesignerContainer)
+                ((DesignerContainer)parameter).AddLastPage();
         }
 
         public bool CanExecute(object parameter)

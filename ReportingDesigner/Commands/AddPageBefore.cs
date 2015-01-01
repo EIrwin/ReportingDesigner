@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Input;
+using ReportingDesigner.Views;
 
 namespace ReportingDesigner.Commands
 {
@@ -12,7 +13,7 @@ namespace ReportingDesigner.Commands
 
         public bool CanExecute(object parameter)
         {
-            throw new NotImplementedException();
+            return true;
         }
 
         public event EventHandler CanExecuteChanged;

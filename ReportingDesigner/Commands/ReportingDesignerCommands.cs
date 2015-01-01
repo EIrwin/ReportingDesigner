@@ -22,11 +22,24 @@ namespace ReportingDesigner.Commands
             get{return new Print(); }
         }
 
+        public static ICommand AddPageBefore
+        {
+            get { return new AddPageBefore(); }
+        }
 
-        public static ICommand AddNewPage{
-            get{
-                return new AddNewPage();
-            }
+        public static ICommand AddPageAfter
+        {
+            get { return new AddPageAfter(); }
+        }
+
+        public static ICommand AddFirstPage
+        {
+            get { return new AddFirstPage(); }
+        }
+
+        public static ICommand AddLastPage
+        {
+            get { return new AddLastPage(); }
         }
     }
 }
