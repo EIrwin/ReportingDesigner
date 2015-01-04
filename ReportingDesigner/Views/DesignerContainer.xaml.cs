@@ -25,7 +25,7 @@ namespace ReportingDesigner.Views
             }
         }
 
-        private List<MarginShape> _marginShapes;
+        private readonly List<MarginShape> _marginShapes;
 
         public DesignerContainer()
         {
@@ -52,10 +52,7 @@ namespace ReportingDesigner.Views
             ViewModel = new ReportViewModel(report, settings);
 
             //Step 4: Initialize First Page ViewModel
-            var pageViewModel = new PageViewModel(0,ViewModel.FormatSettings.PageFormat.PageSize.Height)
-                {
-                    PageNumber = 1,
-                };
+            var pageViewModel = new PageViewModel(0, ViewModel.FormatSettings.PageFormat.PageSize.Height, 1);
 
             //Step 5: Initialize Margin for First Page
             var marginShape = new MarginShape
@@ -101,15 +98,18 @@ namespace ReportingDesigner.Views
 
         public void EditMargins()
         {
-            
+            var editMarginsWindow = new EditMarginsWindow(ViewModel.FormatSettings.Margin);
+            editMarginsWindow.MarginChanged += (o, args) =>
+            {
+                ViewModel.FormatSettings.Margin = args.Margin;//?
+                UpdateMarginsShape(o, args);
+            };
+            editMarginsWindow.Show();
         }
 
         public void AddFirstPage()
         {
-            var pageViewModel = new PageViewModel(0,ViewModel.FormatSettings.PageFormat.PageSize.Height)
-                {
-                    PageNumber = 1
-                };
+            var pageViewModel = new PageViewModel(0, ViewModel.FormatSettings.PageFormat.PageSize.Height, 1);
 
             var marginShape = new MarginShape
                 {
@@ -128,10 +128,10 @@ namespace ReportingDesigner.Views
             _marginShapes.ForEach(margin =>
                 {
                     var page = (PageViewModel)margin.DataContext;
-                    var newViewModel = new PageViewModel(page.Top + ViewModel.FormatSettings.PageFormat.PageSize.Height + 1, page.Bottom + ViewModel.FormatSettings.PageFormat.PageSize.Height + 1)
-                        {
-                            PageNumber = page.PageNumber + 1
-                        };
+                    var newViewModel =
+                        new PageViewModel(page.Top + ViewModel.FormatSettings.PageFormat.PageSize.Height + 1,
+                                          page.Bottom + ViewModel.FormatSettings.PageFormat.PageSize.Height + 1,
+                                          page.PageNumber + 1);
 
                     ViewModel.Pages.Add(newViewModel);
                     margin.DataContext = newViewModel;
@@ -143,7 +143,7 @@ namespace ReportingDesigner.Views
 
             DesignerCanvas.AddShape(marginShape);
 
-            //The height of the canvas is equivalent to the bottom of the last page
+            //The height of the canvas is equivalent to the 'bottom' of the last page
             DesignerCanvasShape.Height = ViewModel.Pages.Max(p => p.Bottom);
         }
 
@@ -151,14 +151,11 @@ namespace ReportingDesigner.Views
         {
             var lastPage = ViewModel.Pages.Last();
 
-            var pageViewModel = new PageViewModel(lastPage.Bottom + 1, (lastPage.Bottom + 1) + ViewModel.FormatSettings.PageFormat.PageSize.Height)
-            {
-                PageNumber = lastPage.PageNumber + 1
-            };
+            var pageViewModel = new PageViewModel(lastPage.Bottom + 1, (lastPage.Bottom + 1) +
+                                                  ViewModel.FormatSettings.PageFormat.PageSize.Height, lastPage.PageNumber + 1);
 
             var marginShape = new MarginShape
             {
-                //TODO: Do we want to update position here or upstream?
                 Position = new Point(ViewModel.FormatSettings.Margin.Left, pageViewModel.Top + ViewModel.FormatSettings.Margin.Top),
                 DataContext = pageViewModel
             };
@@ -170,9 +167,8 @@ namespace ReportingDesigner.Views
 
             DesignerCanvas.AddShape(marginShape);
 
+            //Update designer canvas height to appropriate 'bottom' value
             DesignerCanvasShape.Height = pageViewModel.Bottom;
         }
-
-        
     }
 }

@@ -49,3 +49,5 @@ C:\Users\Eric.Irwin\Source\Repos\ReportingDesigner\ReportingDesigner\obj\Debug\R
 C:\Users\Eric.Irwin\Source\Repos\ReportingDesigner\ReportingDesigner\obj\Debug\Controls\MarginShape.baml
 C:\Users\Eric.Irwin\Source\Repos\ReportingDesigner\ReportingDesigner\obj\Debug\Controls\MarginShape.g.cs
 C:\Users\Eric.Irwin\Source\Repos\ReportingDesigner\ReportingDesigner\obj\Debug\ReportingDesigner.DefaultFormats.resources
+C:\Users\Eric.Irwin\Source\Repos\ReportingDesigner\ReportingDesigner\obj\Debug\Views\EditMarginsWindow.baml
+C:\Users\Eric.Irwin\Source\Repos\ReportingDesigner\ReportingDesigner\obj\Debug\Views\EditMarginsWindow.g.cs

@@ -46,8 +46,14 @@ namespace ReportingDesigner.ViewModels
         {
             Top = top;
             Bottom = bottom;
-
             Controls = new List<ReportControlViewModel>();
+        }
+
+        public PageViewModel(double top, double bottom, int pageNumber)
+        {
+            Top = top;
+            Bottom = bottom;
+            PageNumber = pageNumber;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

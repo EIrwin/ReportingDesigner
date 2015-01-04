@@ -102,6 +102,7 @@
       <DependentUpon>DefaultFormats.resx</DependentUpon>
     </Compile>
     <Compile Include="Events\ControlClickedEventArgs.cs" />
+    <Compile Include="Events\MarginChangedEventArgs.cs" />
     <Compile Include="Extensibility\Converters\PositionConverter.cs" />
     <Compile Include="Extensibility\FormatSettings.cs" />
     <Compile Include="Extensibility\PageFormat.cs" />
@@ -134,6 +135,9 @@
     </Compile>
     <Compile Include="Views\DesignerContainer.xaml.cs">
       <DependentUpon>DesignerContainer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EditMarginsWindow.xaml.cs">
+      <DependentUpon>EditMarginsWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\PageNumberView.xaml.cs">
       <DependentUpon>PageNumberView.xaml</DependentUpon>
@@ -184,6 +188,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\DesignerContainer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EditMarginsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
