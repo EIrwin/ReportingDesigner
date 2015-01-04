@@ -20,11 +20,25 @@ namespace ReportingDesigner.Views
     /// </summary>
     public partial class PageNumberView : UserControl
     {
+        private PageNumberViewModel _viewModel;
+
         public PageNumberView()
         {
             InitializeComponent();
 
-            this.DataContext = new PageNumberViewModel();
+            _viewModel = new PageNumberViewModel();
+
+            this.DataContext = _viewModel;
+        }
+
+        public int GetPageNumber()
+        {
+            return _viewModel.PageNumber;
+        }
+
+        public void SetPageNumber(int page)
+        {
+            _viewModel.PageNumber = page;
         }
     }
 }

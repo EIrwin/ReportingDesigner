@@ -176,6 +176,7 @@
 
         <!-- Page Number View -->
         <views:PageNumberView Grid.Column="1" 
+                              x:Name="PageNumberView"
                               Grid.Row="1"
                               Margin="20"
                               HorizontalAlignment="Right"

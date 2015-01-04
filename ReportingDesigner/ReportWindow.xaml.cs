@@ -37,24 +37,38 @@ namespace ReportingDesigner
 
         private void Designer_LayoutUpdated(object sender, EventArgs e)
         {
-            //This should probably go a layer deeper
-            double bottom = this.Designer.Viewport.Bottom;
-            double top = this.Designer.Viewport.Top;
+
         }
 
-        private void CalculatePageNumber()
+        private int CalculatePageNumber()
         {
             //The following logic is for
             //determining the current page number
-            //This is only temporary and will be 
-            //cleaned up.
+            double bottom = this.Designer.Viewport.Bottom;
+            double top = this.Designer.Viewport.Top;
 
+            double middle = (bottom - top) / 2;
+            double threshold = top + middle;
+
+            int pageNumber = -1;
+
+            Designer.ViewModel.Pages.ForEach(p =>
+                {
+                    if (p.Top <= threshold && p.Bottom >=threshold)
+                        pageNumber = p.PageNumber;
+                });
+
+            return pageNumber;
         }
 
         private void Designer_ViewportChanged(object sender, Telerik.Windows.Diagrams.Core.PropertyEventArgs<Rect> e)
         {
-            Rect bounds = Designer.TransformToAncestor(this).TransformBounds(new Rect(0.0, 0.0, Designer.ActualWidth, Designer.ActualHeight));
-            Rect rect = new Rect(0.0, 0.0, this.ActualWidth, this.ActualHeight);
+            int currentPage = CalculatePageNumber();
+
+            //We only want to update if page number has changed
+            if (PageNumberView.GetPageNumber() != currentPage && currentPage != -1)
+                PageNumberView.SetPageNumber(currentPage);
+            
         }
     }
 }
