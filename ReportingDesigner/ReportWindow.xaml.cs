@@ -2,21 +2,14 @@
 using System.Collections.Generic;
 using System.Windows;
 using ReportingDesigner.Models;
-using ReportingDesigner.ViewModels;
 
 namespace ReportingDesigner
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class ReportWindow : Window
     {
-
-
         public ReportWindow()
         {
             InitializeComponent();
-
             InitializeToolbox();
         }
 

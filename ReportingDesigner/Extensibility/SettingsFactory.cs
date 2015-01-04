@@ -13,8 +13,7 @@ namespace ReportingDesigner.Extensibility
             return new FormatSettings(orientation, pageFormat, 0, 0);
         }
 
-        public static FormatSettings CreateFormatSettings(PageOrientation orientation, double dpi, PageFormat pageFormat,
-                                                          Thickness margin)
+        public static FormatSettings CreateFormatSettings(PageOrientation orientation, double dpi, PageFormat pageFormat,Thickness margin)
         {
             return new FormatSettings(orientation, pageFormat, 0, 0, margin);
         }
