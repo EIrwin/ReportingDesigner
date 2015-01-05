@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Windows;
 using ReportingDesigner.Models;
+using ReportingDesigner.ViewModels;
 
 namespace ReportingDesigner
 {
@@ -35,39 +36,13 @@ namespace ReportingDesigner
             Toolbox.LoadToolboxComponents(toolboxComponents);
         }
 
-        private void Designer_LayoutUpdated(object sender, EventArgs e)
-        {
-
-        }
-
-        private int CalculatePageNumber()
-        {
-            //The following logic is for
-            //determining the current page number
-            double bottom = this.Designer.Viewport.Bottom;
-            double top = this.Designer.Viewport.Top;
-
-            double middle = (bottom - top) / 2;
-            double threshold = top + middle;
-
-            int pageNumber = -1;
-
-            Designer.ViewModel.Pages.ForEach(p =>
-                {
-                    if (p.Top <= threshold && p.Bottom >=threshold)
-                        pageNumber = p.PageNumber;
-                });
-
-            return pageNumber;
-        }
-
         private void Designer_ViewportChanged(object sender, Telerik.Windows.Diagrams.Core.PropertyEventArgs<Rect> e)
         {
-            int currentPage = CalculatePageNumber();
+            PageViewModel currentPage = Designer.GetCurrentPage();
 
             //We only want to update if page number has changed
-            if (PageNumberView.GetPageNumber() != currentPage && currentPage != -1)
-                PageNumberView.SetPageNumber(currentPage);
+            if (currentPage != null && currentPage.PageNumber != PageNumberView.GetPageNumber())
+                PageNumberView.SetPageNumber(currentPage.PageNumber);
             
         }
     }

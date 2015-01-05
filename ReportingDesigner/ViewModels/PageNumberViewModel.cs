@@ -23,11 +23,6 @@ namespace ReportingDesigner.ViewModels
             }
         }
 
-        public PageNumberViewModel()
-        {
-            PageNumber = 1;
-        }
-
         public event PropertyChangedEventHandler PropertyChanged;
 
         [NotifyPropertyChangedInvocator]
@@ -36,5 +31,12 @@ namespace ReportingDesigner.ViewModels
             PropertyChangedEventHandler handler = PropertyChanged;
             if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
         }
+
+        public PageNumberViewModel()
+        {
+            PageNumber = 1;
+        }
+
+        
     }
 }

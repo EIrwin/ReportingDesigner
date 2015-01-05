@@ -20,7 +20,7 @@ namespace ReportingDesigner.Views
     /// </summary>
     public partial class PageNumberView : UserControl
     {
-        private PageNumberViewModel _viewModel;
+        private readonly PageNumberViewModel _viewModel;
 
         public PageNumberView()
         {

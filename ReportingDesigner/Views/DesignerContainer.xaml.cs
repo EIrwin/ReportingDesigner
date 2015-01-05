@@ -80,6 +80,27 @@ namespace ReportingDesigner.Views
                 });
         }
 
+        public PageViewModel GetCurrentPage()
+        {
+            //The following logic is for
+            //determining the current page number
+            double bottom = this.Viewport.Bottom;
+            double top = this.Viewport.Top;
+
+            double middle = (bottom - top) / 2;
+            double threshold = top + middle;
+
+            PageViewModel currentPage = null;
+
+            ViewModel.Pages.ForEach(p =>
+            {
+                if (p.Top <= threshold && p.Bottom >= threshold)
+                    currentPage = p;
+            });
+
+            return currentPage;
+        }
+
         public void ToggleGridLines()
         {
             ViewModel.ShowGridLines = !ViewModel.ShowGridLines;
@@ -169,6 +190,16 @@ namespace ReportingDesigner.Views
 
             //Update designer canvas height to appropriate 'bottom' value
             DesignerCanvasShape.Height = pageViewModel.Bottom;
+        }
+
+        public void AddPageBefore()
+        {
+            
+        }
+
+        public void AddPageAfter()
+        {
+            
         }
     }
 }

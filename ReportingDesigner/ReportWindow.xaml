@@ -163,7 +163,6 @@
             <views:DesignerContainer x:Name="Designer" 
                                      Grid.Column="1" 
                                      Grid.Row="1"
-                                     LayoutUpdated="Designer_LayoutUpdated"
                                      ViewportChanged="Designer_ViewportChanged">
 
             </views:DesignerContainer>
@@ -178,7 +177,7 @@
         <views:PageNumberView Grid.Column="1" 
                               x:Name="PageNumberView"
                               Grid.Row="1"
-                              Margin="20"
+                              Margin="40"
                               HorizontalAlignment="Right"
                               VerticalAlignment="Bottom"/>
     </Grid>

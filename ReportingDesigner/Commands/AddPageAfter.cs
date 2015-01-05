@@ -8,7 +8,8 @@ namespace ReportingDesigner.Commands
     {
         public void Execute(object parameter)
         {
-            throw new NotImplementedException();
+            if (parameter is DesignerContainer)
+                ((DesignerContainer) parameter).AddPageAfter();
         }
 
         public bool CanExecute(object parameter)
