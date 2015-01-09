@@ -77,6 +77,7 @@
     <Compile Include="Commands\Print.cs" />
     <Compile Include="Commands\ReportingDesignerCommands.cs" />
     <Compile Include="Commands\ToggleMarginLines.cs" />
+    <Compile Include="Commands\TogglePageBreaks.cs" />
     <Compile Include="Controls\AddPageAfterPane.xaml.cs">
       <DependentUpon>AddPageAfterPane.xaml</DependentUpon>
     </Compile>
@@ -85,6 +86,9 @@
     </Compile>
     <Compile Include="Controls\MarginShape.xaml.cs">
       <DependentUpon>MarginShape.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\PageBreakShape.xaml.cs">
+      <DependentUpon>PageBreakShape.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\SettingsViewContainer.cs" />
     <Compile Include="Controls\Toolbox.xaml.cs">
@@ -156,6 +160,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\MarginShape.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\PageBreakShape.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

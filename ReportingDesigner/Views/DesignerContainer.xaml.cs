@@ -27,9 +27,12 @@ namespace ReportingDesigner.Views
 
         private readonly List<MarginShape> _marginShapes;
 
+        private readonly List<PageBreakShape> _pageBreakShapes;
+
         public DesignerContainer()
         {
             _marginShapes = new List<MarginShape>();
+            _pageBreakShapes = new List<PageBreakShape>();
 
             InitializeComponent();
             InitializeNewReport();
@@ -78,6 +81,25 @@ namespace ReportingDesigner.Views
                     marginShape.Height = ViewModel.FormatSettings.PageFormat.PageSize.Height - (ViewModel.FormatSettings.Margin.Top + ViewModel.FormatSettings.Margin.Bottom);
                     marginShape.Width = DesignerCanvas.ActualWidth - (ViewModel.FormatSettings.Margin.Left + ViewModel.FormatSettings.Margin.Right);
                 });
+
+            UpdatePageBreaks();
+        }
+
+        private void UpdatePageBreaks()
+        {
+            _pageBreakShapes.ForEach(pageBreak => DesignerCanvas.RemoveShape(pageBreak));
+            _pageBreakShapes.Clear();
+
+            ViewModel.Pages.OrderBy(page => page.PageNumber).ToList().ForEach(page =>
+                {
+                    PageBreakShape pageBreak = new PageBreakShape();
+                    pageBreak.Position = new Point(0, page.Bottom + 1);
+                    pageBreak.Width = ViewModel.FormatSettings.PageFormat.PageSize.Width;
+
+                    _pageBreakShapes.Add(pageBreak);
+
+                    DesignerCanvas.AddShape(pageBreak);
+                });
         }
 
         public PageViewModel GetCurrentPage()
@@ -115,6 +137,20 @@ namespace ReportingDesigner.Views
                     marginShape.Visibility = ViewModel.ShowMarginLines ? Visibility.Visible : Visibility.Hidden;
 
                 });
+        }
+
+        public void TogglePageBreaks()
+        {
+            if (_pageBreakShapes.Any())
+            {
+                _pageBreakShapes.ForEach(pageBreak => DesignerCanvas.RemoveShape(pageBreak));
+                _pageBreakShapes.Clear();
+            }
+            else
+            {
+                UpdatePageBreaks();
+            }
+
         }
 
         public void EditMargins()
@@ -194,7 +230,31 @@ namespace ReportingDesigner.Views
 
         public void AddPageBefore()
         {
-            
+            //var currentPage = GetCurrentPage();
+
+            //ViewModel.Pages.Where(p => p.PageNumber <= currentPage.PageNumber)
+            //         .ToList()
+            //         .ForEach(page =>
+            //             {
+
+            //             });
+
+            //var pageViewModel = new PageViewModel();
+
+            //var marginShape = new MarginShape()
+            //    {
+            //        Background = new SolidColorBrush(Colors.Blue),
+            //    };
+
+            //marginShape.Loaded += UpdateMarginsShape;
+
+            //ViewModel.Pages.Add(pageViewModel);
+            //_marginShapes.Add(marginShape);
+
+            //DesignerCanvas.AddShape(marginShape);
+
+            ////The height of the canvas is equivalent to the 'bottom' of the last page
+            //DesignerCanvasShape.Height = ViewModel.Pages.Max(p => p.Bottom);
         }
 
         public void AddPageAfter()

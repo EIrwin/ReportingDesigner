@@ -13,6 +13,11 @@ namespace ReportingDesigner.Commands
             get { return new ToggleMarginLines(); }
         }
 
+        public static ICommand TogglePageBreaks
+        {
+            get { return new TogglePageBreaks(); }
+        }
+
         public static ICommand EditMargins
         {
             get { return new EditMargins(); }

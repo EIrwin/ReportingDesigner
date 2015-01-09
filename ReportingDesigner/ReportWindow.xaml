@@ -62,6 +62,14 @@
                     <telerik:RadGeometryButton Content="Print" ToolTipService.ToolTip="Print" Grid.Column="4" Margin="10"
 						Command="commands:ReportingDesignerCommands.Print" CommandParameter="{Binding ElementName=Designer}"
 						Geometry="M4,20 L18,20 L18,22 L4,22 z M0,11 L3,11 L3,13 L19,13 L19,11 L22,11 L22,19 L0,19 z M13,0 L18,5.0427322 L13,5 z M4,0 L12,0 L12,6 L18,6 L18,12 L4,12 z" />
+
+                    <!-- Toggle Page Breaks Button-->
+                    <telerik:RadGeometryButton Content="Page Breaks"
+								Geometry="M12,14L16,14L16,19L12,19zM7,14L11,14L11,19L7,19zM2,14L6,14L6,19L2,19zM12,8L16,8L16,13L12,13zM7,8L11,8L11,13L7,13zM2,8L6,8L6,13L2,13zM12,2L16,2L16,7L12,7zM7,2L11,2L11,7L7,7zM2,2L6,2L6,7L2,7zM1,1L1,20L17,20L17,1zM0,0L18,0L18,21L0,21z"
+								ToolTipService.ToolTip="Toggle Page Breaks" 
+                                Margin="10"
+                                Command="commands:ReportingDesignerCommands.TogglePageBreaks"
+                                CommandParameter="{Binding ElementName=Designer}"/>
                     
                     <!-- Toggle Grid Lines Button-->
                     <telerik:RadGeometryButton Content="Grid Lines"

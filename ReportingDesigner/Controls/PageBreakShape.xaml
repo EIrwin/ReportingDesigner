@@ -1,0 +1,16 @@
+﻿<telerik:RadDiagramShape x:Class="ReportingDesigner.Controls.PageBreakShape"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             ZIndex="-1"
+             IsHitTestVisible="False"
+             mc:Ignorable="d"
+             Background="Transparent"
+             BorderBrush="Black"
+             IsEnabled="False" Height="1">
+    <Grid>
+
+    </Grid>
+</telerik:RadDiagramShape>
