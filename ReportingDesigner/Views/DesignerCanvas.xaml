@@ -12,6 +12,7 @@
              IsEditable="True"
              d:DesignHeight="900" 
              d:DesignWidth="600"
+             primitives:BackgroundPageGrid.IsGridVisible="False"
              primitives:BackgroundGrid.CellSize="10,10">
 
     <views:TextBlockView BorderBrush="Transparent" 
