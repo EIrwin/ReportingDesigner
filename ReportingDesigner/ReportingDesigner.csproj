@@ -120,6 +120,7 @@
     <Compile Include="Models\ToolboxComponentAnnouncement.cs" />
     <Compile Include="Commands\ToggleGridLines.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="ViewModels\PageNumberControlViewModel.cs" />
     <Compile Include="ViewModels\PageNumberViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="Properties\Annotations.cs" />
@@ -131,6 +132,9 @@
     <Compile Include="ViewModels\TextBlockViewModel.cs" />
     <Compile Include="ViewModels\ToolboxItemViewModel.cs" />
     <Compile Include="ViewModels\ToolboxViewModel.cs" />
+    <Compile Include="Views\PageNumberControl.xaml.cs">
+      <DependentUpon>PageNumberControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Designer.xaml.cs">
       <DependentUpon>Designer.xaml</DependentUpon>
     </Compile>
@@ -187,6 +191,10 @@
       <DependentUpon>ReportWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\PageNumberControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\Designer.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

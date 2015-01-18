@@ -6,17 +6,36 @@
              xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
              xmlns:views="clr-namespace:ReportingDesigner.Views"
              xmlns:primitives="clr-namespace:Telerik.Windows.Controls.Diagrams.Primitives;assembly=Telerik.Windows.Controls.Diagrams"
-             mc:Ignorable="d" 
+                    xmlns:designer="clr-namespace:ReportingDesigner.Controls"
+                    mc:Ignorable="d" 
              Background="White"
              IsZoomEnabled="False"
              IsEditable="True"
              d:DesignHeight="900" 
              d:DesignWidth="600"
+             AdditionalContentActivated="Diagram_AdditionalContentActivated"
+             PreviewDrop="Diagram_PreviewDrop"
              primitives:BackgroundPageGrid.IsGridVisible="False"
              primitives:BackgroundGrid.CellSize="10,10">
+    <telerik:RadDiagram.Resources>
+        <Style TargetType="telerik:SettingsPaneView">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate >
+                        <Border>
+                            <telerik:RadTabControl>
+                                <telerik:RadTabItem>
+                                    <designer:SettingsViewContainer DataContext="{Binding}"/>
+                                </telerik:RadTabItem>
+                            </telerik:RadTabControl>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </telerik:RadDiagram.Resources>
 
-    <views:TextBlockView BorderBrush="Transparent" 
-                         BorderThickness="0">
-        
-    </views:TextBlockView>
+    <primitives:ItemInformationAdorner.AdditionalContent>
+        <telerik:SettingsPane Diagram="{Binding ElementName=Diagram}" x:Name="SettingPane"/>
+    </primitives:ItemInformationAdorner.AdditionalContent>
 </telerik:RadDiagram>

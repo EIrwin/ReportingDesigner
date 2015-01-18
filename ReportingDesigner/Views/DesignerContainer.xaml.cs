@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
-using System.Windows.Media;
 using ReportingDesigner.Controls;
 using ReportingDesigner.Extensibility;
 using ReportingDesigner.Models;
@@ -36,6 +35,8 @@ namespace ReportingDesigner.Views
 
             InitializeComponent();
             InitializeNewReport();
+
+            DesignerCanvas.DataContext = DataContext;   //?Should this be done here?
         }
 
         private void InitializeNewReport()

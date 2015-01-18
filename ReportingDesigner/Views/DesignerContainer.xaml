@@ -36,7 +36,7 @@
             </controls:AddPageBeforePane.Position>
         </controls:AddPageBeforePane>
     
-            <!-- Container Shape-->
+        <!-- Container Shape-->
         <telerik:RadDiagramShape Height="900"
                                  Background="White"
                                  BorderThickness="0"
