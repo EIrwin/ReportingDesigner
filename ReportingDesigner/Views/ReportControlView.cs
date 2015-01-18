@@ -7,5 +7,6 @@ namespace ReportingDesigner.Views
 {
     public class ReportControlView:ViewBase
     {
+
     }
 }

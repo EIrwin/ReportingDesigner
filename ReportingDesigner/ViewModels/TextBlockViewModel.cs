@@ -20,5 +20,14 @@ namespace ReportingDesigner.ViewModels
                 }
             }
         }
+
+        //TODO: NEed to put this in ReportControlViewModel
+
+        private ReportViewModel _reportViewModel;
+
+        public TextBlockViewModel(ReportViewModel reportViewModel)
+        {
+            _reportViewModel = reportViewModel;
+        }
     }
 }

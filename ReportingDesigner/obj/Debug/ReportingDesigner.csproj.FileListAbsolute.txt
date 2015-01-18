@@ -53,3 +53,5 @@ C:\Users\Eric.Irwin\Source\Repos\ReportingDesigner\ReportingDesigner\obj\Debug\V
 C:\Users\Eric.Irwin\Source\Repos\ReportingDesigner\ReportingDesigner\obj\Debug\Controls\PageBreakShape.baml
 C:\Users\Eric.Irwin\Source\Repos\ReportingDesigner\ReportingDesigner\obj\Debug\Controls\PageBreakShape.g.cs
 C:\Users\Eric.Irwin\Source\Repos\ReportingDesigner\ReportingDesigner\obj\Debug\ReportingDesigner.csprojResolveAssemblyReference.cache
+C:\Users\Eric.Irwin\Source\Repos\ReportingDesigner\ReportingDesigner\obj\Debug\Views\PageNumberControl.g.cs
+C:\Users\Eric.Irwin\Source\Repos\ReportingDesigner\ReportingDesigner\obj\Debug\Views\PageNumberControl.baml
