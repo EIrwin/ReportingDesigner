@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 
-15-1010891782
+161718857847
 
-581659661246
+58-1932715519
 23963874087
-Controls\AddPageAfterPane.xaml;Controls\AddPageBeforePane.xaml;Controls\MarginShape.xaml;Controls\PageBreakShape.xaml;Controls\Toolbox.xaml;Controls\ToolboxComponent.xaml;App.xaml;ReportWindow.xaml;Views\PageNumberControl.xaml;Views\Designer.xaml;Views\DesignerCanvas.xaml;Views\DesignerContainer.xaml;Views\EditMarginsWindow.xaml;Views\PageNumberView.xaml;Views\TextBlockView.xaml;
+Controls\AddPageAfterPane.xaml;Controls\AddPageBeforePane.xaml;Controls\MarginShape.xaml;Controls\PageBreakShape.xaml;Controls\Toolbox.xaml;Controls\ToolboxComponent.xaml;App.xaml;ReportWindow.xaml;Views\TextBlockSettingsView.xaml;Views\PageNumberControl.xaml;Views\DesignerCanvas.xaml;Views\DesignerContainer.xaml;Views\EditMarginsWindow.xaml;Views\PageNumberSettingsView.xaml;Views\PageNumberView.xaml;Views\TextBlockView.xaml;
 
 False
 

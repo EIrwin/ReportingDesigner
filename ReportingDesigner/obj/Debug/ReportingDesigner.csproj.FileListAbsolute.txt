@@ -27,7 +27,6 @@ C:\Users\Eric.Irwin\Source\Repos\ReportingDesigner\ReportingDesigner\obj\Debug\C
 C:\Users\Eric.Irwin\Source\Repos\ReportingDesigner\ReportingDesigner\obj\Debug\Controls\ToolboxComponent.g.cs
 C:\Users\Eric.Irwin\Source\Repos\ReportingDesigner\ReportingDesigner\obj\Debug\App.g.cs
 C:\Users\Eric.Irwin\Source\Repos\ReportingDesigner\ReportingDesigner\obj\Debug\ReportWindow.g.cs
-C:\Users\Eric.Irwin\Source\Repos\ReportingDesigner\ReportingDesigner\obj\Debug\Views\Designer.g.cs
 C:\Users\Eric.Irwin\Source\Repos\ReportingDesigner\ReportingDesigner\obj\Debug\Views\DesignerCanvas.g.cs
 C:\Users\Eric.Irwin\Source\Repos\ReportingDesigner\ReportingDesigner\obj\Debug\Views\DesignerContainer.g.cs
 C:\Users\Eric.Irwin\Source\Repos\ReportingDesigner\ReportingDesigner\obj\Debug\Views\PageNumberView.g.cs
@@ -36,7 +35,6 @@ C:\Users\Eric.Irwin\Source\Repos\ReportingDesigner\ReportingDesigner\obj\Debug\G
 C:\Users\Eric.Irwin\Source\Repos\ReportingDesigner\ReportingDesigner\obj\Debug\ReportingDesigner_MarkupCompile.cache
 C:\Users\Eric.Irwin\Source\Repos\ReportingDesigner\ReportingDesigner\obj\Debug\ReportingDesigner_MarkupCompile.lref
 C:\Users\Eric.Irwin\Source\Repos\ReportingDesigner\ReportingDesigner\obj\Debug\ReportWindow.baml
-C:\Users\Eric.Irwin\Source\Repos\ReportingDesigner\ReportingDesigner\obj\Debug\Views\Designer.baml
 C:\Users\Eric.Irwin\Source\Repos\ReportingDesigner\ReportingDesigner\obj\Debug\Views\DesignerCanvas.baml
 C:\Users\Eric.Irwin\Source\Repos\ReportingDesigner\ReportingDesigner\obj\Debug\Views\DesignerContainer.baml
 C:\Users\Eric.Irwin\Source\Repos\ReportingDesigner\ReportingDesigner\obj\Debug\Views\TextBlockView.baml
@@ -55,3 +53,7 @@ C:\Users\Eric.Irwin\Source\Repos\ReportingDesigner\ReportingDesigner\obj\Debug\C
 C:\Users\Eric.Irwin\Source\Repos\ReportingDesigner\ReportingDesigner\obj\Debug\ReportingDesigner.csprojResolveAssemblyReference.cache
 C:\Users\Eric.Irwin\Source\Repos\ReportingDesigner\ReportingDesigner\obj\Debug\Views\PageNumberControl.g.cs
 C:\Users\Eric.Irwin\Source\Repos\ReportingDesigner\ReportingDesigner\obj\Debug\Views\PageNumberControl.baml
+C:\Users\Eric.Irwin\Source\Repos\ReportingDesigner\ReportingDesigner\obj\Debug\Views\TextBlockSettingsView.baml
+C:\Users\Eric.Irwin\Source\Repos\ReportingDesigner\ReportingDesigner\obj\Debug\Views\PageNumberSettingsView.baml
+C:\Users\Eric.Irwin\Source\Repos\ReportingDesigner\ReportingDesigner\obj\Debug\Views\TextBlockSettingsView.g.cs
+C:\Users\Eric.Irwin\Source\Repos\ReportingDesigner\ReportingDesigner\obj\Debug\Views\PageNumberSettingsView.g.cs

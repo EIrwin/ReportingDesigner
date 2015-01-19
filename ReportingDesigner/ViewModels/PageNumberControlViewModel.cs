@@ -2,11 +2,9 @@
 {
     public class PageNumberControlViewModel:ReportControlViewModel
     {
-        private ReportViewModel _reportViewModel;
-
-        public PageNumberControlViewModel(ReportViewModel reportViewModel)
+        public PageNumberControlViewModel(ReportViewModel report, PageViewModel page) : base(report, page)
         {
-            _reportViewModel = reportViewModel;
+
         }
     }
 }

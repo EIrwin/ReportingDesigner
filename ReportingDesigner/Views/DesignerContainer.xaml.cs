@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
+using System.Windows.Input;
 using ReportingDesigner.Controls;
+using ReportingDesigner.Events;
 using ReportingDesigner.Extensibility;
 using ReportingDesigner.Models;
 using ReportingDesigner.ViewModels;
 using Telerik.Windows.Controls;
+using ViewModelBase = ReportingDesigner.ViewModels.ViewModelBase;
 
 namespace ReportingDesigner.Views
 {
@@ -28,6 +31,8 @@ namespace ReportingDesigner.Views
 
         private readonly List<PageBreakShape> _pageBreakShapes;
 
+        public EventHandler<ReportControlClickedEventArgs> ControlClicked { get; set; }
+
         public DesignerContainer()
         {
             _marginShapes = new List<MarginShape>();
@@ -36,7 +41,40 @@ namespace ReportingDesigner.Views
             InitializeComponent();
             InitializeNewReport();
 
-            DesignerCanvas.DataContext = DataContext;   //?Should this be done here?
+            DesignerCanvas.DataContext = DataContext;
+            DesignerCanvas.PreviewDrop += DesignerCanvas_PreviewDrop;
+            DesignerCanvas.AdditionalContentActivated += DesignerCanvas_AdditionalContentActivated;
+          
+        }
+
+        private void DesignerCanvas_AdditionalContentActivated(object sender, Telerik.Windows.Controls.Diagrams.AdditionalContentActivatedEventArgs e)
+        {
+            var view = (ViewBase)e.ContextItems.First();
+
+            if (view != null)
+            {
+                var model = (ViewModelBase)view.DataContext;
+                this.DesignerCanvas.SettingPane.DataContext = model;
+            }
+            
+        }
+
+        private void DesignerCanvas_PreviewDrop(object sender, DragEventArgs e)
+        {
+            var item = (ToolboxItemViewModel)e.Data.GetData(e.Data.GetFormats()[0]);
+
+            PageViewModel pageViewModel = GetPage(e.GetPosition(this.DesignerCanvas));
+
+            ReportControlViewModel viewModel = (ReportControlViewModel)Activator.CreateInstance(item.ViewModelType, new object[] {ViewModel,pageViewModel });
+            viewModel.Position = e.GetPosition(this.DesignerCanvas);
+            viewModel.ViewType = item.ViewType;
+            viewModel.SettingsViewType = item.SettingsViewType;
+
+            pageViewModel.Controls.Add(viewModel);
+
+            ReportControlView view = (ReportControlView)Activator.CreateInstance(item.ViewType);
+            view.DataContext = viewModel;
+            this.DesignerCanvas.AddShape(view);
         }
 
         private void InitializeNewReport()
@@ -122,6 +160,23 @@ namespace ReportingDesigner.Views
             });
 
             return currentPage;
+        }
+
+        public PageViewModel GetPage(Point location)
+        {
+            //The following logic is for
+            //determining the page number of
+            //the specified location
+
+            PageViewModel page = null;
+
+            ViewModel.Pages.ForEach(p =>
+            {
+                if (p.Top <= location.Y && p.Bottom >= location.Y)
+                    page = p;
+            });
+
+            return page;
         }
 
         public void ToggleGridLines()

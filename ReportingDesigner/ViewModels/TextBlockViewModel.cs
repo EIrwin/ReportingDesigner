@@ -8,6 +8,7 @@ namespace ReportingDesigner.ViewModels
     public class TextBlockViewModel:ReportControlViewModel
     {
         private string _text;
+
         public string Text
         {
             get { return _text; }
@@ -21,13 +22,11 @@ namespace ReportingDesigner.ViewModels
             }
         }
 
-        //TODO: NEed to put this in ReportControlViewModel
-
-        private ReportViewModel _reportViewModel;
-
-        public TextBlockViewModel(ReportViewModel reportViewModel)
+        public TextBlockViewModel(ReportViewModel report, PageViewModel page)
+            : base(report, page)
         {
-            _reportViewModel = reportViewModel;
+            
         }
+
     }
 }

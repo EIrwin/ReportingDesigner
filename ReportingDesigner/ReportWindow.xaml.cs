@@ -26,6 +26,7 @@ namespace ReportingDesigner
                                     Name = "Textblock",
                                     ViewModelType = typeof(TextBlockViewModel),
                                     ViewType = typeof(TextBlockView),
+                                    SettingsViewType = typeof(TextBlockSettingsView)
                                 },                            
                             new ToolboxComponentAnnouncement()
                                 {
@@ -33,7 +34,8 @@ namespace ReportingDesigner
                                     Display = "Page Number",
                                     Name = "Page Number",
                                     ViewModelType = typeof(PageNumberControlViewModel),
-                                    ViewType = typeof(PageNumberControl)
+                                    ViewType = typeof(PageNumberControl),
+                                    SettingsViewType = typeof(PageNumberSettingsView)
                                 },    
                         };
 

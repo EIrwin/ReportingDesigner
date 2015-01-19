@@ -106,6 +106,7 @@
       <DependentUpon>DefaultFormats.resx</DependentUpon>
     </Compile>
     <Compile Include="Events\ControlClickedEventArgs.cs" />
+    <Compile Include="Events\ControlDroppedEventArgs.cs" />
     <Compile Include="Events\MarginChangedEventArgs.cs" />
     <Compile Include="Extensibility\Converters\PositionConverter.cs" />
     <Compile Include="Extensibility\FormatSettings.cs" />
@@ -126,17 +127,15 @@
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="ViewModels\PageViewModel.cs" />
     <Compile Include="ViewModels\ReportControlViewModel.cs" />
-    <Compile Include="ViewModels\ReportItemViewModel.cs" />
-    <Compile Include="ViewModels\ReportSectionViewModel.cs" />
     <Compile Include="ViewModels\ReportViewModel.cs" />
     <Compile Include="ViewModels\TextBlockViewModel.cs" />
     <Compile Include="ViewModels\ToolboxItemViewModel.cs" />
     <Compile Include="ViewModels\ToolboxViewModel.cs" />
+    <Compile Include="Views\TextBlockSettingsView.xaml.cs">
+      <DependentUpon>TextBlockSettingsView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\PageNumberControl.xaml.cs">
       <DependentUpon>PageNumberControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Designer.xaml.cs">
-      <DependentUpon>Designer.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\DesignerCanvas.xaml.cs">
       <DependentUpon>DesignerCanvas.xaml</DependentUpon>
@@ -146,6 +145,9 @@
     </Compile>
     <Compile Include="Views\EditMarginsWindow.xaml.cs">
       <DependentUpon>EditMarginsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PageNumberSettingsView.xaml.cs">
+      <DependentUpon>PageNumberSettingsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\PageNumberView.xaml.cs">
       <DependentUpon>PageNumberView.xaml</DependentUpon>
@@ -191,11 +193,11 @@
       <DependentUpon>ReportWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Views\PageNumberControl.xaml">
+    <Page Include="Views\TextBlockSettingsView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\Designer.xaml">
+    <Page Include="Views\PageNumberControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -208,6 +210,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\EditMarginsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PageNumberSettingsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
