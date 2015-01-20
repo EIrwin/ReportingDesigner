@@ -44,6 +44,8 @@ namespace ReportingDesigner.Views
             DesignerCanvas.DataContext = DataContext;
             DesignerCanvas.PreviewDrop += DesignerCanvas_PreviewDrop;
             DesignerCanvas.AdditionalContentActivated += DesignerCanvas_AdditionalContentActivated;
+
+            
           
         }
 
@@ -314,6 +316,43 @@ namespace ReportingDesigner.Views
         }
 
         public void AddPageAfter()
+        {
+            
+        }
+
+        public void PinControl()
+        {
+            Guid pinId = Guid.NewGuid();
+
+            var control = this.DesignerCanvas.SelectedItem as ViewBase;
+
+            if (control == null) return;
+
+            var viewModel = (ReportControlViewModel) control.DataContext;
+            viewModel.PinID = pinId;
+            viewModel.Report.Pages
+                .OrderBy(p => p.PageNumber)
+                .Skip(viewModel.Page.PageNumber)
+                .ToList()
+                .ForEach(page =>
+                    {
+                        var model = (ReportControlViewModel)Activator.CreateInstance(viewModel.GetType(), new object[] {viewModel.Report, page});
+                        model.PinID = pinId;
+                        model.Position = new Point(viewModel.Position.X, viewModel.Position.Y + page.Top);
+                        model.SettingsViewType = viewModel.SettingsViewType;
+                        model.ViewType = viewModel.ViewType;
+
+                        page.Controls.Add(model);
+
+                        var view = (ReportControlView)Activator.CreateInstance(model.ViewType);
+                        view.DataContext = model;
+                        view.Position = model.Position;
+                        DesignerCanvas.AddShape(view);
+                    });
+        
+        }
+        
+        public void UnpinControl()
         {
             
         }

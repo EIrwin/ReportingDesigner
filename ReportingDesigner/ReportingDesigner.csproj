@@ -74,10 +74,12 @@
     <Compile Include="Commands\AddPageAfter.cs" />
     <Compile Include="Commands\AddPageBefore.cs" />
     <Compile Include="Commands\EditMargins.cs" />
+    <Compile Include="Commands\PinControl.cs" />
     <Compile Include="Commands\Print.cs" />
     <Compile Include="Commands\ReportingDesignerCommands.cs" />
     <Compile Include="Commands\ToggleMarginLines.cs" />
     <Compile Include="Commands\TogglePageBreaks.cs" />
+    <Compile Include="Commands\UnpinControl.cs" />
     <Compile Include="Controls\AddPageAfterPane.xaml.cs">
       <DependentUpon>AddPageAfterPane.xaml</DependentUpon>
     </Compile>

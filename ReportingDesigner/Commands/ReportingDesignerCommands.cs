@@ -46,5 +46,15 @@ namespace ReportingDesigner.Commands
         {
             get { return new AddLastPage(); }
         }
+
+        public static ICommand PinControl
+        {
+            get { return new PinControl(); }
+        }
+
+        public static ICommand UnpinControl
+        {
+            get { return new UnpinControl(); }
+        }
     }
 }
