@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Input;
+using MongoDB.Bson;
+using MongoDB.Driver;
 using ReportingDesigner.Controls;
 using ReportingDesigner.Events;
 using ReportingDesigner.Extensibility;
@@ -44,9 +46,6 @@ namespace ReportingDesigner.Views
             DesignerCanvas.DataContext = DataContext;
             DesignerCanvas.PreviewDrop += DesignerCanvas_PreviewDrop;
             DesignerCanvas.AdditionalContentActivated += DesignerCanvas_AdditionalContentActivated;
-
-            
-          
         }
 
         private void DesignerCanvas_AdditionalContentActivated(object sender, Telerik.Windows.Controls.Diagrams.AdditionalContentActivatedEventArgs e)
@@ -354,7 +353,17 @@ namespace ReportingDesigner.Views
         
         public void UnpinControl()
         {
-            
+            //the following is only temporary
+            string saveDiagram = DesignerCanvas.Save();
+
+            var client = new MongoClient("mongodb://ds1.datamonkeytech.com:27017");
+            var server = client.GetServer();
+            var database = server.GetDatabase("PortLogic");
+            var collection = database.GetCollection<BsonDocument>("templates");
+            collection.Insert(new BsonDocument("Name", "Jack"));
+
+            var query = new QueryDocument("Name", "Jack");
+            var list = collection.Find(query);
         }
     }
 }

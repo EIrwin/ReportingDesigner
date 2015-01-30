@@ -57,3 +57,7 @@ C:\Users\Eric.Irwin\Source\Repos\ReportingDesigner\ReportingDesigner\obj\Debug\V
 C:\Users\Eric.Irwin\Source\Repos\ReportingDesigner\ReportingDesigner\obj\Debug\Views\PageNumberSettingsView.baml
 C:\Users\Eric.Irwin\Source\Repos\ReportingDesigner\ReportingDesigner\obj\Debug\Views\TextBlockSettingsView.g.cs
 C:\Users\Eric.Irwin\Source\Repos\ReportingDesigner\ReportingDesigner\obj\Debug\Views\PageNumberSettingsView.g.cs
+C:\Users\Eric.Irwin\Source\Repos\ReportingDesigner\ReportingDesigner\bin\Debug\MongoDB.Bson.dll
+C:\Users\Eric.Irwin\Source\Repos\ReportingDesigner\ReportingDesigner\bin\Debug\MongoDB.Driver.dll
+C:\Users\Eric.Irwin\Source\Repos\ReportingDesigner\ReportingDesigner\bin\Debug\MongoDB.Bson.xml
+C:\Users\Eric.Irwin\Source\Repos\ReportingDesigner\ReportingDesigner\bin\Debug\MongoDB.Driver.xml
