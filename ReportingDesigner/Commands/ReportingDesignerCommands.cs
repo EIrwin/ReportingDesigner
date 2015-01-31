@@ -56,5 +56,15 @@ namespace ReportingDesigner.Commands
         {
             get { return new UnpinControl(); }
         }
+
+        public static ICommand CreatePageTemplate
+        {
+            get { return new CreatePageTemplate(); }
+        }
+
+        public static ICommand SavePageTemplate
+        {
+            get { return new SavePageTemplate(); }
+        }
     }
 }

@@ -355,6 +355,8 @@ namespace ReportingDesigner.Views
         {
             //the following is only temporary
             string saveDiagram = DesignerCanvas.Save();
+            RadDiagram diagram = new RadDiagram();
+            diagram.Load(saveDiagram);
 
             var client = new MongoClient("mongodb://ds1.datamonkeytech.com:27017");
             var server = client.GetServer();
@@ -364,6 +366,22 @@ namespace ReportingDesigner.Views
 
             var query = new QueryDocument("Name", "Jack");
             var list = collection.Find(query);
+        }
+
+        public void CreatePageTemplate()
+        {
+            var window = new PageTemplateCreationOptionsWindow();
+            window.OptionsSelected += (o, e) =>
+                {
+                    var viewModel = new CreatePageTemplateViewModel()
+                        {
+                            Name = e.Name
+                        };
+
+                    var createPageTemplateWindow = new CreatePageTemplateWindow(viewModel);
+                    createPageTemplateWindow.Show();
+                };
+            window.Show();
         }
     }
 }

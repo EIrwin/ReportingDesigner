@@ -129,7 +129,7 @@
                     </telerik:RadGeometryDropDownButton>
 
 
-                    <!-- Edit Margins -->
+                    <!-- Pin Control -->
                     <telerik:RadGeometryButton Content="Pin Control"
                                                 Geometry="M4.0000019,4.000001 L9.000001,4.000001 L9.000001,9.999999 L10,9.999999 L10,4.000001 L10.093751,4.000001 L16.15,10 L16,10 L14,10 L9,10 L9,11 L14,11 L16,11 L16.15,11 L16.15,20 L4.0374999,20 L4.0374999,17 L4.0000019,17 z M0,0 L6.0562496,0 L8.2640638,3.000001 L3.0000017,3.000001 L3.0000017,4.000001 L3.000001,17 L0,17 z"
                                                 ToolTipService.ToolTip="Pin Control"
@@ -137,7 +137,7 @@
                                                 Command="commands:ReportingDesignerCommands.PinControl"
                                                 CommandParameter="{Binding ElementName=Designer}"/>
 
-                    <!-- Toggle Page Breaks Button-->
+                    <!-- Unpin-->
                     <telerik:RadGeometryButton Content="Unpin Control"
 								Geometry="M12,14L16,14L16,19L12,19zM7,14L11,14L11,19L7,19zM2,14L6,14L6,19L2,19zM12,8L16,8L16,13L12,13zM7,8L11,8L11,13L7,13zM2,8L6,8L6,13L2,13zM12,2L16,2L16,7L12,7zM7,2L11,2L11,7L7,7zM2,2L6,2L6,7L2,7zM1,1L1,20L17,20L17,1zM0,0L18,0L18,21L0,21z"
 								ToolTipService.ToolTip="Unpin Control" 
@@ -145,6 +145,14 @@
                                 Command="commands:ReportingDesignerCommands.UnpinControl"
                                 CommandParameter="{Binding ElementName=Designer}"/>
 
+                    <!-- Create Page Template-->
+                    <telerik:RadGeometryButton Content="Page Template"
+								Geometry="M11,0L18,7L11,7zM0,0L10,0L10,7L10,8L18,8L18,12L8.88893,12L8.88893,9L3.82715,14L8.88893,19L8.88893,16L18,16L18,21L0,21z"
+								ToolTipService.ToolTip="Create Page Template" 
+                                Margin="10"
+                                Command="commands:ReportingDesignerCommands.CreatePageTemplate"
+                                CommandParameter="{Binding ElementName=Designer}"/>
+                    
                     <Border Width="1" Grid.Column="1" Background="LightGray"/>
 
                 </StackPanel>

@@ -113,6 +113,5 @@ namespace ReportingDesigner.ViewModels
             if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        
     }
 }
