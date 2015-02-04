@@ -110,6 +110,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Data\PageTemplateRepository.cs" />
     <Compile Include="Events\CreatePageTemplateOptionsSelectedEventArgs.cs" />
     <Compile Include="Extensibility\PageTemplate.cs" />
     <Compile Include="DefaultFormats.Designer.cs">
@@ -134,7 +135,6 @@
     <Compile Include="Commands\ToggleGridLines.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="ViewModels\ControlViewModel.cs" />
-    <Compile Include="ViewModels\CreatePageTemplateViewModel.cs" />
     <Compile Include="ViewModels\PageNumberControlViewModel.cs" />
     <Compile Include="ViewModels\PageNumberViewModel.cs" />
     <Compile Include="ViewModels\PageTemplates\PageTemplateCreationOptionsViewModel.cs" />
@@ -147,14 +147,14 @@
     <Compile Include="ViewModels\TextBlockViewModel.cs" />
     <Compile Include="ViewModels\ToolboxItemViewModel.cs" />
     <Compile Include="ViewModels\ToolboxViewModel.cs" />
-    <Compile Include="Views\PageTemplates\CreateTemplateDesignerContainer.xaml.cs">
-      <DependentUpon>CreateTemplateDesignerContainer.xaml</DependentUpon>
+    <Compile Include="Views\PageTemplates\PageTemplateDesignerContainer.xaml.cs">
+      <DependentUpon>PageTemplateDesignerContainer.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\PageTemplates\PageTemplateCreationOptionsWindow.xaml.cs">
       <DependentUpon>PageTemplateCreationOptionsWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\PageTemplates\CreatePageTemplateWindow.xaml.cs">
-      <DependentUpon>CreatePageTemplateWindow.xaml</DependentUpon>
+    <Compile Include="Views\PageTemplates\PageTemplateWindow.xaml.cs">
+      <DependentUpon>PageTemplateWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\TextBlockSettingsView.xaml.cs">
       <DependentUpon>TextBlockSettingsView.xaml</DependentUpon>
@@ -218,7 +218,7 @@
       <DependentUpon>ReportWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Views\PageTemplates\CreateTemplateDesignerContainer.xaml">
+    <Page Include="Views\PageTemplates\PageTemplateDesignerContainer.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -226,7 +226,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\PageTemplates\CreatePageTemplateWindow.xaml">
+    <Page Include="Views\PageTemplates\PageTemplateWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -292,9 +292,7 @@
     </None>
     <AppDesigner Include="Properties\" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

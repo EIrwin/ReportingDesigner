@@ -4,15 +4,12 @@ using ReportingDesigner.Views;
 
 namespace ReportingDesigner.Commands
 {
-    public class ToggleMarginLines:ICommand
+    public class SavePageTemplate:ICommand
     {
         public void Execute(object parameter)
         {
-            if (parameter is DesignerContainer)
-                ((DesignerContainer)parameter).ToggleMarginLines();
-
             if (parameter is PageTemplateDesignerContainer)
-                ((PageTemplateDesignerContainer)parameter).ToggleMarginLines();
+                ((PageTemplateDesignerContainer) parameter).SavePageTemplate();
         }
 
         public bool CanExecute(object parameter)

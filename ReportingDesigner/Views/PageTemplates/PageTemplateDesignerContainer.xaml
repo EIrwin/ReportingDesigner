@@ -1,0 +1,54 @@
+﻿<telerik:RadDiagram x:Class="ReportingDesigner.Views.PageTemplateDesignerContainer"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             xmlns:views="clr-namespace:ReportingDesigner.Views"
+             xmlns:controls="clr-namespace:ReportingDesigner.Controls"
+             xmlns:converters="clr-namespace:ReportingDesigner.Extensibility.Converters"
+             mc:Ignorable="d"
+             Background="Gray"
+             Name="Container"
+             IsBackgroundSurfaceVisible="False"
+             IsRotationEnabled="False"
+             IsResizingEnabled="False"
+             IsEditable="False"
+             AllowCopy="False"
+             AllowPaste="False"
+             AllowDrop="False"
+             AllowDelete="False"
+             SelectionMode="None"
+             ScrollViewer.CanContentScroll="True"
+             ScrollViewer.HorizontalScrollBarVisibility="Auto"
+             ScrollViewer.VerticalScrollBarVisibility="Auto">
+    
+    <telerik:RadDiagram.Resources>
+        <converters:PositionConverter x:Key="PositionConverter"/>
+    </telerik:RadDiagram.Resources>
+    
+        <!-- Container Shape-->
+        <telerik:RadDiagramShape Height="900"
+                                 Background="White"
+                                 BorderThickness="0"
+                                 BorderBrush="Transparent"
+                                 Width="600" 
+                                 Padding="0"
+                                 Margin="0"
+                                 Name="DesignerCanvasShape">
+
+            <telerik:RadDiagramShape.Effect>
+                <DropShadowEffect BlurRadius="10"/>
+            </telerik:RadDiagramShape.Effect>
+            
+            <!-- Designer -->
+            <views:DesignerCanvas x:Name="DesignerCanvas"
+                              Height="{Binding ElementName=DesignerCanvasShape,Path=Height}" 
+                              Width="{Binding ElementName=DesignerCanvasShape,Path=Width}"
+                              Margin="{Binding Path=Margin,Mode=TwoWay}"
+                              IsBackgroundSurfaceVisible="{Binding Path=ShowGridLines,Mode=TwoWay}"/>
+
+         </telerik:RadDiagramShape>
+
+
+</telerik:RadDiagram>

@@ -353,19 +353,7 @@ namespace ReportingDesigner.Views
         
         public void UnpinControl()
         {
-            //the following is only temporary
-            string saveDiagram = DesignerCanvas.Save();
-            RadDiagram diagram = new RadDiagram();
-            diagram.Load(saveDiagram);
 
-            var client = new MongoClient("mongodb://ds1.datamonkeytech.com:27017");
-            var server = client.GetServer();
-            var database = server.GetDatabase("PortLogic");
-            var collection = database.GetCollection<BsonDocument>("templates");
-            collection.Insert(new BsonDocument("Name", "Jack"));
-
-            var query = new QueryDocument("Name", "Jack");
-            var list = collection.Find(query);
         }
 
         public void CreatePageTemplate()
@@ -373,12 +361,17 @@ namespace ReportingDesigner.Views
             var window = new PageTemplateCreationOptionsWindow();
             window.OptionsSelected += (o, e) =>
                 {
-                    var viewModel = new CreatePageTemplateViewModel()
-                        {
-                            Name = e.Name
-                        };
+                    //TODO: This needs to be put through a factory
+                    var pageFormat = new PageFormat();
+                    pageFormat.PageSize = new PageSize(Convert.ToDouble(DefaultFormats.Height),Convert.ToDouble(DefaultFormats.Width));
+                    pageFormat.UnitType = UnitType.Millimeters;
 
-                    var createPageTemplateWindow = new CreatePageTemplateWindow(viewModel);
+                    //Step 1: Initialize FormatSettings Object
+                    var settings = FormatSettingsFactory.CreateFormatSettings(PageOrientation.Portrait, 300,pageFormat,new Thickness(Convert.ToDouble(DefaultFormats.Margin)));
+
+                    var viewModel = new PageTemplateViewModel(e.Name, settings);
+
+                    var createPageTemplateWindow = new PageTemplateWindow(viewModel);
                     createPageTemplateWindow.Show();
                 };
             window.Show();

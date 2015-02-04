@@ -1,0 +1,114 @@
+﻿<Window x:Class="ReportingDesigner.PageTemplateWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:views="clr-namespace:ReportingDesigner.Views"
+        xmlns:controls="clr-namespace:ReportingDesigner.Controls"
+        xmlns:telerik="clr-namespace:Telerik.Windows.Controls.Diagrams.Extensions;assembly=Telerik.Windows.Controls.Diagrams.Extensions"
+        xmlns:commands="clr-namespace:ReportingDesigner.Commands"
+        Title="Create Page Template"  WindowStartupLocation="CenterScreen">
+    <Grid>
+
+        <!-- Grid Specification -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="85"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Toolbar -->
+        <Grid  Grid.Row="0" 
+                Grid.Column="0" 
+                Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="auto" />
+            </Grid.ColumnDefinitions>
+            <Border BorderBrush="#d6d4d4" BorderThickness="1">
+                <StackPanel Orientation="Horizontal">
+
+                    <!-- Toggle Grid Lines Button-->
+                    <telerik:RadGeometryButton Content="Grid Lines"
+								Geometry="M12,14L16,14L16,19L12,19zM7,14L11,14L11,19L7,19zM2,14L6,14L6,19L2,19zM12,8L16,8L16,13L12,13zM7,8L11,8L11,13L7,13zM2,8L6,8L6,13L2,13zM12,2L16,2L16,7L12,7zM7,2L11,2L11,7L7,7zM2,2L6,2L6,7L2,7zM1,1L1,20L17,20L17,1zM0,0L18,0L18,21L0,21z"
+								ToolTipService.ToolTip="Toggle Grid Lines" 
+                                Margin="10"
+                                Command="commands:ReportingDesignerCommands.ToggleGridLines"
+                                CommandParameter="{Binding ElementName=Designer}"/>
+
+                    <!-- Toggle Margin Lines Button-->
+                    <telerik:RadGeometryButton Content="Margin Lines"
+								 Geometry="M5.43706,12.9221C5.06338,12.9302 4.68594,13.02 4.33144,13.2C3.07102,13.85 2.57086,15.4 3.22107,16.66C3.86129,17.93 5.4118,18.43 6.67222,17.78C7.94265,17.13 8.43281,15.58 7.78259,14.32C7.32244,13.4144 6.39202,12.9014 5.43706,12.9221zM4.85162,10L5.47182,11.36C5.82194,11.36 6.17206,11.41 6.50217,11.5L7.48249,10.28L9.04301,11.25L8.47282,12.65C8.67289,12.87 8.85295,13.11 9.013,13.38L10.5735,13.21L11.0037,15L9.6132,15.58C9.6032,15.89 9.56319,16.2 9.49316,16.49L10.7036,17.47L9.74325,19.04L8.37279,18.47C8.15272,18.69 7.89263,18.88 7.62254,19.05L7.78259,20.57L5.992,21L5.43181,19.66C5.1017,19.66 4.78159,19.61 4.46149,19.53L3.52117,20.7L1.96065,19.73L2.50083,18.41C2.27076,18.18 2.07069,17.91 1.90063,17.61L0.430143,17.77L0,15.98L1.32044,15.43C1.33044,15.1 1.38046,14.77 1.46049,14.45L0.3001,13.51L1.27042,11.94L2.62087,12.5C2.82094,12.31 3.04101,12.14 3.2911,11.98L3.08103,10.48zM12,0L17.5,5.5L12,5.5zM2.00067,0L11,0L11,5.5L11,6.5L12,6.5L18,6.5L18,20L12.004,20L12.004,18L12,18L12,9L4.00059,9L4,9L2.00067,9z"
+								ToolTipService.ToolTip="Toggle Margin Lines" 
+                                Margin="10"
+                                Command="commands:ReportingDesignerCommands.ToggleMarginLines"
+                                CommandParameter="{Binding ElementName=Designer}"/>
+
+                    <!-- Edit Margins -->
+                    <telerik:RadGeometryButton Content="Margins..."
+                                                Geometry="M4.0000019,4.000001 L9.000001,4.000001 L9.000001,9.999999 L10,9.999999 L10,4.000001 L10.093751,4.000001 L16.15,10 L16,10 L14,10 L9,10 L9,11 L14,11 L16,11 L16.15,11 L16.15,20 L4.0374999,20 L4.0374999,17 L4.0000019,17 z M0,0 L6.0562496,0 L8.2640638,3.000001 L3.0000017,3.000001 L3.0000017,4.000001 L3.000001,17 L0,17 z"
+                                                ToolTipService.ToolTip="Edit Margins"
+                                                Margin="10"
+                                                Command="commands:ReportingDesignerCommands.EditMargins"
+                                               CommandParameter="{Binding ElementName=Designer}"/>
+
+
+                    <Border Width="1" Grid.Column="1" Background="LightGray"/>
+                    
+                    <!-- Save Template Button-->
+                    <telerik:RadGeometryButton Content="Save Template"
+                                               	Geometry="M11,0L18,7L11,7zM0,0L10,0L10,7L10,8L18,8L18,12L8.88893,12L8.88893,9L3.82715,14L8.88893,19L8.88893,16L18,16L18,21L0,21z"
+                                               ToolTipService.ToolTip="Save Template"
+                                               Margin="10"
+                                               Command="commands:ReportingDesignerCommands.SavePageTemplate"
+                                               CommandParameter="{Binding ElementName=Designer}"/>
+                    <Border Width="1" Grid.Column="1" Background="LightGray"/>
+
+                    
+
+                </StackPanel>
+            </Border>
+        </Grid>
+
+        <!-- Toolbox Specification -->
+        <controls:Toolbox x:Name="Toolbox" Grid.Row="1" 
+                          Grid.Column="0"/>
+
+        <Grid Grid.Row="1" 
+              Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Top Ruler-->
+            <telerik:RadDiagramRuler Grid.Row="0" 
+                                     Grid.Column="1"
+                                     Height="20" 
+                                     Placement="Top"
+						             BorderThickness="1 0 0 1" 
+                                     x:Name="TopRuler"
+                                     Diagram="{Binding ElementName=Designer}" />
+
+            <!-- Left Ruler-->
+            <telerik:RadDiagramRuler Grid.Row="1" 
+                                     Grid.Column="0" 
+                                     Placement="Left" 
+                                     Width="20"
+						             BorderThickness="0 1 1 0"  
+                                     x:Name="SideRuler"
+                                     Diagram="{Binding ElementName=Designer}" />
+
+            <!-- Designer Window -->
+            <views:PageTemplateDesignerContainer x:Name="Designer" DataContext="{Binding}" 
+                                     Grid.Column="1" 
+                                     Grid.Row="1">
+
+            </views:PageTemplateDesignerContainer>
+        </Grid>
+    </Grid>
+</Window>

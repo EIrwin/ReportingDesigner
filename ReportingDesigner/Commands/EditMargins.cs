@@ -10,6 +10,9 @@ namespace ReportingDesigner.Commands
         {
             if (parameter is DesignerContainer)
                 ((DesignerContainer) parameter).EditMargins();
+
+            if (parameter is PageTemplateDesignerContainer)
+                ((PageTemplateDesignerContainer) parameter).EditMargins();
         }
 
         public bool CanExecute(object parameter)

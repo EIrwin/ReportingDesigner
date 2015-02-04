@@ -10,6 +10,9 @@ namespace ReportingDesigner.Commands
         {
             if (parameter is DesignerContainer)
                 ((DesignerContainer) parameter).ToggleGridLines();
+
+            if (parameter is PageTemplateDesignerContainer)
+                ((PageTemplateDesignerContainer) parameter).ToggleGridLines();
         }
 
         public bool CanExecute(object parameter)

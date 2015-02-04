@@ -62,8 +62,8 @@ C:\Users\Eric.Irwin\Source\Repos\ReportingDesigner\ReportingDesigner\bin\Debug\M
 C:\Users\Eric.Irwin\Source\Repos\ReportingDesigner\ReportingDesigner\bin\Debug\MongoDB.Bson.xml
 C:\Users\Eric.Irwin\Source\Repos\ReportingDesigner\ReportingDesigner\bin\Debug\MongoDB.Driver.xml
 C:\Users\Eric.Irwin\Source\Repos\ReportingDesigner\ReportingDesigner\obj\Debug\Views\PageTemplates\PageTemplateCreationOptionsWindow.baml
-C:\Users\Eric.Irwin\Source\Repos\ReportingDesigner\ReportingDesigner\obj\Debug\Views\PageTemplates\CreatePageTemplateWindow.baml
 C:\Users\Eric.Irwin\Source\Repos\ReportingDesigner\ReportingDesigner\obj\Debug\Views\PageTemplates\PageTemplateCreationOptionsWindow.g.cs
-C:\Users\Eric.Irwin\Source\Repos\ReportingDesigner\ReportingDesigner\obj\Debug\Views\PageTemplates\CreatePageTemplateWindow.g.cs
-C:\Users\Eric.Irwin\Source\Repos\ReportingDesigner\ReportingDesigner\obj\Debug\Views\PageTemplates\CreateTemplateDesignerContainer.g.cs
-C:\Users\Eric.Irwin\Source\Repos\ReportingDesigner\ReportingDesigner\obj\Debug\Views\PageTemplates\CreateTemplateDesignerContainer.baml
+C:\Users\Eric.Irwin\Source\Repos\ReportingDesigner\ReportingDesigner\obj\Debug\Views\PageTemplates\PageTemplateDesignerContainer.g.cs
+C:\Users\Eric.Irwin\Source\Repos\ReportingDesigner\ReportingDesigner\obj\Debug\Views\PageTemplates\PageTemplateWindow.g.cs
+C:\Users\Eric.Irwin\Source\Repos\ReportingDesigner\ReportingDesigner\obj\Debug\Views\PageTemplates\PageTemplateDesignerContainer.baml
+C:\Users\Eric.Irwin\Source\Repos\ReportingDesigner\ReportingDesigner\obj\Debug\Views\PageTemplates\PageTemplateWindow.baml
