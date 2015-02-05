@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows;
+using ReportingDesigner.Extensibility;
 using ReportingDesigner.Models;
 using ReportingDesigner.ViewModels;
 using ReportingDesigner.Views;
@@ -14,6 +15,19 @@ namespace ReportingDesigner
             InitializeComponent();
             InitializeToolbox();
             DataContext = viewModel;
+        }
+
+        public PageTemplateWindow()
+        {
+            var pageFormat = new PageFormat();
+            pageFormat.PageSize = new PageSize(Convert.ToDouble(DefaultFormats.Height), Convert.ToDouble(DefaultFormats.Width));
+            pageFormat.UnitType = UnitType.Millimeters;
+
+            var settings = FormatSettingsFactory.CreateFormatSettings(PageOrientation.Portrait, 300, pageFormat, new Thickness(Convert.ToDouble(DefaultFormats.Margin)));
+
+            InitializeComponent();
+            InitializeToolbox();
+            DataContext = new PageTemplateViewModel("Template", settings);       
         }
 
         public void InitializeToolbox()

@@ -66,5 +66,15 @@ namespace ReportingDesigner.Commands
         {
             get { return new SavePageTemplate(); }
         }
+
+        public static ICommand NewPageTemplate
+        {
+            get { return new NewPageTemplate(); }
+        }
+
+        public static ICommand LoadPageTemplate
+        {
+            get { return new LoadPageTemplate(); }
+        }
     }
 }

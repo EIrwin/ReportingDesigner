@@ -81,6 +81,8 @@
     <Compile Include="Commands\AddPageBefore.cs" />
     <Compile Include="Commands\CreatePageTemplate.cs" />
     <Compile Include="Commands\EditMargins.cs" />
+    <Compile Include="Commands\LoadPageTemplate.cs" />
+    <Compile Include="Commands\NewPageTemplate.cs" />
     <Compile Include="Commands\PinControl.cs" />
     <Compile Include="Commands\Print.cs" />
     <Compile Include="Commands\ReportingDesignerCommands.cs" />
@@ -111,7 +113,9 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Data\PageTemplateRepository.cs" />
-    <Compile Include="Events\CreatePageTemplateOptionsSelectedEventArgs.cs" />
+    <Compile Include="Events\OptionsSelectedEventArgs.cs" />
+    <Compile Include="Events\TemplateSelectedEventArgs.cs" />
+    <Compile Include="Extensibility\Converters\TestConverter.cs" />
     <Compile Include="Extensibility\PageTemplate.cs" />
     <Compile Include="DefaultFormats.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -138,6 +142,7 @@
     <Compile Include="ViewModels\PageNumberControlViewModel.cs" />
     <Compile Include="ViewModels\PageNumberViewModel.cs" />
     <Compile Include="ViewModels\PageTemplates\PageTemplateCreationOptionsViewModel.cs" />
+    <Compile Include="ViewModels\PageTemplates\PageTemplateSelectViewModel.cs" />
     <Compile Include="ViewModels\PageTemplates\PageTemplateViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="Properties\Annotations.cs" />
@@ -152,6 +157,9 @@
     </Compile>
     <Compile Include="Views\PageTemplates\PageTemplateCreationOptionsWindow.xaml.cs">
       <DependentUpon>PageTemplateCreationOptionsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PageTemplates\PageTemplateSelectWindow.xaml.cs">
+      <DependentUpon>PageTemplateSelectWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\PageTemplates\PageTemplateWindow.xaml.cs">
       <DependentUpon>PageTemplateWindow.xaml</DependentUpon>
@@ -223,6 +231,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\PageTemplates\PageTemplateCreationOptionsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PageTemplates\PageTemplateSelectWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

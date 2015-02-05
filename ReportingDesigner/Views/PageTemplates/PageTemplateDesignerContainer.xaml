@@ -25,6 +25,7 @@
     
     <telerik:RadDiagram.Resources>
         <converters:PositionConverter x:Key="PositionConverter"/>
+        <converters:TestConverter x:Key="TestConverter"/>
     </telerik:RadDiagram.Resources>
     
         <!-- Container Shape-->

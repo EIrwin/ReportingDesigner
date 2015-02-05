@@ -13,6 +13,7 @@ using ReportingDesigner.Events;
 using ReportingDesigner.Extensibility;
 using ReportingDesigner.Models;
 using ReportingDesigner.ViewModels;
+using ReportingDesigner.Views.PageTemplates;
 using Telerik.Windows.Controls;
 using ViewModelBase = ReportingDesigner.ViewModels.ViewModelBase;
 
@@ -42,11 +43,11 @@ namespace ReportingDesigner.Views
 
             InitializeComponent();
 
+            this.Loaded += InitializePageTemplate;
+
             DesignerCanvas.DataContext = DataContext;
             DesignerCanvas.PreviewDrop += DesignerCanvas_PreviewDrop;
             DesignerCanvas.AdditionalContentActivated += DesignerCanvas_AdditionalContentActivated;
-
-            this.Loaded += InitializePageTemplate;
         }
 
         private void DesignerCanvas_AdditionalContentActivated(object sender, Telerik.Windows.Controls.Diagrams.AdditionalContentActivatedEventArgs e)
@@ -81,13 +82,25 @@ namespace ReportingDesigner.Views
 
         private void InitializePageTemplate(object sender,EventArgs e)
         {
-            //Step 1: Initialize PageTemplateViewModel object
-            ViewModel = (PageTemplateViewModel) this.DataContext;
+            var pageFormat = new PageFormat();
+            pageFormat.PageSize = new PageSize(Convert.ToDouble(DefaultFormats.Height),Convert.ToDouble(DefaultFormats.Width));
+            pageFormat.UnitType = UnitType.Millimeters;
 
-            //Step 2: Initialize PageViewModel
+            //Step 1: Initialize FormatSettings Object
+            var settings = FormatSettingsFactory.CreateFormatSettings(PageOrientation.Portrait, 300,pageFormat,new Thickness(Convert.ToDouble(DefaultFormats.Margin)));
+
+            //Step 2: Initialize PageTemplateViewModel object
+            ViewModel = ((PageTemplateViewModel) this.DataContext) == null
+                            ? new PageTemplateViewModel(settings)
+                            : (PageTemplateViewModel) this.DataContext;
+
+            if (DesignerCanvas.DataContext == null) 
+                DesignerCanvas.DataContext = DataContext;
+
+            //Step 3: Initialize PageViewModel
             var pageViewModel = new PageViewModel(0, ViewModel.FormatSettings.PageFormat.PageSize.Height, 1);
 
-            //Step 3: Initialize Margin
+            //Step 4: Initialize Margin
             var marginShape = new MarginShape
                 {
                     Position = new Point(ViewModel.FormatSettings.Margin.Left, ViewModel.FormatSettings.Margin.Top),
@@ -114,8 +127,9 @@ namespace ReportingDesigner.Views
         }
 
         public void ToggleGridLines()
-        {
+        {         
             ViewModel.ShowGridLines = !ViewModel.ShowGridLines;
+            DesignerCanvas.IsBackgroundSurfaceVisible = ViewModel.ShowGridLines;    //only temporary 
         }
 
         public void ToggleMarginLines()
@@ -152,6 +166,26 @@ namespace ReportingDesigner.Views
                 };
             var pageTemplateRepository = new PageTemplateRepository();
             pageTemplateRepository.Insert(pageTemplate);
+        }
+
+        public void NewPageTemplate()
+        {
+            var window = new PageTemplateCreationOptionsWindow();
+            window.OptionsSelected += (o, e) =>
+                {
+                    //we can load new page template and viewmodel here
+                };
+            window.ShowDialog();
+        }
+
+        public void LoadPageTemplate()
+        { 
+            var window = new PageTemplateSelectWindow();
+            window.TemplateSelected += (o, e) =>
+                {
+                    //we can load page template and view model here
+                };
+            window.ShowDialog();
         }
     }
 }

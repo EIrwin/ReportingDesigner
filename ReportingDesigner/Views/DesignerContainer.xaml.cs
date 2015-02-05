@@ -358,23 +358,8 @@ namespace ReportingDesigner.Views
 
         public void CreatePageTemplate()
         {
-            var window = new PageTemplateCreationOptionsWindow();
-            window.OptionsSelected += (o, e) =>
-                {
-                    //TODO: This needs to be put through a factory
-                    var pageFormat = new PageFormat();
-                    pageFormat.PageSize = new PageSize(Convert.ToDouble(DefaultFormats.Height),Convert.ToDouble(DefaultFormats.Width));
-                    pageFormat.UnitType = UnitType.Millimeters;
-
-                    //Step 1: Initialize FormatSettings Object
-                    var settings = FormatSettingsFactory.CreateFormatSettings(PageOrientation.Portrait, 300,pageFormat,new Thickness(Convert.ToDouble(DefaultFormats.Margin)));
-
-                    var viewModel = new PageTemplateViewModel(e.Name, settings);
-
-                    var createPageTemplateWindow = new PageTemplateWindow(viewModel);
-                    createPageTemplateWindow.Show();
-                };
-            window.Show();
+            var window = new PageTemplateWindow();
+            window.ShowDialog();
         }
     }
 }
