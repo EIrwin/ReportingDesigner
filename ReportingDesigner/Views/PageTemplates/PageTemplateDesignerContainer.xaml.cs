@@ -68,20 +68,22 @@ namespace ReportingDesigner.Views
 
             PageViewModel pageViewModel = ViewModel.Pages.First();
 
-            ReportControlViewModel viewModel = (ReportControlViewModel)Activator.CreateInstance(item.ViewModelType, new object[] {ViewModel,pageViewModel });
+            var viewModel = (ReportControlViewModel)Activator.CreateInstance(item.ViewModelType, new object[] {null,pageViewModel });
             viewModel.Position = e.GetPosition(this.DesignerCanvas);
             viewModel.ViewType = item.ViewType;
             viewModel.SettingsViewType = item.SettingsViewType;
 
             pageViewModel.Controls.Add(viewModel);
 
-            ReportControlView view = (ReportControlView)Activator.CreateInstance(item.ViewType);
+            var view = (ReportControlView)Activator.CreateInstance(item.ViewType);
             view.DataContext = viewModel;
             this.DesignerCanvas.AddShape(view);
         }
 
         private void InitializePageTemplate(object sender,EventArgs e)
         {
+            DesignerCanvas.Clear();
+
             var pageFormat = new PageFormat();
             pageFormat.PageSize = new PageSize(Convert.ToDouble(DefaultFormats.Height),Convert.ToDouble(DefaultFormats.Width));
             pageFormat.UnitType = UnitType.Millimeters;
@@ -179,12 +181,9 @@ namespace ReportingDesigner.Views
         }
 
         public void LoadPageTemplate()
-        { 
+        {
             var window = new PageTemplateSelectWindow();
-            window.TemplateSelected += (o, e) =>
-                {
-                    //we can load page template and view model here
-                };
+            window.TemplateSelected += (o, e) => DesignerCanvas.Load(e.PageTemplate.Data);
             window.ShowDialog();
         }
     }

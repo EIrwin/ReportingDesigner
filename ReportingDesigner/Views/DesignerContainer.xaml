@@ -51,13 +51,16 @@
             </telerik:RadDiagramShape.Effect>
             
             <!-- Designer -->
-            <views:DesignerCanvas x:Name="DesignerCanvas"
+        <views:DesignerCanvas x:Name="DesignerCanvas"
                               Height="{Binding ElementName=DesignerCanvasShape,Path=Height}" 
                               Width="{Binding ElementName=DesignerCanvasShape,Path=Width}"
                               Margin="{Binding Path=Margin,Mode=TwoWay}"
-                              IsBackgroundSurfaceVisible="{Binding Path=ShowGridLines,Mode=TwoWay}"/>
+                              IsBackgroundSurfaceVisible="{Binding Path=ShowGridLines,Mode=TwoWay}">
+            
+        </views:DesignerCanvas>
 
-         </telerik:RadDiagramShape>
+
+    </telerik:RadDiagramShape>
 
 
     <!-- Add Page After Pane-->

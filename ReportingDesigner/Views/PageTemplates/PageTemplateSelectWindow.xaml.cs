@@ -18,9 +18,6 @@ using ReportingDesigner.ViewModels.PageTemplates;
 
 namespace ReportingDesigner.Views.PageTemplates
 {
-    /// <summary>
-    /// Interaction logic for PageTemplateSelectWindow.xaml
-    /// </summary>
     public partial class PageTemplateSelectWindow : Window
     {
         public delegate void TemplateSelectedHandler(object sender, TemplateSelectedEventArgs e);

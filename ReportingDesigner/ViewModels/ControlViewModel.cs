@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using ReportingDesigner.Extensibility;
 
 namespace ReportingDesigner.ViewModels
 {
@@ -6,7 +8,10 @@ namespace ReportingDesigner.ViewModels
     {
         private Guid _id;
         private string _name;
-        private string _description;
+        private bool _showMarginLines;
+        private List<PageViewModel> _pages;
+        private bool _showGridLines;
+        private FormatSettings _formatSettings;
 
         public Guid Id
         {
@@ -34,15 +39,55 @@ namespace ReportingDesigner.ViewModels
             }
         }
 
-        public string Description
+        public FormatSettings FormatSettings
         {
-            get { return _description; }
+            get { return _formatSettings; }
             set
             {
-                if (_description != value)
+                if (_formatSettings != value)
                 {
-                    _description = value;
-                    OnPropertyChanged("Description");
+                    _formatSettings = value;
+                    OnPropertyChanged("FormatSettings");
+                }
+            }
+        }
+
+        public bool ShowGridLines
+        {
+            get { return _showGridLines; }
+            set
+            {
+                if (_showGridLines != value)
+                {
+                    _showGridLines = value;
+                    OnPropertyChanged("ShowGridLines");
+                }
+
+            }
+        }
+
+        public bool ShowMarginLines
+        {
+            get { return _showMarginLines; }
+            set
+            {
+                if (_showMarginLines != value)
+                {
+                    _showMarginLines = value;
+                    OnPropertyChanged("ShowMarginLines");
+                }
+            }
+        }
+
+        public List<PageViewModel> Pages
+        {
+            get { return _pages; }
+            set
+            {
+                if (_pages != value)
+                {
+                    _pages = value;
+                    OnPropertyChanged("Pages");
                 }
             }
         }
