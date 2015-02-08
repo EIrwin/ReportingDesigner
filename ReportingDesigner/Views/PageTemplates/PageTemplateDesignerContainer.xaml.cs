@@ -183,7 +183,36 @@ namespace ReportingDesigner.Views
         public void LoadPageTemplate()
         {
             var window = new PageTemplateSelectWindow();
-            window.TemplateSelected += (o, e) => DesignerCanvas.Load(e.PageTemplate.Data);
+            window.TemplateSelected += (o, e) =>
+                {
+                    DesignerCanvas.Clear();
+
+                    //the following is only temporary until
+                    //we can find an extensible way of handling 
+                    //view/viewmodel deserialization
+                    DesignerCanvas.ShapeDeserialized += (obj, args) =>
+                        {
+                            var typeInfo = args.SerializationInfo["Type"];
+                            Type type = Type.GetType(typeInfo.ToString());
+
+                            if(type == typeof(PageNumberControl))
+                            {
+                                ((FrameworkElement) args.Shape).DataContext = new PageNumberControlViewModel(null, null)
+                                    {
+                                        Position = new Point(args.Shape.Position.X, args.Shape.Position.Y)
+                                    };
+                            }
+
+                            if (type == typeof(TextBlockView))
+                            {
+                                ((FrameworkElement)args.Shape).DataContext = new TextBlockViewModel(null, null)
+                                {
+                                    Position = new Point(args.Shape.Position.X, args.Shape.Position.Y)
+                                };
+                            }
+                        };
+                    DesignerCanvas.Load(e.PageTemplate.Data);
+                };
             window.ShowDialog();
         }
     }

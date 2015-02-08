@@ -5,9 +5,9 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:views="clr-namespace:ReportingDesigner.Views"
              mc:Ignorable="d"
-             Position="{Binding Position,Mode=TwoWay}" 
              Background="Transparent"
              BorderBrush="Transparent"
-             BorderThickness="0">
+             BorderThickness="0"
+             Position="{Binding Position,Mode=TwoWay}">
     
 </views:ReportControlView>

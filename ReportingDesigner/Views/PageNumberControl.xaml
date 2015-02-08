@@ -5,9 +5,10 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:views="clr-namespace:ReportingDesigner.Views"
              mc:Ignorable="d"
-             Position="{Binding Position,Mode=TwoWay}" 
              Background="Transparent"
-             BorderThickness="0"
-             BorderBrush="Transparent">
+             BorderBrush="Transparent"
+                         Position="{Binding Position,Mode=TwoWay}"
+    BorderThickness="0">
+              
     <TextBlock>1</TextBlock>
 </views:ReportControlView>

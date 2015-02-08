@@ -9,6 +9,7 @@ namespace ReportingDesigner.Views
         public PageNumberControl()
         {
             InitializeComponent();
+
         }
     }
 }
