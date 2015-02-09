@@ -62,7 +62,6 @@ namespace ReportingDesigner.Views
 
                 foreach (var item in serializationData)
                     e.SerializationInfo["VM." + item.Key] = item.Value;
-                
             }
         }
 
@@ -70,13 +69,16 @@ namespace ReportingDesigner.Views
         {
             if (e.Shape is ISerializable)
             {
+                //grab type metadata from SerializationInfo object
                 var viewModelTypeInfo = e.SerializationInfo[SerializablePropertyNames.ViewModelType];
                 Type viewModelType = Type.GetType(viewModelTypeInfo.ToString());
 
+                //initialize view model from deserialized property values
                 var viewModel = (ReportControlViewModel) Activator.CreateInstance(viewModelType, new object[]{null,null});
                 viewModel.Position = e.Shape.Position;
-
                 ((FrameworkElement)e.Shape).DataContext = viewModel;
+
+                //update view model with deserialized property values
                 var info = new SerializationInfo(e.SerializationInfo);
                 ((ISerializable) e.Shape).Deserialize(info);
             }
