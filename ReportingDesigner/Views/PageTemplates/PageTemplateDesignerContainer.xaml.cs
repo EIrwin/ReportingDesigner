@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Input;
+using System.Xml.Linq;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization;
 using MongoDB.Bson.Serialization.IdGenerators;
@@ -11,6 +12,7 @@ using ReportingDesigner.Controls;
 using ReportingDesigner.Data;
 using ReportingDesigner.Events;
 using ReportingDesigner.Extensibility;
+using ReportingDesigner.Extensibility.Serialization;
 using ReportingDesigner.Models;
 using ReportingDesigner.ViewModels;
 using ReportingDesigner.Views.PageTemplates;
@@ -48,6 +50,36 @@ namespace ReportingDesigner.Views
             DesignerCanvas.DataContext = DataContext;
             DesignerCanvas.PreviewDrop += DesignerCanvas_PreviewDrop;
             DesignerCanvas.AdditionalContentActivated += DesignerCanvas_AdditionalContentActivated;
+            DesignerCanvas.ShapeSerialized += DesignerCanvas_ShapeSerialized;
+            DesignerCanvas.ShapeDeserialized += DesignerCanvas_ShapeDeserialized;
+        }
+
+        private void DesignerCanvas_ShapeSerialized(object sender, Telerik.Windows.Controls.Diagrams.ShapeSerializationRoutedEventArgs e)
+        {
+            if (e.Shape is ISerializable)
+            {
+                var serializationData = ((ISerializable) e.Shape).Serialize();
+
+                foreach (var item in serializationData)
+                    e.SerializationInfo["VM." + item.Key] = item.Value;
+                
+            }
+        }
+
+        private void DesignerCanvas_ShapeDeserialized(object sender, Telerik.Windows.Controls.Diagrams.ShapeSerializationRoutedEventArgs e)
+        {
+            if (e.Shape is ISerializable)
+            {
+                var viewModelTypeInfo = e.SerializationInfo[SerializablePropertyNames.ViewModelType];
+                Type viewModelType = Type.GetType(viewModelTypeInfo.ToString());
+
+                var viewModel = (ReportControlViewModel) Activator.CreateInstance(viewModelType, new object[]{null,null});
+                viewModel.Position = e.Shape.Position;
+
+                ((FrameworkElement)e.Shape).DataContext = viewModel;
+                var info = new SerializationInfo(e.SerializationInfo);
+                ((ISerializable) e.Shape).Deserialize(info);
+            }
         }
 
         private void DesignerCanvas_AdditionalContentActivated(object sender, Telerik.Windows.Controls.Diagrams.AdditionalContentActivatedEventArgs e)
@@ -59,7 +91,6 @@ namespace ReportingDesigner.Views
                 var model = (ViewModelBase)view.DataContext;
                 this.DesignerCanvas.SettingPane.DataContext = model;
             }
-            
         }
 
         private void DesignerCanvas_PreviewDrop(object sender, DragEventArgs e)
@@ -186,31 +217,6 @@ namespace ReportingDesigner.Views
             window.TemplateSelected += (o, e) =>
                 {
                     DesignerCanvas.Clear();
-
-                    //the following is only temporary until
-                    //we can find an extensible way of handling 
-                    //view/viewmodel deserialization
-                    DesignerCanvas.ShapeDeserialized += (obj, args) =>
-                        {
-                            var typeInfo = args.SerializationInfo["Type"];
-                            Type type = Type.GetType(typeInfo.ToString());
-
-                            if(type == typeof(PageNumberControl))
-                            {
-                                ((FrameworkElement) args.Shape).DataContext = new PageNumberControlViewModel(null, null)
-                                    {
-                                        Position = new Point(args.Shape.Position.X, args.Shape.Position.Y)
-                                    };
-                            }
-
-                            if (type == typeof(TextBlockView))
-                            {
-                                ((FrameworkElement)args.Shape).DataContext = new TextBlockViewModel(null, null)
-                                {
-                                    Position = new Point(args.Shape.Position.X, args.Shape.Position.Y)
-                                };
-                            }
-                        };
                     DesignerCanvas.Load(e.PageTemplate.Data);
                 };
             window.ShowDialog();

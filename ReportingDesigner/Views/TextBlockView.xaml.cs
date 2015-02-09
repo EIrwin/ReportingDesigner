@@ -1,33 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using ReportingDesigner.Extensibility.Serialization;
+using ReportingDesigner.ViewModels;
 
 namespace ReportingDesigner.Views
 {
-    /// <summary>
-    /// Interaction logic for TextBlockView.xaml
-    /// </summary>
     public partial class TextBlockView : ReportControlView
     {
-
-        private const string TextName = "Text";
-
-        public static readonly DependencyProperty TextProperty = DependencyProperty.Register("Text", typeof(string), typeof(TextBlockView), new FrameworkPropertyMetadata("", OnTextChange));
-
-        public string Text
+        private TextBlockViewModel _viewModel
         {
-            get { return (string)this.GetValue(TextProperty); }
-            set { this.SetValue(TextProperty, value); }
+            get { return (TextBlockViewModel) DataContext; }
         }
 
         public TextBlockView()
@@ -35,14 +17,18 @@ namespace ReportingDesigner.Views
             InitializeComponent();
         }
 
-        private static void OnTextChange(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        public override IDictionary<string, string> Serialize()
         {
-            ((TextBlockView)d).OnTextChange(e);
+            return new Dictionary<string, string>()
+                {
+                    {"Text",_viewModel.Text},
+                    {SerializablePropertyNames.ViewModelType,_viewModel.GetType().ToString()}
+                };
         }
 
-        private void OnTextChange(DependencyPropertyChangedEventArgs e)
+        public override void Deserialize(SerializationInfo info)
         {
-            this.Content = this.Text;
+            _viewModel.Text = info["VM.Text"];
         }
     }
 }

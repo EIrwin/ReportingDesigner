@@ -7,8 +7,8 @@
              mc:Ignorable="d"
              Background="Transparent"
              BorderBrush="Transparent"
-                         Position="{Binding Position,Mode=TwoWay}"
-    BorderThickness="0">
+             Position="{Binding Position,Mode=TwoWay}"
+             BorderThickness="0">
               
-    <TextBlock>1</TextBlock>
+    <TextBlock x:Name="PageNumber" Text="{Binding PageNumber, Mode=TwoWay}"/>
 </views:ReportControlView>

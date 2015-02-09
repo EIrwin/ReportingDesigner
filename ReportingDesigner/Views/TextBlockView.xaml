@@ -8,6 +8,5 @@
              Background="Transparent"
              BorderBrush="Transparent"
              BorderThickness="0"
-             Position="{Binding Position,Mode=TwoWay}">
-    
+             Position="{Binding Position,Mode=TwoWay}" Content="{Binding Text,Mode=TwoWay}">
 </views:ReportControlView>

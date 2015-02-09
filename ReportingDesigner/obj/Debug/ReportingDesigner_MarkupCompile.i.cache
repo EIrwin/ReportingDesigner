@@ -12,9 +12,9 @@ DEBUG;TRACE
 
 20-782094342
 
-78-1963583058
+81412058189
 251331253489
 Controls\AddPageAfterPane.xaml;Controls\AddPageBeforePane.xaml;Controls\MarginShape.xaml;Controls\PageBreakShape.xaml;Controls\Toolbox.xaml;Controls\ToolboxComponent.xaml;App.xaml;ReportWindow.xaml;Views\PageTemplates\PageTemplateDesignerContainer.xaml;Views\PageTemplates\PageTemplateCreationOptionsWindow.xaml;Views\PageTemplates\PageTemplateSelectWindow.xaml;Views\PageTemplates\PageTemplateWindow.xaml;Views\TextBlockSettingsView.xaml;Views\PageNumberControl.xaml;Views\DesignerCanvas.xaml;Views\DesignerContainer.xaml;Views\EditMarginsWindow.xaml;Views\PageNumberSettingsView.xaml;Views\PageNumberView.xaml;Views\TextBlockView.xaml;
 
-True
+False
 

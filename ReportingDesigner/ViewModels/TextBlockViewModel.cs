@@ -25,7 +25,7 @@ namespace ReportingDesigner.ViewModels
         public TextBlockViewModel(ReportViewModel report, PageViewModel page)
             : base(report, page)
         {
-            
+            Text = "Type text here!";
         }
 
     }
