@@ -192,15 +192,8 @@ namespace ReportingDesigner.Views
         public void SavePageTemplate()
         {
             string data = DesignerCanvas.Save();
-
-            var dataContext = (PageTemplateViewModel) DataContext;
-            var pageTemplate = new PageTemplate()
-                {
-                    Name = dataContext.Name,
-                    Data = data
-                };
-            var pageTemplateRepository = new PageTemplateRepository();
-            pageTemplateRepository.Insert(pageTemplate);
+            var window = new PageTemplateSaveWindow(data);
+            window.ShowDialog();
         }
 
         public void NewPageTemplate()

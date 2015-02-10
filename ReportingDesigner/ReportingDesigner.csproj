@@ -149,6 +149,7 @@
     <Compile Include="ViewModels\PageNumberControlViewModel.cs" />
     <Compile Include="ViewModels\PageNumberViewModel.cs" />
     <Compile Include="ViewModels\PageTemplates\PageTemplateCreationOptionsViewModel.cs" />
+    <Compile Include="ViewModels\PageTemplates\PageTemplateSaveViewModel.cs" />
     <Compile Include="ViewModels\PageTemplates\PageTemplateSelectViewModel.cs" />
     <Compile Include="ViewModels\PageTemplates\PageTemplateViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
@@ -164,6 +165,9 @@
     </Compile>
     <Compile Include="Views\PageTemplates\PageTemplateCreationOptionsWindow.xaml.cs">
       <DependentUpon>PageTemplateCreationOptionsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PageTemplates\PageTemplateSaveWindow.xaml.cs">
+      <DependentUpon>PageTemplateSaveWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\PageTemplates\PageTemplateSelectWindow.xaml.cs">
       <DependentUpon>PageTemplateSelectWindow.xaml</DependentUpon>
@@ -238,6 +242,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\PageTemplates\PageTemplateCreationOptionsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PageTemplates\PageTemplateSaveWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
