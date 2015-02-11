@@ -145,14 +145,35 @@
                                 Command="commands:ReportingDesignerCommands.UnpinControl"
                                 CommandParameter="{Binding ElementName=Designer}"/>
 
-                    <!-- Create Page Template-->
-                    <telerik:RadGeometryButton Content="Page Template"
-								Geometry="M11,0L18,7L11,7zM0,0L10,0L10,7L10,8L18,8L18,12L8.88893,12L8.88893,9L3.82715,14L8.88893,19L8.88893,16L18,16L18,21L0,21z"
-								ToolTipService.ToolTip="Create Page Template" 
-                                Margin="10"
-                                Command="commands:ReportingDesignerCommands.CreatePageTemplate"
-                                CommandParameter="{Binding ElementName=Designer}"/>
-                    
+                    <!-- Page Template DropDownButton -->
+                    <telerik:RadGeometryDropDownButton  Content="Page Template" ToolTipService.ToolTip="Page Template"
+                                                        Margin="10"
+						                                DropDownHeight="200" DropDownWidth="145"
+					                                    Geometry="M11,0L18,7L11,7zM0,0L10,0L10,7L10,8L18,8L18,12L8.88893,12L8.88893,9L3.82715,14L8.88893,19L8.88893,16L18,16L18,21L0,21z">
+                        <telerik:RadGeometryDropDownButton.DropDownContent>
+                            <StackPanel Margin="10">
+
+                                <!-- Create Page Template Button-->
+                                <telerik:RadGeometryButton Content="Create Template" Margin="2"
+									Geometry="M6.7093377,5.0820007 C10.505837,5.0813236 12.205385,8.5835428 13.709369,8.4989958 C15.616847,8.3917685 16.999527,6.8087606 16.999527,6.8087606 L17.000025,13.080002 L3.0000243,13.080002 L3.0000243,7.9753876 C3.0000243,7.9753876 4.842936,5.0823336 6.7093377,5.0820007 z M1.9999999,2.0000048 L1.9999999,13.999995 L18,13.999995 L18,2.0000048 z M1.1920929E-06,0 L20,0 L20,16 L0,16 z" 
+                                                           Command="commands:ReportingDesignerCommands.CreatePageTemplate"
+                                                           CommandParameter="{Binding ElementName=Designer}"/>
+
+                                <!-- Edit Page Template Button-->
+                                <telerik:RadGeometryButton Content="Edit Template" Margin="2"
+									                       Geometry="M6.7093377,5.0820007 C10.505837,5.0813236 12.205385,8.5835428 13.709369,8.4989958 C15.616847,8.3917685 16.999527,6.8087606 16.999527,6.8087606 L17.000025,13.080002 L3.0000243,13.080002 L3.0000243,7.9753876 C3.0000243,7.9753876 4.842936,5.0823336 6.7093377,5.0820007 z M1.9999999,2.0000048 L1.9999999,13.999995 L18,13.999995 L18,2.0000048 z M1.1920929E-06,0 L20,0 L20,16 L0,16 z"
+                                                           Command="commands:ReportingDesignerCommands.EditPageTemplate"
+                                                           CommandParameter="{Binding ElementName=Designer}"/>
+
+                                <!-- Apply Page Template Button-->
+                                <telerik:RadGeometryButton Content="Apply Template" Margin="2"
+									Geometry="M11,0L18,7L11,7zM0,0L10,0L10,7L10,8L18,8L18,12L8.88893,12L8.88893,9L3.82715,14L8.88893,19L8.88893,16L18,16L18,21L0,21z" />
+
+                                
+                            </StackPanel>
+                        </telerik:RadGeometryDropDownButton.DropDownContent>
+                    </telerik:RadGeometryDropDownButton>
+
                     <Border Width="1" Grid.Column="1" Background="LightGray"/>
 
                 </StackPanel>

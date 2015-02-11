@@ -42,6 +42,9 @@ namespace ReportingDesigner.Views.PageTemplates
         private void SelectTemplateButton_Click(object sender, RoutedEventArgs e)
         {
             var pageTemplate = (PageTemplate) PageTemplateListBox.SelectedItem;
+
+            if (pageTemplate == null) return;
+
             var args = new TemplateSelectedEventArgs(pageTemplate);
             OnTemplateSelected(args);
             Close();

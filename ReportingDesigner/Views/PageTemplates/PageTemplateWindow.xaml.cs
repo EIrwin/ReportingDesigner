@@ -10,15 +10,13 @@ namespace ReportingDesigner
 {
     public partial class PageTemplateWindow : Window
     {
-        public PageTemplateWindow(PageTemplateViewModel viewModel)
-        {
-            InitializeComponent();
-            InitializeToolbox();
-            DataContext = viewModel;
-        }
-
+        //This constructor is used if they 
+        //do not have an existing page template
         public PageTemplateWindow()
         {
+            //We want to initialize default format
+            //settings here so they can be passed into the 
+            //PageTemplateViewModel
             var pageFormat = new PageFormat();
             pageFormat.PageSize = new PageSize(Convert.ToDouble(DefaultFormats.Height), Convert.ToDouble(DefaultFormats.Width));
             pageFormat.UnitType = UnitType.Millimeters;
@@ -27,7 +25,17 @@ namespace ReportingDesigner
 
             InitializeComponent();
             InitializeToolbox();
-            DataContext = new PageTemplateViewModel("Template", settings);       
+            DataContext = new PageTemplateViewModel("Template", settings);
+        }
+
+        //This constructor is used if
+        //they are opening this window with 
+        //an existing page template
+        public PageTemplateWindow(PageTemplateViewModel viewModel)
+        {
+            InitializeComponent();
+            InitializeToolbox();
+            DataContext = viewModel;
         }
 
         public void InitializeToolbox()

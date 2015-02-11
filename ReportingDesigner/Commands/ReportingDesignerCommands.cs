@@ -76,5 +76,10 @@ namespace ReportingDesigner.Commands
         {
             get { return new LoadPageTemplate(); }
         }
+
+        public static ICommand EditPageTemplate
+        {
+            get { return new EditPageTemplate(); }
+        }
     }
 }

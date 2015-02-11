@@ -16,6 +16,8 @@ namespace ReportingDesigner.Extensibility
 
         public string Data { get; set; }
 
+        public FormatSettings FormatSettings { get; set; }
+
         public PageTemplate()
         {
             Created = DateTime.Now;

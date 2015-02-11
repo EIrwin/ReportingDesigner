@@ -45,6 +45,12 @@ namespace ReportingDesigner.Data
             return pageTemplate;
         }
 
+        public PageTemplate Save(PageTemplate pageTemplate)
+        {
+            _collection.Save(pageTemplate);
+            return pageTemplate;
+        }
+
         public IQueryable<PageTemplate> AsQueryable()
         {
             return _collection.AsQueryable<PageTemplate>();

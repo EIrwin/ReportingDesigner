@@ -10,6 +10,7 @@ using ReportingDesigner.Events;
 using ReportingDesigner.Extensibility;
 using ReportingDesigner.Models;
 using ReportingDesigner.ViewModels;
+using ReportingDesigner.Views.PageTemplates;
 using Telerik.Windows.Controls;
 using ViewModelBase = ReportingDesigner.ViewModels.ViewModelBase;
 
@@ -359,6 +360,18 @@ namespace ReportingDesigner.Views
         public void CreatePageTemplate()
         {
             var window = new PageTemplateWindow();
+            window.ShowDialog();
+        }
+
+        public void EditPageTemplate()
+        {
+            var window = new PageTemplateSelectWindow();
+            window.TemplateSelected += (o, e) =>
+                {
+                    var viewModel = new PageTemplateViewModel(e.PageTemplate);
+                    var templateWindow = new PageTemplateWindow(viewModel);
+                    templateWindow.ShowDialog();
+                };
             window.ShowDialog();
         }
     }

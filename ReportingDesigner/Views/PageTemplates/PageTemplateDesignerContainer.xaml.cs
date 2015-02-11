@@ -15,6 +15,7 @@ using ReportingDesigner.Extensibility;
 using ReportingDesigner.Extensibility.Serialization;
 using ReportingDesigner.Models;
 using ReportingDesigner.ViewModels;
+using ReportingDesigner.ViewModels.PageTemplates;
 using ReportingDesigner.Views.PageTemplates;
 using Telerik.Windows.Controls;
 using ViewModelBase = ReportingDesigner.ViewModels.ViewModelBase;
@@ -117,6 +118,14 @@ namespace ReportingDesigner.Views
         {
             DesignerCanvas.Clear();
 
+            if (DataContext == null)
+            {
+                
+            }
+            else
+            {
+
+            }
             var pageFormat = new PageFormat();
             pageFormat.PageSize = new PageSize(Convert.ToDouble(DefaultFormats.Height),Convert.ToDouble(DefaultFormats.Width));
             pageFormat.UnitType = UnitType.Millimeters;
@@ -133,12 +142,12 @@ namespace ReportingDesigner.Views
                 DesignerCanvas.DataContext = DataContext;
 
             //Step 3: Initialize PageViewModel
-            var pageViewModel = new PageViewModel(0, ViewModel.FormatSettings.PageFormat.PageSize.Height, 1);
+            var pageViewModel = new PageViewModel(0, ViewModel.PageTemplate.FormatSettings.PageFormat.PageSize.Height, 1);
 
             //Step 4: Initialize Margin
             var marginShape = new MarginShape
                 {
-                    Position = new Point(ViewModel.FormatSettings.Margin.Left, ViewModel.FormatSettings.Margin.Top),
+                    Position = new Point(ViewModel.PageTemplate.FormatSettings.Margin.Left, ViewModel.PageTemplate.FormatSettings.Margin.Top),
                     DataContext = pageViewModel
                 };
 
@@ -155,9 +164,9 @@ namespace ReportingDesigner.Views
             _marginShapes.ForEach(marginShape =>
                 {
                     var pageViewModel = (PageViewModel) marginShape.DataContext;
-                    marginShape.Position = new Point(ViewModel.FormatSettings.Margin.Left,pageViewModel.Top + ViewModel.FormatSettings.Margin.Top);
-                    marginShape.Height = ViewModel.FormatSettings.PageFormat.PageSize.Height - (ViewModel.FormatSettings.Margin.Top + ViewModel.FormatSettings.Margin.Bottom);
-                    marginShape.Width = DesignerCanvas.ActualWidth - (ViewModel.FormatSettings.Margin.Left + ViewModel.FormatSettings.Margin.Right);
+                    marginShape.Position = new Point(ViewModel.PageTemplate.FormatSettings.Margin.Left,pageViewModel.Top + ViewModel.PageTemplate.FormatSettings.Margin.Top);
+                    marginShape.Height = ViewModel.PageTemplate.FormatSettings.PageFormat.PageSize.Height - (ViewModel.PageTemplate.FormatSettings.Margin.Top + ViewModel.PageTemplate.FormatSettings.Margin.Bottom);
+                    marginShape.Width = DesignerCanvas.ActualWidth - (ViewModel.PageTemplate.FormatSettings.Margin.Left + ViewModel.PageTemplate.FormatSettings.Margin.Right);
                 });
         }
 
@@ -180,10 +189,10 @@ namespace ReportingDesigner.Views
 
         public void EditMargins()
         {
-            var editMarginsWindow = new EditMarginsWindow(ViewModel.FormatSettings.Margin);
+            var editMarginsWindow = new EditMarginsWindow(ViewModel.PageTemplate.FormatSettings.Margin);
             editMarginsWindow.MarginChanged += (o, args) =>
             {
-                ViewModel.FormatSettings.Margin = args.Margin;//?
+                ViewModel.PageTemplate.FormatSettings.Margin = args.Margin;
                 UpdateMarginsShape(o, args);
             };
             editMarginsWindow.Show();
@@ -191,8 +200,11 @@ namespace ReportingDesigner.Views
 
         public void SavePageTemplate()
         {
-            string data = DesignerCanvas.Save();
-            var window = new PageTemplateSaveWindow(data);
+            var viewModel = new PageTemplateSaveViewModel()
+                {
+                    PageTemplate = ViewModel.PageTemplate
+                };
+            var window = new PageTemplateSaveWindow(viewModel);
             window.ShowDialog();
         }
 

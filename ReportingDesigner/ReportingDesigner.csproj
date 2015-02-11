@@ -81,6 +81,7 @@
     <Compile Include="Commands\AddPageBefore.cs" />
     <Compile Include="Commands\CreatePageTemplate.cs" />
     <Compile Include="Commands\EditMargins.cs" />
+    <Compile Include="Commands\EditPageTemplate.cs" />
     <Compile Include="Commands\LoadPageTemplate.cs" />
     <Compile Include="Commands\NewPageTemplate.cs" />
     <Compile Include="Commands\PinControl.cs" />
