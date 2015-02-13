@@ -177,15 +177,19 @@ namespace ReportingDesigner.Views
         {
             ViewModel.ShowMarginLines = !ViewModel.ShowMarginLines;
 
-            _marginShapes.ForEach(marginShape =>
-                {
-                    marginShape.Visibility = ViewModel.ShowMarginLines ? Visibility.Visible : Visibility.Hidden;
-                });
-
+            //since the binding is not working here, we need to
+            //change the visibility of each of margins manually
             DesignerCanvas.Shapes.Where(p => p is MarginShape).ToList().ForEach(shape =>
                 {
                     shape.Visibility = ViewModel.ShowMarginLines ? Visibility.Visible : Visibility.Hidden;
                 });
+
+            //we want to keep the margin shapes in sync
+            //with the actual shapes in case they are referenced elsewhere
+            _marginShapes.ForEach(marginShape =>
+            {
+                marginShape.Visibility = ViewModel.ShowMarginLines ? Visibility.Visible : Visibility.Hidden;
+            });
         }
 
         public void EditMargins()

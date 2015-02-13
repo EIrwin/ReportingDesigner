@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Windows;
 using ReportingDesigner.Extensibility.Serialization;
 using ReportingDesigner.ViewModels;
@@ -22,13 +23,15 @@ namespace ReportingDesigner.Views
             return new Dictionary<string, string>()
                 {
                     {"PageNumber", _viewModel.PageNumber.ToString()},
-                    {SerializablePropertyNames.ViewModelType, typeof (PageNumberControlViewModel).ToString()}
+                    {SerializablePropertyNames.ViewModelType, typeof (PageNumberControlViewModel).ToString()},
+                    {SerializablePropertyNames.SettingsViewType,typeof(PageNumberSettingsView).ToString()}
                 };
         }
 
         public override void Deserialize(SerializationInfo info)
         {
             _viewModel.PageNumber = int.Parse(info["VM.PageNumber"]);
+            _viewModel.SettingsViewType = Type.GetType(info["VM." + SerializablePropertyNames.SettingsViewType]);
         }
     }
 }

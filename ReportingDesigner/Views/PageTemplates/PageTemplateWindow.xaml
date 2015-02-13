@@ -129,8 +129,11 @@
             <views:PageTemplateDesignerContainer x:Name="Designer" DataContext="{Binding}" 
                                      Grid.Column="1" 
                                      Grid.Row="1">
-
             </views:PageTemplateDesignerContainer>
+
+            <!-- Designer Navigation Pane -->
+            <telerik:RadDiagramNavigationPane Diagram="{Binding ElementName=Designer}" x:Name="NavigationPane"
+						Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" />
         </Grid>
     </Grid>
 </Window>

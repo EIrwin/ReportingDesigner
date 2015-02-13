@@ -61,6 +61,15 @@ namespace ReportingDesigner {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to SettingsViewType.
+        /// </summary>
+        internal static string SettingsViewType {
+            get {
+                return ResourceManager.GetString("SettingsViewType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ViewModelType.
         /// </summary>
         internal static string ViewModelType {

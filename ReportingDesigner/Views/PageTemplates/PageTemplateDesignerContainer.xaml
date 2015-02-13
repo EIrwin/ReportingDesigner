@@ -5,8 +5,6 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
              xmlns:views="clr-namespace:ReportingDesigner.Views"
-             xmlns:controls="clr-namespace:ReportingDesigner.Controls"
-             xmlns:converters="clr-namespace:ReportingDesigner.Extensibility.Converters"
              mc:Ignorable="d"
              Background="Gray"
              Name="Container"
@@ -22,11 +20,6 @@
              ScrollViewer.CanContentScroll="True"
              ScrollViewer.HorizontalScrollBarVisibility="Auto"
              ScrollViewer.VerticalScrollBarVisibility="Auto">
-    
-    <telerik:RadDiagram.Resources>
-        <converters:PositionConverter x:Key="PositionConverter"/>
-        <converters:TestConverter x:Key="TestConverter"/>
-    </telerik:RadDiagram.Resources>
     
         <!-- Container Shape-->
         <telerik:RadDiagramShape Height="900"
