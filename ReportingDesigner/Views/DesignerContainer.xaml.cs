@@ -374,5 +374,11 @@ namespace ReportingDesigner.Views
                 };
             window.ShowDialog();
         }
+
+        public void ApplyPageTemplate()
+        {
+            ApplyPageTemplateWindow window = new ApplyPageTemplateWindow();
+            window.ShowDialog();
+        }
     }
 }

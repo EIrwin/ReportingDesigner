@@ -81,5 +81,10 @@ namespace ReportingDesigner.Commands
         {
             get { return new EditPageTemplate(); }
         }
+
+        public static ICommand ApplyPageTemplate
+        {
+            get { return new ApplyPageTemplate(); }
+        }
     }
 }

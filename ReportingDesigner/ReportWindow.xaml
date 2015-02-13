@@ -167,7 +167,9 @@
 
                                 <!-- Apply Page Template Button-->
                                 <telerik:RadGeometryButton Content="Apply Template" Margin="2"
-									Geometry="M11,0L18,7L11,7zM0,0L10,0L10,7L10,8L18,8L18,12L8.88893,12L8.88893,9L3.82715,14L8.88893,19L8.88893,16L18,16L18,21L0,21z" />
+									                       Geometry="M11,0L18,7L11,7zM0,0L10,0L10,7L10,8L18,8L18,12L8.88893,12L8.88893,9L3.82715,14L8.88893,19L8.88893,16L18,16L18,21L0,21z" 
+                                                           Command="commands:ReportingDesignerCommands.ApplyPageTemplate"
+                                                           CommandParameter="{Binding ElementName=Designer}"/>
 
                                 
                             </StackPanel>

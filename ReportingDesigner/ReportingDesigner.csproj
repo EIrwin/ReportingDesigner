@@ -79,6 +79,7 @@
     <Compile Include="Commands\AddLastPage.cs" />
     <Compile Include="Commands\AddPageAfter.cs" />
     <Compile Include="Commands\AddPageBefore.cs" />
+    <Compile Include="Commands\ApplyPageTemplate.cs" />
     <Compile Include="Commands\CreatePageTemplate.cs" />
     <Compile Include="Commands\EditMargins.cs" />
     <Compile Include="Commands\EditPageTemplate.cs" />
@@ -145,6 +146,7 @@
     <Compile Include="ViewModels\ControlViewModel.cs" />
     <Compile Include="ViewModels\PageNumberControlViewModel.cs" />
     <Compile Include="ViewModels\PageNumberViewModel.cs" />
+    <Compile Include="ViewModels\PageTemplates\ApplyPageTemplateViewModel.cs" />
     <Compile Include="ViewModels\PageTemplates\PageTemplateCreationOptionsViewModel.cs" />
     <Compile Include="ViewModels\PageTemplates\PageTemplateSaveViewModel.cs" />
     <Compile Include="ViewModels\PageTemplates\PageTemplateSelectViewModel.cs" />
@@ -157,6 +159,9 @@
     <Compile Include="ViewModels\TextBlockViewModel.cs" />
     <Compile Include="ViewModels\ToolboxItemViewModel.cs" />
     <Compile Include="ViewModels\ToolboxViewModel.cs" />
+    <Compile Include="Views\PageTemplates\ApplyPageTemplateWindow.xaml.cs">
+      <DependentUpon>ApplyPageTemplateWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\PageTemplates\PageTemplateDesignerContainer.xaml.cs">
       <DependentUpon>PageTemplateDesignerContainer.xaml</DependentUpon>
     </Compile>
@@ -234,6 +239,10 @@
       <DependentUpon>ReportWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\PageTemplates\ApplyPageTemplateWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\PageTemplates\PageTemplateDesignerContainer.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
