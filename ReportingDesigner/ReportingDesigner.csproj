@@ -142,11 +142,6 @@
     <Compile Include="Models\ToolboxComponentAnnouncement.cs" />
     <Compile Include="Commands\ToggleGridLines.cs" />
     <Compile Include="Program.cs" />
-    <Compile Include="SerializablePropertyNames.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SerializablePropertyNames.resx</DependentUpon>
-    </Compile>
     <Compile Include="ViewModels\ControlViewModel.cs" />
     <Compile Include="ViewModels\PageNumberControlViewModel.cs" />
     <Compile Include="ViewModels\PageNumberViewModel.cs" />
@@ -313,10 +308,6 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SerializablePropertyNames.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>SerializablePropertyNames.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

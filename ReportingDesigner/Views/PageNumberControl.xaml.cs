@@ -22,16 +22,18 @@ namespace ReportingDesigner.Views
         {
             return new Dictionary<string, string>()
                 {
-                    {"PageNumber", _viewModel.PageNumber.ToString()},
-                    {SerializablePropertyNames.ViewModelType, typeof (PageNumberControlViewModel).ToString()},
-                    {SerializablePropertyNames.SettingsViewType,typeof(PageNumberSettingsView).ToString()}
+                    {"VM.PageNumber", _viewModel.PageNumber.ToString()},
+                    {"VM.ViewModelType", typeof (PageNumberControlViewModel).ToString()},
+                    {"VM.SettingsViewType",typeof(PageNumberSettingsView).ToString()},
+                    {"VM.IsTemplateControl",_viewModel.IsTemplateControl.ToString()}
                 };
         }
 
         public override void Deserialize(SerializationInfo info)
         {
             _viewModel.PageNumber = int.Parse(info["VM.PageNumber"]);
-            _viewModel.SettingsViewType = Type.GetType(info["VM." + SerializablePropertyNames.SettingsViewType]);
+            _viewModel.SettingsViewType = Type.GetType(info["VM.SettingsViewType"]);
+            _viewModel.IsTemplateControl = bool.Parse(info["VM.IsTemplateControl"]);
         }
     }
 }

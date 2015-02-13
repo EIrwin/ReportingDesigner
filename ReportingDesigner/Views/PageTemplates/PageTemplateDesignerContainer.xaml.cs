@@ -62,7 +62,7 @@ namespace ReportingDesigner.Views
                 var serializationData = ((ISerializable) e.Shape).Serialize();
 
                 foreach (var item in serializationData)
-                    e.SerializationInfo["VM." + item.Key] = item.Value;
+                    e.SerializationInfo[item.Key] = item.Value;
             }
         }
 
@@ -71,7 +71,7 @@ namespace ReportingDesigner.Views
             if (e.Shape is ISerializable)
             {
                 //grab type metadata from SerializationInfo object4
-                var viewModelTypeInfo = e.SerializationInfo["VM." + SerializablePropertyNames.ViewModelType];
+                var viewModelTypeInfo = e.SerializationInfo["VM.ViewModelType"];
                 Type viewModelType = Type.GetType(viewModelTypeInfo.ToString());
 
                 //initialize view model from deserialized property values
@@ -106,6 +106,7 @@ namespace ReportingDesigner.Views
             viewModel.Position = e.GetPosition(this.DesignerCanvas);
             viewModel.ViewType = item.ViewType;
             viewModel.SettingsViewType = item.SettingsViewType;
+            viewModel.IsTemplateControl = true; //very important
 
             pageViewModel.Controls.Add(viewModel);
 

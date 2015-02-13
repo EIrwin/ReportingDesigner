@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Windows;
 using ReportingDesigner.Extensibility.Serialization;
 using ReportingDesigner.ViewModels;
@@ -21,14 +22,18 @@ namespace ReportingDesigner.Views
         {
             return new Dictionary<string, string>()
                 {
-                    {"Text",_viewModel.Text},
-                    {SerializablePropertyNames.ViewModelType,_viewModel.GetType().ToString()}
+                    {"VM.Text",_viewModel.Text},
+                    {"VM.ViewModelType",_viewModel.GetType().ToString()},
+                    {"VM.SettingsViewType",typeof(TextBlockSettingsView).ToString()},
+                    {"VM.IsTemplateControl",_viewModel.IsTemplateControl.ToString()}
                 };
         }
 
         public override void Deserialize(SerializationInfo info)
         {
             _viewModel.Text = info["VM.Text"];
+            _viewModel.SettingsViewType = Type.GetType(info["VM.SettingsViewType"]);
+            _viewModel.IsTemplateControl = bool.Parse(info["VM.IsTemplateControl"]);
         }
     }
 }
