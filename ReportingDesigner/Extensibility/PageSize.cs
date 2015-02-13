@@ -2,14 +2,16 @@
 {
     public class PageSize
     {
-        private readonly double _height;
+        private double _height;
         public double Height{
             get { return _height; }
+            set { _height = value; }
         }
 
-        private readonly double _width;
+        private double _width;
         public double Width {
             get { return _width; }
+            set { _width = value; }
         }
 
         public PageSize(double height, double width)

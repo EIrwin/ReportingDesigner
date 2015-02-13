@@ -70,8 +70,8 @@ namespace ReportingDesigner.Views
         {
             if (e.Shape is ISerializable)
             {
-                //grab type metadata from SerializationInfo object
-                var viewModelTypeInfo = e.SerializationInfo[SerializablePropertyNames.ViewModelType];
+                //grab type metadata from SerializationInfo object4
+                var viewModelTypeInfo = e.SerializationInfo["VM." + SerializablePropertyNames.ViewModelType];
                 Type viewModelType = Type.GetType(viewModelTypeInfo.ToString());
 
                 //initialize view model from deserialized property values
@@ -118,14 +118,6 @@ namespace ReportingDesigner.Views
         {
             DesignerCanvas.Clear();
 
-            if (DataContext == null)
-            {
-                
-            }
-            else
-            {
-
-            }
             var pageFormat = new PageFormat();
             pageFormat.PageSize = new PageSize(Convert.ToDouble(DefaultFormats.Height),Convert.ToDouble(DefaultFormats.Width));
             pageFormat.UnitType = UnitType.Millimeters;
@@ -157,6 +149,11 @@ namespace ReportingDesigner.Views
             ViewModel.Pages.Add(pageViewModel);
 
             DesignerCanvas.AddShape(marginShape);
+
+            //If this is an existing template, we want to load
+            //the previous template from the serialized xml.
+            if(!string.IsNullOrEmpty(ViewModel.PageTemplate.Data))
+                DesignerCanvas.Load(ViewModel.PageTemplate.Data);
         }
 
         private void UpdateMarginsShape(object sender, EventArgs e)
@@ -183,7 +180,11 @@ namespace ReportingDesigner.Views
             _marginShapes.ForEach(marginShape =>
                 {
                     marginShape.Visibility = ViewModel.ShowMarginLines ? Visibility.Visible : Visibility.Hidden;
+                });
 
+            DesignerCanvas.Shapes.Where(p => p is MarginShape).ToList().ForEach(shape =>
+                {
+                    shape.Visibility = ViewModel.ShowMarginLines ? Visibility.Visible : Visibility.Hidden;
                 });
         }
 
@@ -204,6 +205,8 @@ namespace ReportingDesigner.Views
                 {
                     PageTemplate = ViewModel.PageTemplate
                 };
+
+            viewModel.PageTemplate.Data = DesignerCanvas.Save();
             var window = new PageTemplateSaveWindow(viewModel);
             window.ShowDialog();
         }

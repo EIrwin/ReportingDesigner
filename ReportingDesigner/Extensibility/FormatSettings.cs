@@ -5,31 +5,36 @@ namespace ReportingDesigner.Extensibility
 {
     public class FormatSettings
     {
-        private readonly PageOrientation _pageOrientation;
+        private PageOrientation _pageOrientation;
         public PageOrientation PageOrientation {
             get { return _pageOrientation; }
+            set { _pageOrientation = value; }
         }
 
         private UnitType _unitType;
         public UnitType UnitType{
             get { return _unitType; }
+            set { _unitType =  value; }
         }
 
         private int _height;
         public int Height
         {
             get { return _height; }
+            set { _height = value; }
         }
 
         private int _width;
         public int Width
         {
             get { return _width; }
+            set { _width = value; }
         }
 
-        private readonly PageFormat _pageFormat;
+        private PageFormat _pageFormat;
         public PageFormat PageFormat{
             get { return _pageFormat; }
+            set { _pageFormat = value; }
         }
 
         private Thickness _margin;

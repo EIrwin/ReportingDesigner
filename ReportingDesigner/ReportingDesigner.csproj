@@ -113,6 +113,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Data\Extensibility\StructBsonSerializer.cs" />
     <Compile Include="Data\PageTemplateRepository.cs" />
     <Compile Include="Events\OptionsSelectedEventArgs.cs" />
     <Compile Include="Events\TemplateSelectedEventArgs.cs" />

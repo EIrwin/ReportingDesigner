@@ -1,7 +1,7 @@
 ﻿<Window x:Class="ReportingDesigner.Views.PageTemplates.PageTemplateSaveWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Save Page Template" SizeToContent="Height" Width="300">
+        Title="Save Page Template" SizeToContent="Height" Width="300" WindowStartupLocation="CenterScreen">
     <StackPanel Margin="10">
         <TextBlock>Name</TextBlock>
         <TextBox x:Name="Name" Text="{Binding PageTemplate.Name,Mode=TwoWay}"/>

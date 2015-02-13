@@ -45,9 +45,10 @@ namespace ReportingDesigner.Views.PageTemplates
 
             if (pageTemplate == null) return;
 
+            Close();
+
             var args = new TemplateSelectedEventArgs(pageTemplate);
             OnTemplateSelected(args);
-            Close();
         }
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)

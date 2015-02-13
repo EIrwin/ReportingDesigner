@@ -61,7 +61,7 @@ namespace ReportingDesigner {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to VM.ViewModelType.
+        ///   Looks up a localized string similar to ViewModelType.
         /// </summary>
         internal static string ViewModelType {
             get {

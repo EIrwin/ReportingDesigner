@@ -61,6 +61,11 @@ namespace ReportingDesigner.ViewModels
         public PageTemplateViewModel(PageTemplate pageTemplate)
         {
             _pageTemplate = pageTemplate;
+
+            ShowGridLines = true;
+            ShowMarginLines = true;
+
+            Pages = new List<PageViewModel>();
         }
 
         public PageTemplateViewModel(FormatSettings formatSettings)
