@@ -10,6 +10,8 @@
 
         OddPages = 3,
 
-        Range = 4
+        Range = 4,
+
+        AllPages = 5
     }
 }

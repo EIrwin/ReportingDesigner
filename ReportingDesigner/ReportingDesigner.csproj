@@ -121,6 +121,12 @@
     <Compile Include="Events\TemplateSelectedEventArgs.cs" />
     <Compile Include="Extensibility\Converters\EnumBooleanConverter.cs" />
     <Compile Include="Extensibility\Converters\TestConverter.cs" />
+    <Compile Include="Extensibility\PageTemplates\AllPagesApplicationStrategy.cs" />
+    <Compile Include="Extensibility\PageTemplates\CurrentPageApplicationStrategy.cs" />
+    <Compile Include="Extensibility\PageTemplates\EvenPagesApplicationStrategy.cs" />
+    <Compile Include="Extensibility\PageTemplates\OddPagesApplicationStrategy.cs" />
+    <Compile Include="Extensibility\PageTemplates\RangeApplicationStrategy.cs" />
+    <Compile Include="Extensibility\PageTemplates\SinglePageApplicationStrategy.cs" />
     <Compile Include="Extensibility\PageTemplates\TemplateApplicationMethod.cs" />
     <Compile Include="Extensibility\PageTemplates\PageTemplate.cs" />
     <Compile Include="DefaultFormats.Designer.cs">
@@ -134,6 +140,8 @@
     <Compile Include="Extensibility\Converters\PositionConverter.cs" />
     <Compile Include="Extensibility\FormatSettings.cs" />
     <Compile Include="Extensibility\PageFormat.cs" />
+    <Compile Include="Extensibility\PageTemplates\TemplateApplicationStrategy.cs" />
+    <Compile Include="Extensibility\PageTemplates\TemplateApplicationStrategyFactory.cs" />
     <Compile Include="Extensibility\Serialization\ISerializable.cs" />
     <Compile Include="Extensibility\Serialization\SerializationInfo.cs" />
     <Compile Include="Extensibility\UnitType.cs" />

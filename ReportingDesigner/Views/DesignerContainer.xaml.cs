@@ -8,6 +8,7 @@ using MongoDB.Driver;
 using ReportingDesigner.Controls;
 using ReportingDesigner.Events;
 using ReportingDesigner.Extensibility;
+using ReportingDesigner.Extensibility.PageTemplates;
 using ReportingDesigner.Models;
 using ReportingDesigner.ViewModels;
 using ReportingDesigner.Views.PageTemplates;
@@ -380,7 +381,8 @@ namespace ReportingDesigner.Views
             var window = new ApplyPageTemplateWindow();
             window.ApplyTemplateInit += (o, e) =>
                 {
-                    
+                    var strategy = TemplateApplicationStrategyFactory.Create(e.TemplateApplicationMethod);
+                    strategy.ApplyTemplate(e, this);
                 };
             window.ShowDialog();
         }

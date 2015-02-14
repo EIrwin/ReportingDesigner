@@ -3,7 +3,7 @@ using ReportingDesigner.Extensibility;
 
 namespace ReportingDesigner.Events
 {
-    public class ApplyTemplateInitArgs:EventArgs
+    public class TemplateApplicationEventArgs:EventArgs
     {
         public TemplateApplicationMethod TemplateApplicationMethod { get; set; }
 
@@ -15,7 +15,7 @@ namespace ReportingDesigner.Events
 
         public int EndPage { get; set; }
 
-        public ApplyTemplateInitArgs(TemplateApplicationMethod templateApplicationMethod,PageTemplate pageTemplate)
+        public TemplateApplicationEventArgs(TemplateApplicationMethod templateApplicationMethod,PageTemplate pageTemplate)
         {
             TemplateApplicationMethod = templateApplicationMethod;
             PageTemplate = pageTemplate;

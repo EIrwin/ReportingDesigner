@@ -13,7 +13,7 @@ namespace ReportingDesigner.Views.PageTemplates
     {
         private ApplyPageTemplateViewModel _viewModel;
 
-        public delegate void ApplyTemplateEventHandler(object sender,ApplyTemplateInitArgs args);
+        public delegate void ApplyTemplateEventHandler(object sender,TemplateApplicationEventArgs args);
 
         public event ApplyTemplateEventHandler ApplyTemplateInit;
 
@@ -32,7 +32,7 @@ namespace ReportingDesigner.Views.PageTemplates
                 };;
         }
 
-        private void OnApplyTempInit(ApplyTemplateInitArgs e)
+        private void OnApplyTempInit(TemplateApplicationEventArgs e)
         {
             if (ApplyTemplateInit != null)
                 ApplyTemplateInit(this, e);
@@ -42,7 +42,7 @@ namespace ReportingDesigner.Views.PageTemplates
         {
             Close();
 
-            var args = new ApplyTemplateInitArgs(_viewModel.ApplicationMethod, _viewModel.PageTemplate);
+            var args = new TemplateApplicationEventArgs(_viewModel.ApplicationMethod, _viewModel.PageTemplate);
 
             if (_viewModel.ApplicationMethod == TemplateApplicationMethod.SinglePage)
             {
