@@ -1,9 +1,11 @@
 ﻿<Window x:Class="ReportingDesigner.Views.PageTemplates.ApplyPageTemplateWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:converters="clr-namespace:ReportingDesigner.Extensibility.Converters"
         Title="Apply Page Template"  Width="350" SizeToContent="Height" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+        <converters:EnumBooleanConverter x:Key="EnumBooleanConverter"/>
     </Window.Resources>
     
     <StackPanel Margin="10">
@@ -12,6 +14,7 @@
             <TextBlock Margin="0,5">Select page template:</TextBlock>
             <ComboBox x:Name="PageTemplateListBox"
                  ItemsSource="{Binding PageTemplates,Mode=TwoWay}"
+                 SelectedItem="{Binding Path=PageTemplate,Mode=OneWayToSource}"
                  DisplayMemberPath="Name">
             </ComboBox>
         </StackPanel>
@@ -19,21 +22,20 @@
         <StackPanel Margin="0,10">
             <TextBlock>Apply page template to...</TextBlock>
             <StackPanel Margin="0,5">
-                <RadioButton x:Name="CurrentPageRadioButton" IsChecked="True">Current Page</RadioButton>
-                <RadioButton x:Name="SinglePageRadioButton">Single Page</RadioButton>
-                <RadioButton x:Name="EvenPagesRadioButton">Even Pages</RadioButton>
-                <RadioButton x:Name="OddPagesRadioButton">Odd Pages</RadioButton>
-                <RadioButton x:Name="RangeRadioButton">Range</RadioButton>
+                <RadioButton x:Name="CurrentPageRadioButton" IsChecked="{Binding Path=ApplicationMethod,Converter={StaticResource EnumBooleanConverter},ConverterParameter=CurrentPage}" >Current Page</RadioButton>
+                <RadioButton x:Name="SinglePageRadioButton" IsChecked="{Binding Path=ApplicationMethod,Converter={StaticResource EnumBooleanConverter},ConverterParameter=SinglePage}">Single Page</RadioButton>
+                <RadioButton x:Name="EvenPagesRadioButton" IsChecked="{Binding Path=ApplicationMethod,Converter={StaticResource EnumBooleanConverter},ConverterParameter=EvenPages}">Even Pages</RadioButton>
+                <RadioButton x:Name="OddPagesRadioButton" IsChecked="{Binding Path=ApplicationMethod,Converter={StaticResource EnumBooleanConverter},ConverterParameter=OddPages}">Odd Pages</RadioButton>
+                <RadioButton x:Name="RangeRadioButton" IsChecked="{Binding Path=ApplicationMethod,Converter={StaticResource EnumBooleanConverter},ConverterParameter=Range}">Range</RadioButton>
             </StackPanel>
 
             <StackPanel Height="50" Margin="0,10">
 
                 <!-- Single Page Panel-->
                 <StackPanel x:Name="SinglePagePanel"
-                            
-                            Visibility="{Binding IsChecked,ElementName=SinglePageRadioButton,Converter={StaticResource BooleanToVisibilityConverter}}">
+                                 Visibility="{Binding IsChecked,ElementName=SinglePageRadioButton,Converter={StaticResource BooleanToVisibilityConverter}}">
                     <TextBlock>Please specify which page to apply this template to:</TextBlock>
-                    <TextBox x:Name="SinglePageTextBox" Width="50" Margin="0,10"/>
+                    <TextBox x:Name="SinglePageTextBox" Width="50" Margin="0,10" HorizontalAlignment="Left"/>
                 </StackPanel>
 
                 <StackPanel x:Name="RangePanel"      

@@ -116,10 +116,13 @@
     </Compile>
     <Compile Include="Data\Extensibility\StructBsonSerializer.cs" />
     <Compile Include="Data\PageTemplateRepository.cs" />
+    <Compile Include="Events\ApplyTemplateInitArgs.cs" />
     <Compile Include="Events\OptionsSelectedEventArgs.cs" />
     <Compile Include="Events\TemplateSelectedEventArgs.cs" />
+    <Compile Include="Extensibility\Converters\EnumBooleanConverter.cs" />
     <Compile Include="Extensibility\Converters\TestConverter.cs" />
-    <Compile Include="Extensibility\PageTemplate.cs" />
+    <Compile Include="Extensibility\PageTemplates\TemplateApplicationMethod.cs" />
+    <Compile Include="Extensibility\PageTemplates\PageTemplate.cs" />
     <Compile Include="DefaultFormats.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

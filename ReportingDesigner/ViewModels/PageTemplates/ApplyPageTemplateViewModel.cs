@@ -12,6 +12,9 @@ namespace ReportingDesigner.ViewModels.PageTemplates
     public class ApplyPageTemplateViewModel:INotifyPropertyChanged
     {
         private ObservableCollection<PageTemplate> _pageTemplates;
+        private TemplateApplicationMethod _applicationMethod;
+        private PageTemplate _pageTemplate;
+
         public ObservableCollection<PageTemplate> PageTemplates
         {
             get { return _pageTemplates; }
@@ -23,7 +26,29 @@ namespace ReportingDesigner.ViewModels.PageTemplates
             }
         }
 
+        public TemplateApplicationMethod ApplicationMethod
+        {
+            get { return _applicationMethod; }
+            set
+            {
+                if (value == _applicationMethod) return;
+                _applicationMethod = value;
+                OnPropertyChanged("ApplicationMethod");
+            }
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
+
+        public PageTemplate PageTemplate
+        {
+            get { return _pageTemplate; }
+            set
+            {
+                if (Equals(value, _pageTemplate)) return;
+                _pageTemplate = value;
+                OnPropertyChanged("PageTemplate");
+            }
+        }
 
         [NotifyPropertyChangedInvocator]
         protected virtual void OnPropertyChanged(string propertyName)

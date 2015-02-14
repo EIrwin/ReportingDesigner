@@ -377,7 +377,11 @@ namespace ReportingDesigner.Views
 
         public void ApplyPageTemplate()
         {
-            ApplyPageTemplateWindow window = new ApplyPageTemplateWindow();
+            var window = new ApplyPageTemplateWindow();
+            window.ApplyTemplateInit += (o, e) =>
+                {
+                    
+                };
             window.ShowDialog();
         }
     }

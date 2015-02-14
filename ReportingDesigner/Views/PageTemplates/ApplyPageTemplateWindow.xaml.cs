@@ -1,17 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using ReportingDesigner.Data;
+using ReportingDesigner.Events;
 using ReportingDesigner.Extensibility;
 using ReportingDesigner.ViewModels.PageTemplates;
 
@@ -19,6 +11,12 @@ namespace ReportingDesigner.Views.PageTemplates
 {
     public partial class ApplyPageTemplateWindow : Window
     {
+        private ApplyPageTemplateViewModel _viewModel;
+
+        public delegate void ApplyTemplateEventHandler(object sender,ApplyTemplateInitArgs args);
+
+        public event ApplyTemplateEventHandler ApplyTemplateInit;
+
         public ApplyPageTemplateWindow()
         {
             InitializeComponent();
@@ -28,15 +26,36 @@ namespace ReportingDesigner.Views.PageTemplates
             var pageTemplateRepository = new PageTemplateRepository();
             pageTemplateRepository.AsQueryable().ToList().ForEach(pageTemplates.Add);
 
-            DataContext = new ApplyPageTemplateViewModel()
-            {
-                PageTemplates = pageTemplates
-            };
+            DataContext = _viewModel = new ApplyPageTemplateViewModel()
+                {
+                    PageTemplates = pageTemplates
+                };;
+        }
+
+        private void OnApplyTempInit(ApplyTemplateInitArgs e)
+        {
+            if (ApplyTemplateInit != null)
+                ApplyTemplateInit(this, e);
         }
 
         private void ApplyButton_Click(object sender, RoutedEventArgs e)
         {
             Close();
+
+            var args = new ApplyTemplateInitArgs(_viewModel.ApplicationMethod, _viewModel.PageTemplate);
+
+            if (_viewModel.ApplicationMethod == TemplateApplicationMethod.SinglePage)
+            {
+                args.Page = int.Parse(SinglePageTextBox.Text);
+            }
+
+            if (_viewModel.ApplicationMethod == TemplateApplicationMethod.Range)
+            {
+                args.StartPage = int.Parse(RangeStartPageTextBox.Text);
+                args.EndPage = int.Parse(RangeEndPageTextBox.Text);
+            }
+
+            OnApplyTempInit(args);
         }
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)
