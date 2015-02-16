@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using ReportingDesigner.Extensibility;
 
 namespace ReportingDesigner.ViewModels
 {
@@ -9,6 +10,7 @@ namespace ReportingDesigner.ViewModels
         private Guid _id;
         private int _pageNumber;
         private List<ReportControlViewModel> _controls;
+        private PageTemplate _pageTemplate;
 
         public Guid Id
         {
@@ -41,6 +43,19 @@ namespace ReportingDesigner.ViewModels
         }
         public double Top { get; private set; }
         public double Bottom { get; private set; }
+        public PageTemplate PageTemplate
+        {
+            get { return _pageTemplate; }
+            set 
+            {
+                if (_pageTemplate != value)
+                {
+                    _pageTemplate = value;
+                    OnPropertyChanged("PageTemplate");
+                }
+
+            }
+        }
 
         public PageViewModel(double top, double bottom)
         {

@@ -46,6 +46,7 @@ namespace ReportingDesigner.Extensibility.PageTemplates
                             ((ISerializable) e.Shape).Deserialize(info);
 
                             pageViewModel.Controls.Add(viewModel);
+                            pageViewModel.PageTemplate = args.PageTemplate;
 
                             e.Shape.IsEnabled = false;
                             e.Shape.Position = viewModel.Position;

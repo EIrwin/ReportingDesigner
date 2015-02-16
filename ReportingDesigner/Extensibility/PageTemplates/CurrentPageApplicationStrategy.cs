@@ -19,7 +19,6 @@ namespace ReportingDesigner.Extensibility.PageTemplates
             if (args == null)
                 throw new ArgumentNullException("args");
 
-
             //grab current page view model
             var pageViewModel = designer.GetCurrentPage();
 
@@ -44,6 +43,7 @@ namespace ReportingDesigner.Extensibility.PageTemplates
                     ((ISerializable)e.Shape).Deserialize(info);
 
                     pageViewModel.Controls.Add(viewModel);
+                    pageViewModel.PageTemplate = args.PageTemplate;
 
                     e.Shape.IsEnabled = false;
                     e.Shape.Position = viewModel.Position;
