@@ -42,7 +42,7 @@
                 </StackPanel>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button x:Name="ApplyButton" Width="75" Margin="10,0" Click="ApplyButton_Click">Apply</Button>
+                <Button x:Name="UnapplyButton" Width="75" Margin="10,0" Click="UnapplyButton_Click">Unapply</Button>
                 <Button x:Name="CancelButton" Width="75" Margin="10,0" Click="CancelButton_Click">Cancel</Button>
             </StackPanel>
         </StackPanel>

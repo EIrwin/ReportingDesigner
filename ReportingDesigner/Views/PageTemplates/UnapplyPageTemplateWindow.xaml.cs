@@ -38,7 +38,7 @@ namespace ReportingDesigner.Views.PageTemplates
                 ApplyTemplateInit(this, e);
         }
 
-        private void ApplyButton_Click(object sender, RoutedEventArgs e)
+        private void UnapplyButton_Click(object sender, RoutedEventArgs e)
         {
             Close();
 
