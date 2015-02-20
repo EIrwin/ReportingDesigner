@@ -91,6 +91,7 @@
     <Compile Include="Commands\SavePageTemplate.cs" />
     <Compile Include="Commands\ToggleMarginLines.cs" />
     <Compile Include="Commands\TogglePageBreaks.cs" />
+    <Compile Include="Commands\UnapplyPageTemplate.cs" />
     <Compile Include="Commands\UnpinControl.cs" />
     <Compile Include="Controls\AddPageAfterPane.xaml.cs">
       <DependentUpon>AddPageAfterPane.xaml</DependentUpon>
@@ -162,6 +163,7 @@
     <Compile Include="ViewModels\PageTemplates\PageTemplateSaveViewModel.cs" />
     <Compile Include="ViewModels\PageTemplates\PageTemplateSelectViewModel.cs" />
     <Compile Include="ViewModels\PageTemplates\PageTemplateViewModel.cs" />
+    <Compile Include="ViewModels\PageTemplates\UnapplyPageTemplateViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="ViewModels\PageViewModel.cs" />
@@ -172,6 +174,9 @@
     <Compile Include="ViewModels\ToolboxViewModel.cs" />
     <Compile Include="Views\PageTemplates\ApplyPageTemplateWindow.xaml.cs">
       <DependentUpon>ApplyPageTemplateWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PageTemplates\UnapplyPageTemplateWindow.xaml.cs">
+      <DependentUpon>UnapplyPageTemplateWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\PageTemplates\PageTemplateDesignerContainer.xaml.cs">
       <DependentUpon>PageTemplateDesignerContainer.xaml</DependentUpon>
@@ -253,6 +258,10 @@
     <Page Include="Views\PageTemplates\ApplyPageTemplateWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PageTemplates\UnapplyPageTemplateWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\PageTemplates\PageTemplateDesignerContainer.xaml">
       <Generator>MSBuild:Compile</Generator>

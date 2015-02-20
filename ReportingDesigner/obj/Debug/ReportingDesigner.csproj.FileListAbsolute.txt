@@ -73,3 +73,5 @@ C:\Users\Eric.Irwin\Source\Repos\ReportingDesigner\ReportingDesigner\obj\Debug\V
 C:\Users\Eric.Irwin\Source\Repos\ReportingDesigner\ReportingDesigner\obj\Debug\Views\PageTemplates\PageTemplateSaveWindow.g.cs
 C:\Users\Eric.Irwin\Source\Repos\ReportingDesigner\ReportingDesigner\obj\Debug\Views\PageTemplates\ApplyPageTemplateWindow.baml
 C:\Users\Eric.Irwin\Source\Repos\ReportingDesigner\ReportingDesigner\obj\Debug\Views\PageTemplates\ApplyPageTemplateWindow.g.cs
+C:\Users\Eric.Irwin\Source\Repos\ReportingDesigner\ReportingDesigner\obj\Debug\Views\PageTemplates\UnapplyPageTemplateWindow.g.cs
+C:\Users\Eric.Irwin\Source\Repos\ReportingDesigner\ReportingDesigner\obj\Debug\Views\PageTemplates\UnapplyPageTemplateWindow.baml

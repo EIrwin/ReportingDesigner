@@ -182,6 +182,11 @@ namespace ReportingDesigner.Views
             return page;
         }
 
+        public PageViewModel GetPage(int pageNumber)
+        {
+            return ViewModel.Pages.FirstOrDefault(p => p.PageNumber == pageNumber);
+        }
+
         public void ToggleGridLines()
         {
             ViewModel.ShowGridLines = !ViewModel.ShowGridLines;
@@ -383,6 +388,17 @@ namespace ReportingDesigner.Views
                 {
                     var strategy = TemplateApplicationStrategyFactory.Create(e.TemplateApplicationMethod);
                     strategy.ApplyTemplate(e, this);
+                };
+            window.ShowDialog();
+        }
+
+        public void UnapplyPageTemplate()
+        {
+            var window = new UnapplyPageTemplateWindow();
+            window.ApplyTemplateInit += (o, e) =>
+                {
+                    var strategy = TemplateApplicationStrategyFactory.Create(e.TemplateApplicationMethod);
+                    strategy.UnapplyTemplate(e, this);
                 };
             window.ShowDialog();
         }

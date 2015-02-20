@@ -9,5 +9,6 @@ namespace ReportingDesigner.Extensibility.PageTemplates
     public abstract class TemplateApplicationStrategy
     {
         public abstract void ApplyTemplate(TemplateApplicationEventArgs args,DesignerContainer designer);
+        public abstract void UnapplyTemplate(TemplateApplicationEventArgs args, DesignerContainer designer);
     }
 }

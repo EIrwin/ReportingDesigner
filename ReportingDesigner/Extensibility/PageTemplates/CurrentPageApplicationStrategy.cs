@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Windows;
 using ReportingDesigner.Events;
 using ReportingDesigner.ViewModels;
@@ -53,6 +54,42 @@ namespace ReportingDesigner.Extensibility.PageTemplates
 
             };
             templateDiagram.Load(args.PageTemplate.Data);
+        }
+
+        public override void UnapplyTemplate(TemplateApplicationEventArgs args, DesignerContainer designer)
+        {
+            if (designer == null)
+                throw new ArgumentNullException("designer");
+
+            if (args == null)
+                throw new ArgumentNullException("args");
+
+            //grab current page view model
+            var pageViewModel = designer.GetCurrentPage();
+
+            //if the page cannot be identified
+            //we just dont want to do anything
+            if (pageViewModel == null) return;
+
+            //remove all of the controls that
+            //are located within the dimensions
+            //of the page that was defined
+            designer.DesignerCanvas.Shapes
+                .Where(shape => shape.Position.Y >= pageViewModel.Top && shape.Position.Y <= pageViewModel.Bottom )
+                .ToList()
+                .ForEach(shape =>
+                    {
+                        //We only want to remove report controls
+                        //witht he IsTemplateControl flag set to true
+                        //Controls such as MarginShape will have a non
+                        //ReportControlViewModel type DataContext
+                        var viewModel = ((FrameworkElement) shape).DataContext;
+                        if (viewModel is ReportControlViewModel && ((ReportControlViewModel)viewModel).IsTemplateControl)
+                        {
+                            designer.DesignerCanvas.RemoveShape(shape);
+                            pageViewModel.Controls.Remove((ReportControlViewModel) viewModel);
+                        }
+                    });
         }
     }
 }
