@@ -46,9 +46,8 @@ namespace ReportingDesigner.Extensibility.PageTemplates
                     pageViewModel.Controls.Add(viewModel);
                     pageViewModel.PageTemplate = args.PageTemplate;
 
-                    e.Shape.IsEnabled = false;
+                    //e.Shape.IsEnabled = false;
                     e.Shape.Position = viewModel.Position;
-
                     designer.DesignerCanvas.AddShape(e.Shape);
                 }
 

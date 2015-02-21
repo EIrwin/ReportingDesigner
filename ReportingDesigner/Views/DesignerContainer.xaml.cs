@@ -13,6 +13,7 @@ using ReportingDesigner.Models;
 using ReportingDesigner.ViewModels;
 using ReportingDesigner.Views.PageTemplates;
 using Telerik.Windows.Controls;
+using Telerik.Windows.Diagrams.Core;
 using ViewModelBase = ReportingDesigner.ViewModels.ViewModelBase;
 
 namespace ReportingDesigner.Views
@@ -48,7 +49,18 @@ namespace ReportingDesigner.Views
             DesignerCanvas.DataContext = DataContext;
             DesignerCanvas.PreviewDrop += DesignerCanvas_PreviewDrop;
             DesignerCanvas.AdditionalContentActivated += DesignerCanvas_AdditionalContentActivated;
+
+
+            //The following is only temporary
+            DesignerCanvas.DragOver += (o, e) =>
+                {
+
+                    var position = e.GetPosition(this.DesignerCanvas);
+                    PageViewModel targetPage = GetPage(position);
+                    
+                };
         }
+
 
         private void DesignerCanvas_AdditionalContentActivated(object sender, Telerik.Windows.Controls.Diagrams.AdditionalContentActivatedEventArgs e)
         {
@@ -77,6 +89,13 @@ namespace ReportingDesigner.Views
 
             ReportControlView view = (ReportControlView)Activator.CreateInstance(item.ViewType);
             view.DataContext = viewModel;
+
+            var draggableArea = new Rect(new Point(0, pageViewModel.Top),
+                                         new Size(ViewModel.FormatSettings.PageFormat.PageSize.Width,
+                                                  ViewModel.FormatSettings.PageFormat.PageSize.Height));
+
+            IDraggingService draggingService =  new Extensibility.Services.TemplateControlDraggingService(this.DesignerCanvas,draggableArea,view);
+            DesignerCanvas.ServiceLocator.Register(draggingService);
             this.DesignerCanvas.AddShape(view);
         }
 
