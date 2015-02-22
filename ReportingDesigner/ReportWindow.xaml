@@ -4,6 +4,7 @@
         xmlns:controls="clr-namespace:ReportingDesigner.Controls"
         xmlns:telerik="clr-namespace:Telerik.Windows.Controls.Diagrams.Extensions;assembly=Telerik.Windows.Controls.Diagrams.Extensions"
         xmlns:commands="clr-namespace:ReportingDesigner.Commands"
+        xmlns:notifications="clr-namespace:ReportingDesigner.Controls.Notifications"
         Title="PortLogic Reporting Designer"  WindowStartupLocation="CenterScreen" WindowState="Maximized">
     <Grid>
         
@@ -236,11 +237,18 @@
 
 
         <!-- Page Number View -->
-        <views:PageNumberView Grid.Column="1" 
+        <views:PageNumberView Grid.Column="2" 
                               x:Name="PageNumberView"
                               Grid.Row="1"
                               Margin="40"
                               HorizontalAlignment="Right"
                               VerticalAlignment="Bottom"/>
+        
+        <!-- Notification Panel-->
+        <notifications:NotificationPanel Grid.Column="1"
+                                         Grid.Row="1"
+                                         x:Name="NotificationPanel"
+                                         Margin="40"
+                                         HorizontalAlignment="Right" VerticalAlignment="Top"/>
     </Grid>
 </Window>

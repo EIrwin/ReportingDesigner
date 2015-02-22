@@ -102,6 +102,11 @@
     <Compile Include="Controls\MarginShape.xaml.cs">
       <DependentUpon>MarginShape.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Notifications\Notification.cs" />
+    <Compile Include="Controls\Notifications\NotificationPanel.xaml.cs">
+      <DependentUpon>NotificationPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Notifications\NotificationPanelViewModel.cs" />
     <Compile Include="Controls\PageBreakShape.xaml.cs">
       <DependentUpon>PageBreakShape.xaml</DependentUpon>
     </Compile>
@@ -229,6 +234,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\MarginShape.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Notifications\NotificationPanel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
