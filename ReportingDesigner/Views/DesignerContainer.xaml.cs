@@ -2,9 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
-using System.Windows.Input;
-using MongoDB.Bson;
-using MongoDB.Driver;
 using ReportingDesigner.Controls;
 using ReportingDesigner.Events;
 using ReportingDesigner.Extensibility;

@@ -50,12 +50,6 @@ namespace ReportingDesigner
             //We only want to update if page number has changed
             if (currentPage != null && currentPage.PageNumber != PageNumberView.GetPageNumber())
                 PageNumberView.SetPageNumber(currentPage.PageNumber);
-
-            NotificationPanel.AddNotification(new Controls.Notifications.Notification()
-                {
-                    Message = "View port changed " + DateTime.Now
-                });
-
         }
     }
 }

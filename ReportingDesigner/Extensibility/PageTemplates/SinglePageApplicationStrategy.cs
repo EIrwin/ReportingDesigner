@@ -3,6 +3,7 @@ using System.Linq;
 using System.Windows;
 using ReportingDesigner.Events;
 using ReportingDesigner.Extensibility.Services;
+using ReportingDesigner.Properties;
 using ReportingDesigner.ViewModels;
 using ReportingDesigner.Views;
 using Telerik.Windows.Controls;
@@ -54,29 +55,36 @@ namespace ReportingDesigner.Extensibility.PageTemplates
                     pageViewModel.Controls.Add(viewModel);
                     pageViewModel.PageTemplate = args.PageTemplate;
 
-                    e.Shape.IsEnabled = false;
+                    e.Shape.IsEnabled = Settings.Default.AllowTemplateControlEdit;
                     e.Shape.Position = viewModel.Position;
 
                     designer.DesignerCanvas.AddShape(e.Shape);
 
-                    //when a control is clicked, we want to hijack
-                    //the dragging service and replace it with
-                    //our own dragging service so that we can control
-                    //whether or not we need to restrict drag dimensions
-                    ((ReportControlView)e.Shape).PreviewMouseLeftButtonDown += (obj, a) =>
+                    if (Settings.Default.AllowTemplateControlEdit)
                     {
-                        var view = (ReportControlView)obj;
-                        //we want to specify a draggable area
-                        //reflect the current page dimensions
-                        var draggableArea = new Rect(new Point(0, pageViewModel.Top),
-                                                     new Size(designer.ViewModel.FormatSettings.PageFormat.PageSize.Width,
-                                                              designer.ViewModel.FormatSettings.PageFormat.PageSize.Height));
+                        //when a control is clicked, we want to hijack
+                        //the dragging service and replace it with
+                        //our own dragging service so that we can control
+                        //whether or not we need to restrict drag dimensions
+                        ((ReportControlView) e.Shape).PreviewMouseLeftButtonDown += (obj, a) =>
+                            {
+                                var view = (ReportControlView) obj;
+                                //we want to specify a draggable area
+                                //reflect the current page dimensions
+                                var draggableArea = new Rect(new Point(0, pageViewModel.Top),
+                                                             new Size(
+                                                                 designer.ViewModel.FormatSettings.PageFormat.PageSize
+                                                                         .Width,
+                                                                 designer.ViewModel.FormatSettings.PageFormat.PageSize
+                                                                         .Height));
 
-                        //we can set the ControlDraggingService as the 
-                        //IDraggingService to be used when dragged
-                        IDraggingService draggingService = new ControlDraggingService(designer.DesignerCanvas, draggableArea, view);
-                        designer.DesignerCanvas.ServiceLocator.Register(draggingService);
-                    };
+                                //we can set the ControlDraggingService as the 
+                                //IDraggingService to be used when dragged
+                                IDraggingService draggingService = new ControlDraggingService(designer.DesignerCanvas,
+                                                                                              draggableArea, view);
+                                designer.DesignerCanvas.ServiceLocator.Register(draggingService);
+                            };
+                    }
                 }
 
             };
