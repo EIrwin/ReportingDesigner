@@ -26,7 +26,7 @@ namespace ReportingDesigner.Extensibility.PageTemplates
             var pageViewModel = designer.GetCurrentPage();
 
             designer.DesignerCanvas.ServiceLocator.Register<IDraggingService>(
-                new TemplateControlDraggingService(designer.DesignerCanvas));
+                new ControlDraggingService(designer.DesignerCanvas));
 
             //load into a diagram so we can handle
             //shape deserialization separately
@@ -55,6 +55,10 @@ namespace ReportingDesigner.Extensibility.PageTemplates
                     e.Shape.Position = viewModel.Position;
                     designer.DesignerCanvas.AddShape(e.Shape);
 
+                    //when a control is clicked, we want to hijack
+                    //the dragging service and replace it with
+                    //our own dragging service so that we can control
+                    //whether or not we need to restrict drag dimensions
                     ((ReportControlView) e.Shape).PreviewMouseLeftButtonDown += (obj, a) =>
                         {
                             var view = (ReportControlView) obj;
@@ -64,9 +68,9 @@ namespace ReportingDesigner.Extensibility.PageTemplates
                                                          new Size(designer.ViewModel.FormatSettings.PageFormat.PageSize.Width,
                                                                   designer.ViewModel.FormatSettings.PageFormat.PageSize.Height));
 
-                            //we can set the TemplateControlDraggingService as the 
+                            //we can set the ControlDraggingService as the 
                             //IDraggingService to be used when dragged
-                            IDraggingService draggingService = new TemplateControlDraggingService(designer.DesignerCanvas, draggableArea,view);
+                            IDraggingService draggingService = new ControlDraggingService(designer.DesignerCanvas, draggableArea,view);
                             designer.DesignerCanvas.ServiceLocator.Register(draggingService);
                         };
 

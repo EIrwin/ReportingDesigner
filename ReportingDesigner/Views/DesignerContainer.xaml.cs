@@ -89,19 +89,14 @@ namespace ReportingDesigner.Views
 
             ReportControlView view = (ReportControlView)Activator.CreateInstance(item.ViewType);
             view.DataContext = viewModel;
-            view.PreviewMouseLeftButtonDown += (obj, a) =>
-            {
-                //we want to specify a draggable area
-                //reflect the current page dimensions
-                var draggableArea = new Rect(new Point(0, pageViewModel.Top),
-                                             new Size(ViewModel.FormatSettings.PageFormat.PageSize.Width,
-                                                      ViewModel.FormatSettings.PageFormat.PageSize.Height));
-
-                //we can set the TemplateControlDraggingService as the 
-                //IDraggingService to be used when dragged
-                IDraggingService draggingService = new TemplateControlDraggingService(DesignerCanvas, draggableArea, view);
-                DesignerCanvas.ServiceLocator.Register(draggingService);
-            };
+            view.PreviewMouseLeftButtonDown += (obj, args) =>
+                {
+                    //since a dropped control can never be a template control
+                    //we do not need to worry about specifying draggable area
+                    //and we can just specify for designer to use ControlDraggingService
+                    IDraggingService draggingService = new ControlDraggingService(DesignerCanvas,Rect.Empty, view);
+                    DesignerCanvas.ServiceLocator.Register(draggingService);
+                };
 
             this.DesignerCanvas.AddShape(view);
         }

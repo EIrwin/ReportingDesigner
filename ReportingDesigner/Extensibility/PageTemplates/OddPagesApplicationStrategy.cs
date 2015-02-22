@@ -2,10 +2,13 @@
 using System.Linq;
 using System.Windows;
 using ReportingDesigner.Events;
-using ReportingDesigner.Extensibility.Serialization;
+using ReportingDesigner.Extensibility.Services;
 using ReportingDesigner.ViewModels;
 using ReportingDesigner.Views;
 using Telerik.Windows.Controls;
+using Telerik.Windows.Diagrams.Core;
+using ISerializable = ReportingDesigner.Extensibility.Serialization.ISerializable;
+using SerializationInfo = ReportingDesigner.Extensibility.Serialization.SerializationInfo;
 
 namespace ReportingDesigner.Extensibility.PageTemplates
 {
@@ -53,6 +56,25 @@ namespace ReportingDesigner.Extensibility.PageTemplates
                         e.Shape.Position = viewModel.Position;
 
                         designer.DesignerCanvas.AddShape(e.Shape);
+
+                        //when a control is clicked, we want to hijack
+                        //the dragging service and replace it with
+                        //our own dragging service so that we can control
+                        //whether or not we need to restrict drag dimensions
+                        ((ReportControlView)e.Shape).PreviewMouseLeftButtonDown += (obj, a) =>
+                        {
+                            var view = (ReportControlView)obj;
+                            //we want to specify a draggable area
+                            //reflect the current page dimensions
+                            var draggableArea = new Rect(new Point(0, pageViewModel.Top),
+                                                         new Size(designer.ViewModel.FormatSettings.PageFormat.PageSize.Width,
+                                                                  designer.ViewModel.FormatSettings.PageFormat.PageSize.Height));
+
+                            //we can set the ControlDraggingService as the 
+                            //IDraggingService to be used when dragged
+                            IDraggingService draggingService = new ControlDraggingService(designer.DesignerCanvas, draggableArea, view);
+                            designer.DesignerCanvas.ServiceLocator.Register(draggingService);
+                        };
                     }
 
                 };
