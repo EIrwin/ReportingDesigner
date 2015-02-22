@@ -9,6 +9,7 @@ using ReportingDesigner.Controls;
 using ReportingDesigner.Events;
 using ReportingDesigner.Extensibility;
 using ReportingDesigner.Extensibility.PageTemplates;
+using ReportingDesigner.Extensibility.Services;
 using ReportingDesigner.Models;
 using ReportingDesigner.ViewModels;
 using ReportingDesigner.Views.PageTemplates;
@@ -61,7 +62,6 @@ namespace ReportingDesigner.Views
                 };
         }
 
-
         private void DesignerCanvas_AdditionalContentActivated(object sender, Telerik.Windows.Controls.Diagrams.AdditionalContentActivatedEventArgs e)
         {
             var view = (ViewBase)e.ContextItems.First();
@@ -89,13 +89,20 @@ namespace ReportingDesigner.Views
 
             ReportControlView view = (ReportControlView)Activator.CreateInstance(item.ViewType);
             view.DataContext = viewModel;
+            view.PreviewMouseLeftButtonDown += (obj, a) =>
+            {
+                //we want to specify a draggable area
+                //reflect the current page dimensions
+                var draggableArea = new Rect(new Point(0, pageViewModel.Top),
+                                             new Size(ViewModel.FormatSettings.PageFormat.PageSize.Width,
+                                                      ViewModel.FormatSettings.PageFormat.PageSize.Height));
 
-            var draggableArea = new Rect(new Point(0, pageViewModel.Top),
-                                         new Size(ViewModel.FormatSettings.PageFormat.PageSize.Width,
-                                                  ViewModel.FormatSettings.PageFormat.PageSize.Height));
+                //we can set the TemplateControlDraggingService as the 
+                //IDraggingService to be used when dragged
+                IDraggingService draggingService = new TemplateControlDraggingService(DesignerCanvas, draggableArea, view);
+                DesignerCanvas.ServiceLocator.Register(draggingService);
+            };
 
-            IDraggingService draggingService =  new Extensibility.Services.TemplateControlDraggingService(this.DesignerCanvas,draggableArea,view);
-            DesignerCanvas.ServiceLocator.Register(draggingService);
             this.DesignerCanvas.AddShape(view);
         }
 

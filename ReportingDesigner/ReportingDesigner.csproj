@@ -145,7 +145,7 @@
     <Compile Include="Extensibility\PageTemplates\TemplateApplicationStrategyFactory.cs" />
     <Compile Include="Extensibility\Serialization\ISerializable.cs" />
     <Compile Include="Extensibility\Serialization\SerializationInfo.cs" />
-    <Compile Include="Extensibility\Services\DraggingService.cs" />
+    <Compile Include="Extensibility\Services\TemplateControlDraggingService.cs" />
     <Compile Include="Extensibility\UnitType.cs" />
     <Compile Include="Extensibility\PageOrientation.cs" />
     <Compile Include="Extensibility\PageSize.cs" />
