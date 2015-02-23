@@ -77,6 +77,7 @@
   <ItemGroup>
     <Compile Include="Commands\AddFirstPage.cs" />
     <Compile Include="Commands\AddLastPage.cs" />
+    <Compile Include="Commands\AddNotification.cs" />
     <Compile Include="Commands\AddPageAfter.cs" />
     <Compile Include="Commands\AddPageBefore.cs" />
     <Compile Include="Commands\ApplyPageTemplate.cs" />
@@ -102,7 +103,7 @@
     <Compile Include="Controls\MarginShape.xaml.cs">
       <DependentUpon>MarginShape.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Notifications\Notification.cs" />
+    <Compile Include="Models\Notification.cs" />
     <Compile Include="Controls\Notifications\NotificationPanel.xaml.cs">
       <DependentUpon>NotificationPanel.xaml</DependentUpon>
     </Compile>
@@ -125,8 +126,11 @@
     <Compile Include="Events\ApplyTemplateInitArgs.cs" />
     <Compile Include="Events\OptionsSelectedEventArgs.cs" />
     <Compile Include="Events\TemplateSelectedEventArgs.cs" />
+    <Compile Include="Extensibility\Container\ServiceLocator.cs" />
     <Compile Include="Extensibility\Converters\EnumBooleanConverter.cs" />
     <Compile Include="Extensibility\Converters\TestConverter.cs" />
+    <Compile Include="Extensibility\Commands\CommandBus.cs" />
+    <Compile Include="Extensibility\Commands\ICommandBus.cs" />
     <Compile Include="Extensibility\PageTemplates\AllPagesApplicationStrategy.cs" />
     <Compile Include="Extensibility\PageTemplates\CurrentPageApplicationStrategy.cs" />
     <Compile Include="Extensibility\PageTemplates\EvenPagesApplicationStrategy.cs" />

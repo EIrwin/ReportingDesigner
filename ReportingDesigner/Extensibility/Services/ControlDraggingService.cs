@@ -1,6 +1,10 @@
 ﻿using System.ComponentModel;
 using System.Windows;
 using ReportingDesigner.Annotations;
+using ReportingDesigner.Commands;
+using ReportingDesigner.Controls.Notifications;
+using ReportingDesigner.Extensibility.Events;
+using ReportingDesigner.Models;
 using ReportingDesigner.ViewModels;
 using ReportingDesigner.Views;
 using Telerik.Windows.Diagrams.Core;
@@ -24,15 +28,19 @@ namespace ReportingDesigner.Extensibility.Services
 
         private ReportControlView _draggedView;
 
+        private ICommandBus _commandBus;
+
         public ControlDraggingService(IGraphInternal graph) : base(graph)
         {
             DragAllowedArea = Rect.Empty;
+            _commandBus = Container.ServiceLocator.GetService<ICommandBus>();
         }
 
         public ControlDraggingService(IGraphInternal graph,Rect dragAllowedArea,ReportControlView draggedView):base(graph)
         {
             DragAllowedArea = dragAllowedArea;
             _draggedView = draggedView;
+            _commandBus = Container.ServiceLocator.GetService<ICommandBus>();
         }
 
         public override void Drag(Point newPoint)
@@ -66,6 +74,9 @@ namespace ReportingDesigner.Extensibility.Services
                     Y = this.DragAllowedArea.Top + _draggedView.ActualHeight;
 
                 dragPoint = new Point(X, Y);
+
+                var notification = new Notification("Page Template Control Restriction");
+                _commandBus.Post(new AddNotification(notification));
             }
 
             base.Drag(dragPoint);

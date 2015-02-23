@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ReportingDesigner.Models;
 
 namespace ReportingDesigner.Controls.Notifications
 {
@@ -26,7 +27,6 @@ namespace ReportingDesigner.Controls.Notifications
             InitializeComponent();
 
             DataContext = new NotificationPanelViewModel();
-
         }
 
         public void AddNotification(Notification notification)

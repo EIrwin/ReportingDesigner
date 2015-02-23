@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
+using ReportingDesigner.Commands;
 using ReportingDesigner.Controls;
+using ReportingDesigner.Controls.Notifications;
 using ReportingDesigner.Events;
 using ReportingDesigner.Extensibility;
+using ReportingDesigner.Extensibility.Events;
 using ReportingDesigner.Extensibility.PageTemplates;
 using ReportingDesigner.Extensibility.Services;
 using ReportingDesigner.Models;
@@ -36,10 +39,13 @@ namespace ReportingDesigner.Views
 
         public EventHandler<ReportControlClickedEventArgs> ControlClicked { get; set; }
 
+        private ICommandBus _bus;
+
         public DesignerContainer()
         {
             _marginShapes = new List<MarginShape>();
             _pageBreakShapes = new List<PageBreakShape>();
+            _bus = Extensibility.Container.ServiceLocator.GetService<ICommandBus>();
 
             InitializeComponent();
             InitializeNewReport();
@@ -49,14 +55,6 @@ namespace ReportingDesigner.Views
             DesignerCanvas.AdditionalContentActivated += DesignerCanvas_AdditionalContentActivated;
 
 
-            //The following is only temporary
-            DesignerCanvas.DragOver += (o, e) =>
-                {
-
-                    var position = e.GetPosition(this.DesignerCanvas);
-                    PageViewModel targetPage = GetPage(position);
-                    
-                };
         }
 
         private void DesignerCanvas_AdditionalContentActivated(object sender, Telerik.Windows.Controls.Diagrams.AdditionalContentActivatedEventArgs e)

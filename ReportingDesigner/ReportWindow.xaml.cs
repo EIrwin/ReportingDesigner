@@ -1,6 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Windows;
+using ReportingDesigner.Commands;
+using ReportingDesigner.Extensibility.Container;
+using ReportingDesigner.Extensibility.Events;
 using ReportingDesigner.Models;
 using ReportingDesigner.ViewModels;
 using ReportingDesigner.Views;
@@ -9,10 +11,16 @@ namespace ReportingDesigner
 {
     public partial class ReportWindow : Window
     {
+        private ICommandBus _commandBus;
+
         public ReportWindow()
         {
             InitializeComponent();
             InitializeToolbox();
+
+            _commandBus = ServiceLocator.GetService<ICommandBus>();
+            _commandBus.AddHandler<AddNotification>((command) => 
+                NotificationPanel.AddNotification(command.Notification));
         }
 
         public void InitializeToolbox()

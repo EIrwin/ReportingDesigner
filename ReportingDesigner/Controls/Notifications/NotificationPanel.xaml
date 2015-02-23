@@ -4,14 +4,15 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:notifications="clr-namespace:ReportingDesigner.Controls.Notifications"
+             xmlns:models="clr-namespace:ReportingDesigner.Models"
              mc:Ignorable="d">
     <UserControl.Resources>
         <Storyboard x:Key="CollapseStoryboard">
             <DoubleAnimation From="100" To="0" Storyboard.TargetProperty="Height" Duration="0:0:1"/>
         </Storyboard>
-        <DataTemplate x:Key="MessageTemplate" DataType="notifications:Notification">
+        <DataTemplate x:Key="MessageTemplate" DataType="models:Notification">
             <Grid x:Name="NotificationWindow" Background="Transparent">
-                <Border Name="border" Background="#2a3345" 
+                <Border Name="border" Background="Black" Opacity=".5" 
                   BorderThickness="0" CornerRadius="10" Margin="10">
                     <Grid Height="50" Width="100" Margin="5">
                         <Grid.RowDefinitions>

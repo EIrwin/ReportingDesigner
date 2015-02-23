@@ -25,7 +25,7 @@ namespace ReportingDesigner.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
         public bool AllowTemplateControlEdit {
             get {
                 return ((bool)(this["AllowTemplateControlEdit"]));
