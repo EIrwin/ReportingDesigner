@@ -128,7 +128,6 @@
     <Compile Include="Events\TemplateSelectedEventArgs.cs" />
     <Compile Include="Extensibility\Container\ServiceLocator.cs" />
     <Compile Include="Extensibility\Converters\EnumBooleanConverter.cs" />
-    <Compile Include="Extensibility\Converters\TestConverter.cs" />
     <Compile Include="Extensibility\Commands\CommandBus.cs" />
     <Compile Include="Extensibility\Commands\ICommandBus.cs" />
     <Compile Include="Extensibility\PageTemplates\AllPagesApplicationStrategy.cs" />
