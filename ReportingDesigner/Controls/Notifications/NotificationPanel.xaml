@@ -13,8 +13,8 @@
         <DataTemplate x:Key="MessageTemplate" DataType="models:Notification">
             <Grid x:Name="NotificationWindow" Background="Transparent">
                 <Border Name="border" Background="Black" Opacity=".5" 
-                  BorderThickness="0" CornerRadius="10" Margin="10">
-                    <Grid Height="50" Width="100" Margin="5">
+                  BorderThickness="0" CornerRadius="3" Margin="10">
+                    <Grid Height="50" Width="150" Margin="5">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto"></RowDefinition>
                             <RowDefinition Height="*"></RowDefinition>
@@ -25,6 +25,10 @@
                         </Grid.ColumnDefinitions>
 
                         <TextBlock Grid.Column="0" Text="{Binding Path=Message}" 
+                                   Width="150"
+                                   VerticalAlignment="Center"
+                                   TextWrapping="Wrap"
+                                   TextTrimming="CharacterEllipsis"
                                    TextOptions.TextRenderingMode="ClearType" 
                                    TextOptions.TextFormattingMode="Display" Foreground="White" />
                     </Grid>

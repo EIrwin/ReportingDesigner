@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using ReportingDesigner.Annotations;
 
 namespace ReportingDesigner.Models
@@ -7,6 +8,7 @@ namespace ReportingDesigner.Models
     {
         private string _message;
         private string _title;
+        private DateTime _timestamp;
 
         public string Message
         {
@@ -18,7 +20,6 @@ namespace ReportingDesigner.Models
                 OnPropertyChanged("Message");
             }
         }
-
         public string Title
         {
             get { return _title; }
@@ -29,15 +30,27 @@ namespace ReportingDesigner.Models
                 OnPropertyChanged("Title");
             }
         }
+        public DateTime Timestamp
+        {
+            get { return _timestamp; }
+            set
+            {
+                if (value.Equals(_timestamp)) return;
+                _timestamp = value;
+                OnPropertyChanged("Timestamp");
+            }
+        }
 
         public Notification(string message)
         {
             Message = message;
+            Timestamp = DateTime.Now;
         }
         public Notification(string title,string message)
         {
             Title = title;
             Message = message;
+            Timestamp = DateTime.Now;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

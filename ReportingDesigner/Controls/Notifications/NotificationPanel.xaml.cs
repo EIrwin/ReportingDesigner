@@ -1,27 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using ReportingDesigner.Models;
 
 namespace ReportingDesigner.Controls.Notifications
 {
-    /// <summary>
-    /// Interaction logic for NotificationPanel.xaml
-    /// </summary>
     public partial class NotificationPanel : UserControl
     {
+        private const int SECONDS_TO_THROTTLE = 5;
+
         public NotificationPanel()
         {
             InitializeComponent();
@@ -29,11 +16,31 @@ namespace ReportingDesigner.Controls.Notifications
             DataContext = new NotificationPanelViewModel();
         }
 
+        private static object _lock = new object();
+
         public void AddNotification(Notification notification)
         {
             var viewModel = (NotificationPanelViewModel) DataContext;
 
-            viewModel.Notifications.Add(notification);
+            lock (_lock)
+            {
+                if (!viewModel.Notifications.Any())
+                {
+                    viewModel.Notifications.Add(notification);
+                }
+                else
+                {
+                    var frequencyLimit = TimeSpan.FromSeconds(SECONDS_TO_THROTTLE);
+                    if (!viewModel.Notifications.Any(p =>
+                        {
+                            if(p.Message != notification.Message)return false;
+
+                            var duration = notification.Timestamp.Subtract(p.Timestamp);
+                            return duration <= frequencyLimit;
+                        }))
+                        viewModel.Notifications.Add(notification);
+                }
+            }
         }
     }
 }
