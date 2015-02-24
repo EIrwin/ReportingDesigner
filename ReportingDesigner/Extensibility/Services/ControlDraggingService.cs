@@ -75,7 +75,7 @@ namespace ReportingDesigner.Extensibility.Services
 
                 dragPoint = new Point(X, Y);
 
-                var notification = new Notification("Page Template Control Restriction");
+                var notification = new Notification("Page Template Control Restriction",Notifications.NotificationType.ERROR);
                 _commandBus.Post(new AddNotification(notification));
             }
 

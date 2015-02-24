@@ -3,10 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:notifications="clr-namespace:ReportingDesigner.Controls.Notifications"
              xmlns:models="clr-namespace:ReportingDesigner.Models"
+             xmlns:converters="clr-namespace:ReportingDesigner.Extensibility.Converters"
              mc:Ignorable="d">
     <UserControl.Resources>
+        <converters:NotificationTypeToColorConverter x:Key="NotificationTypeToColorConverter"/>
         <Storyboard x:Key="CollapseStoryboard">
             <DoubleAnimation From="100" To="0" Storyboard.TargetProperty="Height" Duration="0:0:1"/>
         </Storyboard>
@@ -25,12 +26,15 @@
                         </Grid.ColumnDefinitions>
 
                         <TextBlock Grid.Column="0" Text="{Binding Path=Message}" 
+                                   Foreground="White"
                                    Width="150"
                                    VerticalAlignment="Center"
                                    TextWrapping="Wrap"
                                    TextTrimming="CharacterEllipsis"
                                    TextOptions.TextRenderingMode="ClearType" 
-                                   TextOptions.TextFormattingMode="Display" Foreground="White" />
+                                   TextOptions.TextFormattingMode="Display"/>
+
+                        <!--Foreground="{Binding Converter={StaticResource NotificationTypeToColorConverter}}"-->
                     </Grid>
                 </Border>
             </Grid>

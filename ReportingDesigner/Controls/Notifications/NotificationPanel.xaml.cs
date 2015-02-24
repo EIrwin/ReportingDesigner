@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Controls;
 using ReportingDesigner.Models;
@@ -7,10 +8,15 @@ namespace ReportingDesigner.Controls.Notifications
 {
     public partial class NotificationPanel : UserControl
     {
+        private const int MAX_NOTIFICATIONS = 5;
         private const int SECONDS_TO_THROTTLE = 5;
+
+        private readonly List<Notification> _buffer;
 
         public NotificationPanel()
         {
+            _buffer = new List<Notification>();
+
             InitializeComponent();
 
             DataContext = new NotificationPanelViewModel();
@@ -31,13 +37,16 @@ namespace ReportingDesigner.Controls.Notifications
                 else
                 {
                     var frequencyLimit = TimeSpan.FromSeconds(SECONDS_TO_THROTTLE);
-                    if (!viewModel.Notifications.Any(p =>
-                        {
-                            if(p.Message != notification.Message)return false;
 
-                            var duration = notification.Timestamp.Subtract(p.Timestamp);
-                            return duration <= frequencyLimit;
-                        }))
+                    var throttle = viewModel.Notifications.Any(p =>
+                    {
+                        if (p.Message != notification.Message) return false;
+
+                        var duration = notification.Timestamp.Subtract(p.Timestamp);
+                        return duration <= frequencyLimit;
+                    });
+
+                    if (!throttle)
                         viewModel.Notifications.Add(notification);
                 }
             }

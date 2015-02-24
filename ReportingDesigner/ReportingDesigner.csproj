@@ -103,6 +103,8 @@
     <Compile Include="Controls\MarginShape.xaml.cs">
       <DependentUpon>MarginShape.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Extensibility\Converters\NotificationTypeToColorConverter.cs" />
+    <Compile Include="Extensibility\Notifications\NotificationType.cs" />
     <Compile Include="Models\Notification.cs" />
     <Compile Include="Controls\Notifications\NotificationPanel.xaml.cs">
       <DependentUpon>NotificationPanel.xaml</DependentUpon>
