@@ -91,5 +91,10 @@ namespace ReportingDesigner.Commands
         {
             get { return new UnapplyPageTemplate(); }
         }
+
+        public static ICommand Render
+        {
+            get { return new RenderReport(); }
+        }
     }
 }

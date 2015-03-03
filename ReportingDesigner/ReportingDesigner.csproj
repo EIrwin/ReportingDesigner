@@ -88,6 +88,7 @@
     <Compile Include="Commands\NewPageTemplate.cs" />
     <Compile Include="Commands\PinControl.cs" />
     <Compile Include="Commands\Print.cs" />
+    <Compile Include="Commands\RenderReport.cs" />
     <Compile Include="Commands\ReportingDesignerCommands.cs" />
     <Compile Include="Commands\SavePageTemplate.cs" />
     <Compile Include="Commands\ToggleMarginLines.cs" />

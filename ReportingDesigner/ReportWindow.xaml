@@ -65,8 +65,8 @@
 						Geometry="M4,20 L18,20 L18,22 L4,22 z M0,11 L3,11 L3,13 L19,13 L19,11 L22,11 L22,19 L0,19 z M13,0 L18,5.0427322 L13,5 z M4,0 L12,0 L12,6 L18,6 L18,12 L4,12 z" />
 
                     <!-- Export Button -->
-                    <telerik:RadGeometryButton Content="Export" ToolTipService.ToolTip="Export" Grid.Column="4" Margin="10"
-						Command="commands:ReportingDesignerCommands.Export" CommandParameter="{Binding ElementName=Designer}"
+                    <telerik:RadGeometryButton Content="Render" ToolTipService.ToolTip="Render" Grid.Column="4" Margin="10"
+						Command="commands:ReportingDesignerCommands.Render" CommandParameter="{Binding ElementName=Designer}"
 						Geometry="M4,20 L18,20 L18,22 L4,22 z M0,11 L3,11 L3,13 L19,13 L19,11 L22,11 L22,19 L0,19 z M13,0 L18,5.0427322 L13,5 z M4,0 L12,0 L12,6 L18,6 L18,12 L4,12 z" />
                     
                     <!-- Toggle Page Breaks Button-->

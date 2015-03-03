@@ -4,17 +4,17 @@ using ReportingDesigner.Views;
 
 namespace ReportingDesigner.Commands
 {
-    public class Print:ICommand
+    public class RenderReport:ICommand
     {
         public void Execute(object parameter)
         {
             if (parameter is DesignerContainer)
-                ((DesignerContainer) parameter).Print();
+                ((DesignerContainer) parameter).RenderReport();
         }
 
         public bool CanExecute(object parameter)
         {
-            return true;
+            throw new NotImplementedException();
         }
 
         public event EventHandler CanExecuteChanged;
