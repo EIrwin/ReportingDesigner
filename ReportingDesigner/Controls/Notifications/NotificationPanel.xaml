@@ -26,15 +26,13 @@
                         </Grid.ColumnDefinitions>
 
                         <TextBlock Grid.Column="0" Text="{Binding Path=Message}" 
-                                   Foreground="White"
                                    Width="150"
                                    VerticalAlignment="Center"
                                    TextWrapping="Wrap"
                                    TextTrimming="CharacterEllipsis"
                                    TextOptions.TextRenderingMode="ClearType" 
-                                   TextOptions.TextFormattingMode="Display"/>
-
-                        <!--Foreground="{Binding Converter={StaticResource NotificationTypeToColorConverter}}"-->
+                                   TextOptions.TextFormattingMode="Display"
+                                   Foreground="{Binding Converter={StaticResource NotificationTypeToColorConverter}}"/>
                     </Grid>
                 </Border>
             </Grid>
