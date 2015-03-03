@@ -418,5 +418,16 @@ namespace ReportingDesigner.Views
                 };
             window.ShowDialog();
         }
+
+        public void RenderReport()
+        {
+            //Joe you should have access to everything here
+            
+
+            var reportViewModel = ViewModel;
+
+            var reportControls = Shapes;
+
+        }
     }
 }
