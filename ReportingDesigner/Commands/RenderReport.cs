@@ -14,7 +14,7 @@ namespace ReportingDesigner.Commands
 
         public bool CanExecute(object parameter)
         {
-            throw new NotImplementedException();
+            return true;
         }
 
         public event EventHandler CanExecuteChanged;
