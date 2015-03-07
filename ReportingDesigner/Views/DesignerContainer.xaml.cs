@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 using ReportingDesigner.Commands;
 using ReportingDesigner.Controls;
 using ReportingDesigner.Controls.Notifications;
@@ -421,12 +423,15 @@ namespace ReportingDesigner.Views
 
         public void RenderReport()
         {
-            //Joe you should have access to everything here
-            
-
             var reportViewModel = ViewModel;
 
             var reportControls = Shapes;
+
+            var bmp = new RenderTargetBitmap((int)DesignerCanvas.ActualWidth,(int)DesignerCanvas.ActualHeight, 96, 96, PixelFormats.Pbgra32);
+            bmp.Render(DesignerCanvas);
+
+            RenderedImageWindow window = new RenderedImageWindow(bmp);
+            window.Show();
 
         }
     }

@@ -167,6 +167,9 @@
     <Compile Include="Models\ToolboxComponentAnnouncement.cs" />
     <Compile Include="Commands\ToggleGridLines.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="RenderedImageWindow.xaml.cs">
+      <DependentUpon>RenderedImageWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModels\ControlViewModel.cs" />
     <Compile Include="ViewModels\PageNumberControlViewModel.cs" />
     <Compile Include="ViewModels\PageNumberViewModel.cs" />
@@ -262,6 +265,10 @@
     <Page Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="RenderedImageWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ReportWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
