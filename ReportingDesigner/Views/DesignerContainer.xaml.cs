@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Windows;
 using System.Windows.Media;
@@ -17,6 +18,8 @@ using ReportingDesigner.ViewModels;
 using ReportingDesigner.Views.PageTemplates;
 using Telerik.Windows.Controls;
 using Telerik.Windows.Diagrams.Core;
+using Telerik.Windows.Documents.Fixed.FormatProviders.Pdf;
+using Telerik.Windows.Documents.Fixed.Model;
 using ViewModelBase = ReportingDesigner.ViewModels.ViewModelBase;
 
 namespace ReportingDesigner.Views
@@ -432,6 +435,24 @@ namespace ReportingDesigner.Views
 
             RenderedImageWindow window = new RenderedImageWindow(bmp);
             window.Show();
+
+            var imageSource =
+                new Telerik.Windows.Documents.Fixed.Model.Resources.ImageSource(bmp
+                    );
+
+            RadFixedPage page = new RadFixedPage();
+            page.Content.AddImage(imageSource);
+
+            RadFixedDocument document = new RadFixedDocument();
+            document.Pages.Add(page);
+
+            string fileName = DateTime.Now.Ticks.ToString() + ".pdf";
+            string path = @"C:\Users\Eric.Irwin\Desktop\" + fileName;
+            PdfFormatProvider provider = new PdfFormatProvider();
+            using (Stream output = File.OpenWrite(path))
+            {
+                provider.Export(document, output);
+            }
 
         }
     }
